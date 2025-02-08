@@ -1,0 +1,246 @@
+/* --- GLOBAL STYLES --- */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #007bff;
+  --accent-color: #28a745;
+  --border-color: #dddddd;
+  --code-bg: #f8f8f8;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+  font-size: 14px;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+  border: 1px solid var(--border-color);
+  padding: 5px;
+  background-color: var(--code-bg);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* --- HEADER --- */
+header {
+  padding: 10px 0;
+  /* border-bottom: 1px solid var(--border-color); */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+  font-weight: 500;
+  text-align: center;
+}
+
+nav ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  padding: 5px 10px;
+  /* border: 1px solid var(--border-color); */
+  /* border-radius: 3px; */
+  transition: background-color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: var(--code-bg);
+  text-decoration: none;
+}
+
+/* --- MAIN CONTENT --- */
+main {
+  padding: 20px 0;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+section h2 {
+  font-size: 1.4em;
+  font-weight: 500;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 5px;
+}
+
+section p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+/* --- CODE BLOCKS --- */
+pre {
+  background-color: var(--code-bg);
+  padding: 10px;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 3px;
+}
+
+code {
+  font-family: "Roboto Mono", monospace;
+}
+
+/* --- LISTS --- */
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+/* --- SIDEBAR --- */
+aside {
+  float: right;
+  width: 25%;
+  padding-left: 20px;
+  border-left: 1px solid var(--border-color);
+}
+
+aside h3 {
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+aside ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+aside li {
+  margin-bottom: 8px;
+}
+
+/* --- FOOTER --- */
+footer {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.8em;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav li {
+    margin: 5px 0;
+  }
+
+  aside {
+    float: none;
+    width: 100%;
+    padding-left: 0;
+    border-left: none;
+    margin-top: 20px;
+  }
+}
+
+/* ... previous CSS ... */
+
+/* --- PERSPECTIVE LINKS --- */
+#perspectives {
+  margin-bottom: 40px; /* Increased margin */
+  text-align: center; /* Center align links */
+}
+
+#perspectives h2 {
+  text-align: center; /* Center the title */
+  margin-bottom: 20px; /* Spacing below title */
+}
+/* ... previous CSS ... */
+
+/* --- PERSPECTIVE LINKS --- */
+#perspectives {
+  margin-bottom: 40px; /* Increased margin */
+  text-align: center; /* Center align links */
+}
+
+#perspectives h2 {
+  text-align: center; /* Center the title */
+  margin-bottom: 20px; /* Spacing below title */
+}
+
+.perspective-links ul {
+  display: flex;
+  justify-content: center; /* Center links horizontally */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 15px; /* Spacing between links */
+  flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+}
+
+.perspective-links li {
+  margin: 0; /* Remove list item margins */
+}
+
+.perspective-links a {
+  display: inline-block; /* Make links block-level */
+  padding: 10px 15px;
+  border: 0px solid var(--border-color);
+  border-radius: 5px;
+  color: var(--text-color); /* Use text color (dark gray) */
+  text-decoration: none;
+  transition: background-color var(--transition-duration),
+    color var(--transition-duration);
+  font-size: 0.9em;
+  white-space: nowrap; /* Prevent text wrapping within links */
+  background-color: transparent; /* Make background transparent */
+}
+
+.perspective-links a:hover,
+.perspective-links a.active-perspective-link {
+  /* background-color: var(
+    --border-color
+  ); Use border color (light gray) for hover/active background */
+  color: #007bff; /* Keep text color white on hover/active */
+  text-decoration: none; /* Remove underline on hover/active */
+}
+
+/* ... rest of CSS ... */
