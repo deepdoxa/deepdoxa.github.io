@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeepDoxa - Philosophy</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap");
+
+      :root {
+        --grid-size: 30px;
+        --line-color: rgba(0, 0, 0, 0.06); /* Even subtler lines */
+        --accent-color: #000;
+        --primary-color: #2d3748; /* Deeper primary color */
+        --secondary-color: #a0aec0; /* Lighter, more refined secondary color */
+        --highlight-color: #718096; /* Muted highlight color */
+        --footer-background: #edf2f7;
+        --hero-bg-color-start: rgba(
+          237,
+          242,
+          247,
+          0.6
+        ); /* Even lighter hero bg */
+        --hero-bg-color-end: rgba(209, 213, 219, 0.4);
+        --border-animation-color: rgba(
+          100,
+          116,
+          139,
+          0.5
+        ); /* Muted border animation color */
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        background-color: #f7fafc;
+        color: var(--primary-color);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+
+      .grid-background {
+        background-image: linear-gradient(
+            var(--line-color) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, var(--line-color) 1px, transparent 1px);
+        background-size: var(--grid-size) var(--grid-size);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -2;
+        opacity: 0.7; /* Even more subtle grid */
+      }
+
+      .diagonal-line {
+        position: fixed;
+        height: 1px;
+        background: var(--line-color);
+        width: 200%;
+        transform: rotate(-45deg);
+        transform-origin: 0% 0%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        animation: diagonalSlide 20s linear infinite,
+          subtlePulse 8s ease-in-out infinite alternate; /* Slower slide, subtler pulse */
+        opacity: 0.8; /* Even more subtle diagonal line */
+      }
+
+      @keyframes diagonalSlide {
+        to {
+          transform: rotate(-45deg) translateX(-50%);
+        }
+      }
+
+      @keyframes subtlePulse {
+        0%,
+        100% {
+          opacity: 0.8;
+        }
+        50% {
+          opacity: 0.75;
+        } /* Very subtle opacity pulse */
+      }
+
+      .nav-link {
+        position: relative;
+        overflow: hidden;
+        color: var(--primary-color);
+        transition: color 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--highlight-color);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: var(--highlight-color);
+        transition: left 0.6s cubic-bezier(0.7, 0, 0.3, 1); /* Even smoother transition */
+      }
+
+      .nav-link:hover::after {
+        left: 0;
+      }
+
+      .geometric-border {
+        position: relative;
+        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); /* More refined border transition */
+      }
+
+      .geometric-border:hover {
+        transform: scale(1.02) translateY(-2px); /* Subtler hover effect */
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06); /* Even subtler shadow */
+      }
+
+      .geometric-border::before,
+      .geometric-border::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-color: var(--accent-color);
+        transition: border-color 0.5s ease;
+      }
+
+      .geometric-border::before {
+        top: -10px;
+        left: -10px;
+        border-top-width: 1px; /* Thinner borders */
+        border-left-width: 1px;
+        border-style: solid;
+      }
+
+      .geometric-border::after {
+        bottom: -10px;
+        right: -10px;
+        border-bottom-width: 1px;
+        border-right-width: 1px;
+        border-style: solid;
+      }
+
+      .geometric-border:hover::before,
+      .geometric-border:hover::after {
+        border-color: var(
+          --border-animation-color
+        ); /* Muted border animation color on hover */
+        animation: subtleBorderPulse 2s linear infinite; /* Subtler border pulse */
+      }
+
+      @keyframes subtleBorderPulse {
+        50% {
+          border-color: var(--border-animation-color);
+          opacity: 0.8;
+        }
+      }
+
+      .animated-text {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .animated-text::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--primary-color);
+        animation: slideOutUltraSmooth 1.6s cubic-bezier(0.77, 0, 0.2, 1); /* Ultra smooth slide out */
+        z-index: 1;
+      }
+
+      .animated-text span {
+        position: relative;
+        z-index: 2;
+        color: white;
+        -webkit-text-stroke: 0.3px var(--primary-color); /* Even thinner text stroke */
+        -webkit-font-smoothing: antialiased;
+      }
+
+      @keyframes slideOutUltraSmooth {
+        to {
+          left: 100%;
+        }
+      }
+
+      .scroll-line {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 1px; /* Thinner scroll line */
+        background: var(--highlight-color);
+        z-index: 1000;
+        transition: height 0.4s ease;
+      }
+
+      .scroll-line.scrolling {
+        height: 2px; /* Slightly thicker line when scrolling */
+      }
+
+      .side-nav {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        opacity: 0.85; /* Even less opaque side nav */
+      }
+
+      .side-nav a {
+        transition: color 0.4s ease, transform 0.4s ease; /* Smoother side nav transitions */
+      }
+
+      .side-nav a:hover {
+        color: var(--primary-color);
+        transform: scale(1.05); /* Even subtler scale on hover */
+      }
+
+      .quote-box {
+        position: relative;
+        background-color: #f9fafb; /* Even lighter quote box background */
+        border-left: 3px solid var(--highlight-color); /* Thinner quote border */
+        padding: 1.75rem 2.25rem; /* Slightly reduced padding */
+        border-radius: 8px; /* More rounded quote box */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* Even subtler quote box shadow */
+      }
+
+      .quote-box::before {
+        content: '"';
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        font-size: 65px; /* Slightly smaller quote mark */
+        opacity: 0.12; /* Even less visible quote mark */
+        color: var(--primary-color);
+      }
+
+      .section-title {
+        font-size: 4xl;
+        font-weight: 600; /* Slightly less bold section titles */
+        margin-bottom: 2rem;
+        letter-spacing: -0.04em; /* Even tighter letter spacing for titles */
+      }
+
+      .section-subtitle {
+        font-size: 1.1rem; /* Slightly smaller subtitle size */
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+        line-height: 1.7; /* Slightly reduced subtitle line height */
+      }
+
+      .feature-title {
+        font-size: 2.25xl; /* Smaller feature titles */
+        font-weight: 400; /* Lighter feature titles */
+        margin-bottom: 1rem;
+      }
+
+      .feature-description {
+        color: var(--secondary-color);
+        line-height: 1.65; /* Slightly reduced feature description line height */
+      }
+
+      /* Hero Section - Philosophy Specific - ULTRA REFINED */
+      #philosophy-hero {
+        position: relative;
+        overflow: hidden;
+      }
+
+      #philosophy-hero::before {
+        /* Animated background overlay - REFINED */
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: radial-gradient(
+          ellipse at center,
+          var(--hero-bg-color-start) 0%,
+          var(--hero-bg-color-end) 100%
+        ); /* Radial gradient for subtle depth */
+        opacity: 0.7;
+        mix-blend-mode: soft-light; /* Soft light blend mode for even subtler effect */
+        animation: heroBgZoom 15s ease-in-out infinite alternate; /* Slow zoom animation */
+        transform-origin: center;
+      }
+
+      @keyframes heroBgZoom {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.7;
+        }
+        50% {
+          transform: scale(1.03);
+          opacity: 0.75;
+        } /* Very subtle zoom pulse */
+      }
+
+      #philosophy-hero .geometric-border {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Even more subtle white for philosophy hero */
+        backdrop-filter: blur(10px) grayscale(0.9); /* Add grayscale for muted feel */
+        transition: backdrop-filter 0.6s ease; /* Smoother blur transition */
+      }
+
+      #philosophy-hero .geometric-border:hover {
+        backdrop-filter: blur(7px) grayscale(0.9); /* Less blur on hover, still grayscale */
+      }
+
+      #philosophy-hero .animated-text::after {
+        background: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Match background for animated text */
+      }
+
+      #philosophy-hero .animated-text span {
+        color: var(--primary-color);
+        -webkit-text-stroke-color: rgba(
+          255,
+          255,
+          255,
+          0.6
+        ); /* Even lighter stroke for title */
+      }
+
+      #philosophy-hero .diagonal-line-accent {
+        /* Accent diagonal line - REFINED ANIMATION */
+        position: absolute;
+        top: 10%;
+        left: 15%;
+        width: 70%;
+        height: 1px; /* Thinner accent line */
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--highlight-color),
+          transparent
+        ); /* Fading gradient line */
+        transform: rotate(15deg);
+        opacity: 0.5; /* Even less opaque accent line */
+        animation: pulseDiagonalFade 8s linear infinite alternate,
+          lineSubtleWobble 7s ease-in-out infinite alternate; /* Fade pulse and subtle wobble */
+      }
+
+      @keyframes pulseDiagonalFade {
+        0%,
+        100% {
+          opacity: 0.5;
+          transform: rotate(15deg) scaleX(1);
+        }
+        50% {
+          opacity: 0.65;
+          transform: rotate(15deg) scaleX(1.02);
+        } /* Even subtler fade pulse */
+      }
+
+      @keyframes lineSubtleWobble {
+        0%,
+        100% {
+          transform: rotate(15deg) translateY(0.5px);
+        } /* Minimal vertical wobble */
+        50% {
+          transform: rotate(15deg) translateY(-0.5px);
+        }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .side-nav {
+          display: none;
+        }
+        .section-title {
+          font-size: 2.5xl; /* Even smaller section titles on mobile */
+        }
+        .section-subtitle {
+          font-size: 0.95rem; /* Even smaller subtitles on mobile */
+        }
+        .feature-title {
+          font-size: 1.85xl; /* Smaller feature titles on mobile */
+        }
+        #philosophy-hero .text-8xl {
+          font-size: 5xl; /* Further adjust hero title size on mobile */
+        }
+      }
+
+      /* Footer Styles - MILITARY ARCHITECTURAL BRILLIANCE - ANIMATED */
+      footer#mainFooter {
+        background-color: var(--footer-background);
+        padding: 8rem 1rem;
+        border-top: 2px dashed var(--line-color);
+        border-bottom: 2px dashed var(--line-color);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s ease-out; /* Smooth transition for scroll animation */
+      }
+
+      footer#mainFooter.footer-active {
+        /* Active class triggered by scroll */
+        background-color: #e5e7eb; /* Slightly darker background when active */
+        box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.06); /* Subtle shadow when active */
+      }
+
+      footer#mainFooter::before,
+      footer#mainFooter::after {
+        content: "";
+        position: absolute;
+        width: 150%;
+        height: 2px;
+        background: var(--line-color);
+        opacity: 0.6;
+      }
+
+      footer#mainFooter::before {
+        top: 5%;
+        left: -25%;
+        transform: rotate(-7deg);
+        animation: footerLineSlide 25s linear infinite; /* Slower slide animation */
+      }
+
+      footer#mainFooter::after {
+        bottom: 5%;
+        right: -25%;
+        transform: rotate(5deg);
+        animation: footerLineSlideReverse 30s linear infinite; /* Even slower reverse slide */
+      }
+
+      @keyframes footerLineSlideReverse {
+        /* Reverse slide animation for bottom line */
+        to {
+          transform: translateX(-20%);
+        }
+      }
+
+      .footer-brand {
+        margin-bottom: 3rem;
+        border-left: 3px solid var(--highlight-color);
+        padding-left: 1.5rem;
+      }
+
+      .footer-brand-animated-link {
+        display: inline-block; /* Ensure letters animate inline */
+      }
+
+      .footer-brand-letter {
+        /* Animated Letters - Subtle Vertical Bounce */
+        display: inline-block; /* Keep letters inline */
+        transition: transform 0.4s ease-out; /* Smooth letter bounce */
+        animation: letterBounce 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55)
+          infinite; /* Bouncy letter animation */
+        position: relative; /* For individual letter animation */
+      }
+
+      @keyframes letterBounce {
+        /* Subtle vertical bounce animation for letters */
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        } /* Bounce upwards slightly */
+      }
+
+      .footer-brand-letter:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .footer-brand-letter:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .footer-brand-letter:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      .footer-brand-letter:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+      .footer-brand-letter:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+      .footer-brand-letter:nth-child(7) {
+        animation-delay: 0.6s;
+      }
+      .footer-brand-letter:nth-child(8) {
+        animation-delay: 0.7s;
+      }
+
+      .footer-brand-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        max-width: 500px;
+        letter-spacing: 0.15em;
+      }
+
+      .footer-links-container {
+        margin-bottom: 4rem;
+      }
+
+      .footer-links-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-col-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        border-bottom: 1px solid var(--line-color);
+        padding-bottom: 0.5rem;
+      }
+
+      .footer-link {
+        display: block;
+        color: var(--secondary-color);
+        padding: 0.5rem 0;
+        transition: color 0.3s ease, transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        font-weight: 500;
+      }
+
+      .footer-link:hover {
+        color: var(--accent-color);
+        transform: translateX(2px);
+      }
+
+      .footer-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 3px;
+        height: 0%;
+        background-color: var(--accent-color);
+        transition: height 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+        transform-origin: bottom;
+      }
+
+      .footer-link:hover::after {
+        height: 100%;
+      }
+
+      /* Footer CTA - Mini-Manifesto Section - MILITARY BOLD */
+      .footer-cta {
+        padding-left: 2rem;
+        border-left: 2px solid var(--highlight-color);
+      }
+
+      .footer-manifesto-text {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 0;
+        max-width: 450px;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .footer-copyright {
+        font-size: 0.85rem;
+        color: var(--secondary-color);
+        text-align: center;
+        padding-top: 2.5rem;
+        border-top: 1px solid var(--line-color);
+        margin-top: 3rem;
+      }
+
+      /* Military Cursor Style - CROSSHAIR */
+      body {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M16 2c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16z m0 28c-6.627 0-12-5.373-12-12s5.373-12 12-12 12 5.373 12 12-5.373 12-12 12zM16 8v16m0-8h8m-8 0h-8" fill="%232d3748" /></svg> 16 16, auto');
+      }
+
+      /* Ultra Rich Page Motion - SMOOTHER SCROLLING */
+      html {
+        scroll-behavior: smooth; /* Enable smooth scrolling */
+      }
+
+      /* Responsive adjustments for Footer */
+      @media (max-width: 768px) {
+        footer#mainFooter {
+          padding: 5rem 1rem;
+          border-top-width: 1px;
+          border-bottom-width: 1px;
+        }
+        footer#mainFooter::before,
+        footer#mainFooter::after {
+          height: 1px;
+          opacity: 0.5;
+        }
+        .footer-links-container {
+          flex-direction: column;
+        }
+        .footer-cta {
+          padding-left: 0;
+          margin-top: 2rem;
+          border-left: none;
+          padding-top: 2rem;
+          border-top: 1px solid var(--line-color);
+        }
+        .footer-links-grid {
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+          margin-bottom: 1rem;
+        }
+        .footer-brand {
+          text-align: center;
+          margin-bottom: 1.5rem;
+          border-left: none;
+          padding-left: 0;
+        }
+        .footer-brand-text {
+          font-size: 1rem;
+        }
+        .footer-manifesto-text {
+          font-size: 1.1rem;
+          text-align: center;
+        }
+        .footer-copyright {
+          padding-top: 1.5rem;
+          margin-top: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <div class="grid-background"></div>
+    <div class="diagonal-line"></div>
+    <div class="scroll-line" id="scrollLine"></div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full top-0 z-50 px-6 py-8 bg-white bg-opacity-95 backdrop-filter backdrop-blur-md shadow-sm transition-shadow duration-300 ease-in-out hover:shadow-lg"
+    >
+      <div class="max-w-screen-xl mx-auto flex justify-between items-center">
+        <a
+          href="index.html"
+          class="text-xl tracking-widest font-bold text-primary-color hover:text-highlight-color transition-colors"
+          >DEEPDOXA</a
+        >
+        <div
+          class="hidden md:flex space-x-12 text-sm tracking-wider font-medium"
+        >
+          <a href="philosophy.html" class="nav-link">PHILOSOPHY</a>
+          <a href="mission.html" class="nav-link">MISSION</a>
+          <a href="vision.html" class="nav-link">VISION</a>
+          <a href="contact.html" class="nav-link">CONNECT</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Side Navigation -->
+    <div
+      class="fixed left-6 top-1/2 transform -translate-y-1/2 hidden md:block"
+    >
+      <div
+        class="side-nav space-y-6 text-sm tracking-wider text-gray-400 font-medium"
+      >
+        <a
+          href="#core-beliefs"
+          class="hover:text-primary-color transition-colors"
+          >CORE BELIEFS</a
+        >
+        <a href="#doxa-in-ai" class="hover:text-primary-color transition-colors"
+          >DOXA IN AI</a
+        >
+        <a
+          href="#ethical-implications"
+          class="hover:text-primary-color transition-colors"
+          >ETHICAL IMPLICATIONS</a
+        >
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-36 pb-24">
+      <!-- Philosophy Section -->
+      <section
+        id="philosophy-hero"
+        class="min-h-screen px-6 py-32 md:py-48 flex items-center relative overflow-hidden"
+      >
+        <div class="diagonal-line-accent"></div>
+        <div class="max-w-screen-xl mx-auto relative z-10">
+          <div class="geometric-border p-12 md:p-20">
+            <h1
+              class="text-6xl md:text-8xl font-light mb-8 animated-text leading-tight"
+            >
+              <span class="text-white">Philosophy</span>
+            </h1>
+            <p
+              class="text-xl md:text-2xl text-secondary-color mb-12 md:mb-16 tracking-wide"
+            >
+              <span class="font-medium text-primary-color"
+                >Guiding Principles for an Intelligent Future.</span
+              >
+              Explore the foundational beliefs that drive DeepDoxa's ethical and
+              human-centered approach to AI innovation.
+            </p>
+            <a
+              href="#core-beliefs"
+              class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-highlight-color hover:bg-highlight-color/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-highlight-color transition-transform hover:scale-105"
+              >Discover Core Beliefs</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Core Beliefs Section -->
+      <section id="core-beliefs" class="min-h-screen px-6 py-24 bg-gray-50">
+        <div class="max-w-screen-xl mx-auto">
+          <div class="geometric-border p-12 md:p-20">
+            <h2 class="section-title animated-text">
+              <span class="text-white">Core Beliefs</span>
+            </h2>
+            <p class="section-subtitle">
+              The Pillars of DeepDoxa's Philosophical Stance
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-24 mt-12">
+              <div
+                class="hover:geometric-border geometric-border p-8 transition-shadow duration-300 ease-in-out hover:shadow-xl hover:bg-white rounded-lg"
+              >
+                <h3 class="feature-title">Human-Centered Approach</h3>
+                <p class="feature-description">
+                  We prioritize human needs and values in AI development.
+                  Technology should enhance humanity, not diminish it.
+                </p>
+              </div>
+              <div
+                class="hover:geometric-border geometric-border p-8 transition-shadow duration-300 ease-in-out hover:shadow-xl hover:bg-white rounded-lg"
+              >
+                <h3 class="feature-title">Transparency & Explainability</h3>
+                <p class="feature-description">
+                  We champion AI systems that are transparent and
+                  understandable, fostering trust and accountability.
+                </p>
+              </div>
+              <div
+                class="hover:geometric-border geometric-border p-8 transition-shadow duration-300 ease-in-out hover:shadow-xl hover:bg-white rounded-lg"
+              >
+                <h3 class="feature-title">Ethical AI Development</h3>
+                <p class="feature-description">
+                  Ethics are paramount. We adhere to the highest ethical
+                  standards, ensuring fairness, privacy, and unbiased outcomes.
+                </p>
+              </div>
+              <div
+                class="hover:geometric-border geometric-border p-8 transition-shadow duration-300 ease-in-out hover:shadow-xl hover:bg-white rounded-lg"
+              >
+                <h3 class="feature-title">Continuous Learning & Adaptation</h3>
+                <p class="feature-description">
+                  We embrace lifelong learning, constantly refining our
+                  understanding and adapting to the evolving tech landscape.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Doxa in AI Section -->
+      <section id="doxa-in-ai" class="min-h-screen px-6 py-24">
+        <div class="max-w-screen-xl mx-auto">
+          <div class="geometric-border p-12 md:p-20">
+            <h2 class="section-title animated-text">
+              <span class="text-white">Doxa in Artificial Intelligence</span>
+            </h2>
+            <p class="section-subtitle">
+              Exploring the Intersection of Collective Belief and Algorithmic
+              Wisdom
+            </p>
+            <div class="md:w-2/3">
+              <p class="text-xl text-gray-800 mb-8 tracking-wide">
+                In AI, Doxa evolves. It represents the vast datasets and
+                algorithms embodying collective knowledge. We explore
+                responsible harnessing of 'digital doxa'.
+              </p>
+              <p class="text-gray-600 tracking-wide mb-8">
+                We believe AI can elevate human doxa, transforming belief into
+                understanding, opinion into wisdom. Critical data, algorithm,
+                and societal impact approaches are key.
+              </p>
+              <div class="quote-box p-8 my-12">
+                <p class="text-lg italic text-primary-color">
+                  "AI's potential lies in refining 'doxa', transforming data
+                  into insightful knowledge for the benefit of humanity."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ethical Implications Section -->
+      <section
+        id="ethical-implications"
+        class="min-h-screen px-6 py-24 bg-gray-50"
+      >
+        <div class="max-w-screen-xl mx-auto">
+          <div class="geometric-border p-12 md:p-20">
+            <h2 class="section-title animated-text">
+              <span class="text-white">Ethical Implications</span>
+            </h2>
+            <p class="section-subtitle">
+              Navigating the Moral Landscape of Intelligent Systems
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
+              <div>
+                <h3 class="feature-title">Bias Mitigation</h3>
+                <p class="feature-description">
+                  Actively working to identify and mitigate biases in datasets
+                  and algorithms to ensure fairness and prevent discriminatory
+                  outcomes.
+                </p>
+              </div>
+              <div>
+                <h3 class="feature-title">Privacy Protection</h3>
+                <p class="feature-description">
+                  Upholding the highest standards of data privacy and security,
+                  ensuring that AI systems are used in ways that respect
+                  individual rights and confidentiality.
+                </p>
+              </div>
+              <div>
+                <h3 class="feature-title">Accountability Frameworks</h3>
+                <p class="feature-description">
+                  Developing clear accountability frameworks for AI systems,
+                  establishing responsibility for their actions and decisions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-24 relative overflow-hidden" id="mainFooter">
+      <div class="absolute inset-0">
+        <div
+          class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 opacity-50 animate-pulse-bg"
+        ></div>
+        <div
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-highlight-color opacity-10 blur-3xl animate-float-skew"
+        ></div>
+        <div
+          class="absolute bottom-10 right-10 w-16 h-16 border-2 border-dashed border-line-color rounded-full animate-spin-slow opacity-30"
+        ></div>
+      </div>
+      <div class="max-w-screen-xl mx-auto px-6 relative z-10">
+        <div class="footer-brand mb-12 text-center md:text-left">
+          <a
+            href="index.html"
+            class="text-xl tracking-widest font-bold text-primary-color hover:text-highlight-color transition-colors inline-block mb-4 footer-brand-animated-link"
+          >
+            <span class="footer-brand-letter" style="animation-delay: 0s"
+              >D</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.1s"
+              >E</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.2s"
+              >E</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.3s"
+              >P</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.4s"
+              >D</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.5s"
+              >O</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.6s"
+              >X</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.7s"
+              >A</span
+            > </a
+          ><!-- {/* Animated Letters in Brand Link */} -->
+          <p
+            class="footer-brand-text text-secondary-color tracking-wide uppercase letter-widest font-semibold"
+          >
+            Intelligence Engineered. <br />
+            Wisdom Deployed.
+          </p>
+        </div>
+        <div class="footer-links-container md:flex md:justify-between">
+          <div class="footer-links-grid">
+            <div>
+              <h4 class="footer-col-title">Explore</h4>
+              <a href="philosophy.html" class="footer-link">Philosophy</a>
+              <a href="mission.html" class="footer-link">Mission</a>
+              <a href="vision.html" class="footer-link">Vision</a>
+            </div>
+            <div>
+              <h4 class="footer-col-title">Connect</h4>
+              <a href="contact.html" class="footer-link">Contact Us</a>
+              <a href="#" class="footer-link">LinkedIn</a>
+              <a href="#" class="footer-link">Twitter</a>
+            </div>
+            <div>
+              <h4 class="footer-col-title">Legal</h4>
+              <a href="#" class="footer-link">Terms of Service</a>
+              <a href="#" class="footer-link">Privacy Policy</a>
+            </div>
+          </div>
+          <div class="footer-cta mt-12 md:mt-0">
+            <p
+              class="footer-manifesto-text text-primary-color tracking-wider uppercase font-bold text-lg"
+            >
+              Advancing Knowledge. <br />
+              Building the Future. <br />
+              For Humanity.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-copyright">
+          © 2025 DeepDoxa. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll progress line
+      window.addEventListener("scroll", () => {
+        const scrollLine = document.getElementById("scrollLine");
+        let ticking = false;
+
+        window.addEventListener("scroll", () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              const windowHeight =
+                document.documentElement.scrollHeight - window.innerHeight;
+              const scrolled = (window.scrollY / windowHeight) * 100;
+              scrollLine.style.width = `${scrolled}%`;
+
+              if (window.scrollY > 0) {
+                scrollLine.classList.add("scrolling");
+              } else {
+                scrollLine.classList.remove("scrolling");
+              }
+
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      });
+
+      // Footer Active Animation on Scroll - Intersection Observer
+      const footer = document.getElementById("mainFooter");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              footer.classList.add("footer-active"); // Add active class when footer in view
+            } else {
+              footer.classList.remove("footer-active"); // Remove class when footer out of view
+            }
+          });
+        },
+        {
+          threshold: 0.1, // Trigger when 10% of footer is visible
+        }
+      );
+
+      observer.observe(footer); // Observe the footer element
+    </script>
+  </body>
+</html>
