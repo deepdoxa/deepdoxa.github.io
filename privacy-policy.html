@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeepDoxa - Privacy of Service</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="mobile-nav.css" />
+    <link rel="stylesheet" href="cursor.css" />
+    <style>
+      /* styles.css - Combined Styles */
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap");
+
+      :root {
+        --grid-size: 25px;
+        --line-color: rgba(255, 255, 255, 0.04);
+        --accent-color: #e0e0e0;
+        --primary-color: #ffffff;
+        --secondary-color: #cccccc;
+        --highlight-color: #aaaaaa;
+        --footer-background: #222222;
+        --dark-accent: #dddddd;
+        --hero-bg-color-start: rgba(34, 34, 34, 0.7);
+        --hero-bg-color-end: rgba(51, 51, 51, 0.5);
+        --border-color-accent: #ffffff;
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        background-color: #121212;
+        color: var(--primary-color);
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        font-weight: 500;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap");
+
+      :root {
+        --grid-size: 30px;
+        --line-color: rgba(0, 0, 0, 0.07); /* Slightly more visible lines */
+        --accent-color: #000;
+        --primary-color: #1a202c;
+        --secondary-color: #718096; /* Lighter secondary color for better contrast on dark text */
+        --highlight-color: #4299e1; /* Brighter highlight blue */
+        --footer-background: #f0f2f5; /* Light gray footer background */
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        background-color: #f7fafc;
+        color: var(--primary-color);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden; /* Prevent horizontal scrollbar */
+      }
+      .animated-text {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .animated-text::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--primary-color);
+        animation: slideOut 1.3s cubic-bezier(0.6, 0.04, 0.98, 0.335) forwards; /* More dynamic slide out */
+        z-index: 1;
+      }
+
+      .animated-text span {
+        position: relative;
+        z-index: 2;
+        color: white;
+        -webkit-text-stroke: 0.5px var(--primary-color); /* Stroke for more pronounced text */
+        -webkit-font-smoothing: antialiased; /* Re-smooth for stroke */
+      }
+
+      @keyframes slideOut {
+        to {
+          left: 100%;
+        }
+      }
+
+      .grid-background {
+        background-image: linear-gradient(
+            var(--line-color) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, var(--line-color) 1px, transparent 1px);
+        background-size: var(--grid-size) var(--grid-size);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -2; /* Behind diagonal lines */
+        opacity: 0.8; /* Slightly less intense grid */
+      }
+
+      .geometric-border {
+        position: relative;
+        transition: all 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95); /* More fluid border transition */
+      }
+
+      .geometric-border:hover {
+        transform: scale(1.04) translateY(-3px); /* More pronounced hover effect */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Subtle shadow on hover */
+      }
+
+      .geometric-border::before,
+      .geometric-border::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-color: var(--accent-color);
+        transition: border-color 0.4s ease;
+      }
+
+      .geometric-border::before {
+        top: -10px;
+        left: -10px;
+        border-top-width: 1.5px; /* Slightly thicker borders */
+        border-left-width: 1.5px;
+        border-style: solid;
+      }
+
+      .geometric-border::after {
+        bottom: -10px;
+        right: -10px;
+        border-bottom-width: 1.5px;
+        border-right-width: 1.5px;
+        border-style: solid;
+      }
+
+      .geometric-border:hover::before,
+      .geometric-border:hover::after {
+        border-color: var(--highlight-color);
+        animation: borderPulse 1.5s linear infinite; /* Pulsing border animation on hover */
+      }
+
+      @keyframes borderPulse {
+        50% {
+          border-color: rgba(var(--highlight-color-rgb), 0.7);
+        } /* Use RGB for animation */
+      }
+
+      .animated-text {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .animated-text::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--primary-color);
+        animation: slideOut 1.3s cubic-bezier(0.6, 0.04, 0.98, 0.335) forwards; /* More dynamic slide out */
+        z-index: 1;
+      }
+
+      .animated-text span {
+        position: relative;
+        z-index: 2;
+        color: white;
+        -webkit-text-stroke: 0.5px var(--primary-color); /* Stroke for more pronounced text */
+        -webkit-font-smoothing: antialiased; /* Re-smooth for stroke */
+      }
+
+      @keyframes slideOut {
+        to {
+          left: 100%;
+        }
+      }
+
+      .scroll-line {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        background: var(--highlight-color);
+        z-index: 1000;
+        transition: height 0.3s ease; /* Smooth height transition */
+      }
+
+      .scroll-line.scrolling {
+        /* Class added by JS when scrolling starts */
+        height: 4px; /* Thicker line when scrolling */
+      }
+
+      .side-nav {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        opacity: 0.9; /* Slightly less opaque side nav */
+      }
+
+      .side-nav a {
+        transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions for side nav links */
+      }
+
+      .side-nav a:hover {
+        color: var(--primary-color);
+        transform: scale(1.1); /* Gentle scale on hover */
+      }
+
+      .quote-box {
+        position: relative;
+        background-color: #edf2f7;
+        border-left: 5px solid var(--highlight-color); /* Thicker quote border */
+        padding: 2rem 2.5rem; /* Increased padding */
+        border-radius: 6px; /* Slightly rounded quote box */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Subtle quote box shadow */
+      }
+
+      .quote-box::before {
+        content: '"';
+        position: absolute;
+        top: -25px; /* Adjusted quote position */
+        left: -20px; /* Adjusted quote position */
+        font-size: 70px; /* Slightly larger quote mark */
+        opacity: 0.18; /* More visible quote mark */
+        color: var(--primary-color);
+      }
+
+      .section-title {
+        font-size: 4.5xl; /* Slightly larger titles */
+        font-weight: 700; /* Bold section titles */
+        margin-bottom: 2.5rem; /* Increased title margin */
+        letter-spacing: -0.06em;
+      }
+
+      .section-subtitle {
+        font-size: 1.125rem; /* Adjusted subtitle size */
+        color: var(--secondary-color);
+        margin-bottom: 1.25rem;
+        line-height: 1.8; /* Improved subtitle line height */
+      }
+
+      .feature-title {
+        font-size: 2.5xl; /* Larger feature titles */
+        font-weight: 500;
+        margin-bottom: 1.25rem;
+      }
+
+      .feature-description {
+        color: var(--secondary-color);
+        line-height: 1.7;
+      }
+
+      /* Responsive adjustments - Tailwind should handle most */
+      @media (max-width: 768px) {
+        .side-nav {
+          display: none; /* Hide side nav on smaller screens */
+        }
+        .section-title {
+          font-size: 3xl; /* Smaller section titles on mobile */
+        }
+        .section-subtitle {
+          font-size: 1rem; /* Smaller subtitles on mobile */
+        }
+        .feature-title {
+          font-size: 2xl; /* Smaller feature titles on mobile */
+        }
+      }
+
+      /* Hero Section - Privacy of Service Specific Styles */
+      #privacy-hero .geometric-border {
+        background-color: rgba(255, 255, 255, 0.9); /* Soft white for hero */
+      }
+
+      #privacy-hero .animated-text::after {
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+
+      #privacy-hero .privacy-icon {
+        /* Privacy Icon Animation - Example */
+        position: absolute;
+        top: 20%;
+        right: 10%;
+        width: 80px;
+        height: 80px;
+        border: 2px solid var(--highlight-color);
+        border-radius: 8px;
+        opacity: 0.6;
+        animation: privacyPulse 5s ease-in-out infinite alternate;
+      }
+
+      @keyframes privacyPulse {
+        to {
+          opacity: 0.8;
+          transform: scale(1.05);
+        }
+      }
+
+      /* Privacy Content Section - Subtle Animations */
+      #privacy-content .section-title {
+        animation: sectionTitleFadeIn 1.2s ease-out backwards; /* Fade-in for section titles */
+        opacity: 0;
+        animation-delay: 0.2s;
+        animation-fill-mode: forwards;
+      }
+
+      #privacy-content .section-subtitle {
+        animation: sectionSubtitleSlideUp 1s ease-out backwards; /* Slide-up for subtitles */
+        opacity: 0;
+        animation-delay: 0.4s;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes sectionTitleFadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes sectionSubtitleSlideUp {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <div id="customCursorHorizontal" class="custom-cursor-line"></div>
+    <div id="customCursorVertical" class="custom-cursor-line"></div>
+    <div
+      id="customCursorOuterCircle"
+      class="custom-cursor-circle outer-circle"
+    ></div>
+    <div
+      id="customCursorInnerCircle"
+      class="custom-cursor-circle inner-circle"
+    ></div>
+
+    <div class="grid-background"></div>
+    <div class="diagonal-line"></div>
+    <div class="scroll-line" id="scrollLine"></div>
+
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full top-0 z-50 px-6 py-8 bg-white bg-opacity-95 backdrop-filter backdrop-blur-md shadow-md transition-shadow duration-300 ease-in-out hover:shadow-lg"
+    >
+      <div class="max-w-screen-xl mx-auto flex justify-between items-center">
+        <a
+          href="index.html"
+          class="text-xl tracking-widest font-bold text-primary-color hover:text-highlight-color transition-colors"
+          >DEEPDOXA</a
+        >
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+          <div class="burger-icon">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </button>
+        <!-- Desktop Navigation Links -->
+        <div
+          class="hidden md:flex space-x-12 text-sm tracking-wider font-medium"
+        >
+          <a href="philosophy.html" class="nav-link">PHILOSOPHY</a>
+          <a href="mission.html" class="nav-link">MISSION</a>
+          <a href="vision.html" class="nav-link">VISION</a>
+          <a href="contact.html" class="nav-link">CONNECT</a>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg rounded-b-md overflow-hidden"
+      >
+        <div class="px-6 py-8 flex flex-col space-y-4">
+          <a href="philosophy.html" class="nav-link mobile-nav-link"
+            >PHILOSOPHY</a
+          >
+          <a href="mission.html" class="nav-link mobile-nav-link">MISSION</a>
+          <a href="vision.html" class="nav-link mobile-nav-link">VISION</a>
+          <a href="contact.html" class="nav-link mobile-nav-link">CONNECT</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="pt-36 pb-24">
+      <!-- privacy of Service Hero Section -->
+      <section
+        id="privacy-hero"
+        class="min-h-screen px-6 py-32 md:py-48 flex items-center relative overflow-hidden"
+      >
+        <div class="privacy-icon"></div>
+        <div class="max-w-screen-xl mx-auto">
+          <div class="geometric-border p-12 md:p-20">
+            <h1
+              class="text-6xl md:text-7xl font-light mb-8 animated-text leading-tight"
+            >
+              <span class="text-white">Privacy of Service</span>
+            </h1>
+            <p
+              class="text-xl md:text-xl text-gray-800 mb-12 md:mb-16 tracking-wide"
+            >
+              <span class="font-medium text-primary-color"
+                >Effective Date: January 1, 2025</span
+              ><br />
+              Your privacy is paramount at DeepDoxa. This policy elucidates our
+              practices regarding data collection, usage, and protection, in
+              alignment with our open-source ethos and commitment to user
+              empowerment.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Privacy Content Section -->
+      <section id="privacy-content" class="px-6 py-24 bg-gray-50">
+        <div class="max-w-screen-xl mx-auto">
+          <div class="geometric-border p-12 md:p-20">
+            <h2 class="section-title">
+              1. Data Collection Philosophy: Minimalist and Open
+            </h2>
+            <p class="section-subtitle">
+              In the spirit of open source and user empowerment, DeepDoxa
+              collects only the bare minimum of data necessary to ensure optimal
+              website functionality and user experience. We champion data
+              minimization as a core tenet of user-centric design.
+            </p>
+          </div>
+          <div class="geometric-border p-12 md:p-20">
+            <h2 class="section-title">
+              2. Purpose of Data Utilization: Enhancement and Empowerment
+            </h2>
+            <p class="section-subtitle">
+              The limited data we gather serves a singular, noble purpose: to
+              elevate your interaction with DeepDoxa. This encompasses website
+              optimization, performance enhancement, and tailoring features to
+              better serve our community of users, always prioritizing user
+              empowerment and seamless access to knowledge.
+            </p>
+          </div>
+          <div class="geometric-border p-12 md:p-20">
+            <h2 class="section-title">
+              3. Algorithmic Security: Fortifying User Trust
+            </h2>
+            <p class="section-subtitle">
+              DeepDoxa employs state-of-the-art security algorithms and
+              protocols, embodying our commitment to safeguarding your data with
+              the utmost rigor. We erect robust digital defenses to neutralize
+              unauthorized access and ensure the unwavering protection of your
+              information, reinforcing the trust you place in our platform.
+            </p>
+          </div>
+          <div class="geometric-border p-12 md:p-20">
+            <h2 class="section-title">
+              4. Third-Party Disclosure: Open Source Transparency
+            </h2>
+            <p class="section-subtitle">
+              In alignment with our open-source philosophy and dedication to
+              user autonomy, DeepDoxa resolutely refuses to engage in the
+              practice of sharing, trading, or selling your personal data to
+              third parties. Your data remains yours, and our algorithms are
+              transparent and verifiable by the community.
+            </p>
+          </div>
+          <div class="geometric-border p-12 md:p-20">
+            <h2 class="section-title">
+              5. Cookies and Anonymized Tracking: Enhancing User Experience
+            </h2>
+            <p class="section-subtitle">
+              DeepDoxa utilizes cookies and anonymized tracking mechanisms
+              solely to enhance user experience and gather aggregated,
+              non-personal usage statistics. This data informs iterative
+              improvements to our website, ensuring it remains a valuable and
+              efficient resource for all users, without compromising individual
+              privacy.
+            </p>
+          </div>
+          <div class="geometric-border p-12 md:p-20">
+            <h2 class="section-title">
+              6. Your Rights: Data Autonomy and Control
+            </h2>
+            <p class="section-subtitle">
+              Embracing the principles of user data autonomy, you retain the
+              unambiguous right to access, modify, or request the deletion of
+              any personal information that may be stored within DeepDoxa
+              systems. We are committed to facilitating your control over your
+              digital footprint and ensuring your data rights are honored.
+            </p>
+          </div>
+          <div class="geometric-border p-12 md:p-20">
+            <h2 class="section-title">7. Open Communication and Inquiries</h2>
+            <p class="section-subtitle">
+              DeepDoxa is dedicated to fostering open communication and
+              transparency. For any inquiries, concerns, or requests regarding
+              this Privacy Policy or data handling practices, we encourage you
+              to contact us directly. We are committed to addressing your
+              questions and upholding the highest standards of user trust and
+              transparency.
+            </p>
+          </div>
+
+          <div
+            class="geometric-border p-12 md:p-20 animate-on-scroll"
+            data-animation-delay="1050"
+          >
+            <h2
+              class="section-title animate-on-scroll"
+              data-animation-delay="1150"
+            >
+              MIT License - Open Source Commitment
+            </h2>
+            <p
+              class="section-subtitle animate-on-scroll"
+              data-animation-delay="1250"
+            >
+              This Privacy Policy, along with all code and content on
+              DeepDoxa.com, is released under the MIT License, embodying our
+              unwavering commitment to open knowledge, collaboration, and the
+              betterment of humanity.
+            </p>
+            <p
+              class="text-secondary-color animate-on-scroll"
+              data-animation-delay="1350"
+            >
+              <br />
+              Copyright (c) 2025 DeepDoxa Inc
+              <br /><br />
+              Permission is hereby granted, free of charge, to any person
+              obtaining a copy of this software and associated documentation
+              files (the "Software"), to deal in the Software without
+              restriction, including without limitation the rights to use, copy,
+              modify, merge, publish, distribute, sublicense, and/or sell copies
+              of the Software, and to permit persons to whom the Software is
+              furnished to do so, subject to the following conditions:
+              <br /><br />
+              The above copyright notice and this permission notice shall be
+              included in all copies or substantial portions of the Software.
+              <br /><br />
+              THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+              EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+              MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+              NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+              HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+              WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+              OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+              DEALINGS IN THE SOFTWARE.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-24 relative overflow-hidden" id="mainFooter">
+      <div class="absolute inset-0">
+        <div
+          class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 opacity-50 animate-pulse-bg"
+        ></div>
+        <div
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-highlight-color opacity-10 blur-3xl animate-float-skew"
+        ></div>
+        <div
+          class="absolute bottom-10 right-10 w-16 h-16 border-2 border-dashed border-line-color rounded-full animate-spin-slow opacity-30"
+        ></div>
+      </div>
+      <div class="max-w-screen-xl mx-auto px-6 relative z-10">
+        <div class="footer-brand mb-12 text-center md:text-left">
+          <a
+            href="index.html"
+            class="text-xl tracking-widest font-bold text-primary-color hover:text-highlight-color transition-colors inline-block mb-4 footer-brand-animated-link"
+          >
+            <span class="footer-brand-letter" style="animation-delay: 0s"
+              >D</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.1s"
+              >E</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.2s"
+              >E</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.3s"
+              >P</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.4s"
+              >D</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.5s"
+              >O</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.6s"
+              >X</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.7s"
+              >A</span
+            > </a
+          ><!-- {/* Animated Letters in Brand Link */} -->
+          <p
+            class="footer-brand-text text-secondary-color tracking-wide uppercase letter-widest font-semibold"
+          >
+            Intelligence Engineered. <br />
+            Wisdom Deployed.
+          </p>
+        </div>
+        <div class="footer-links-container md:flex md:justify-between">
+          <div class="footer-links-grid">
+            <div>
+              <h4 class="footer-col-title">Explore</h4>
+              <a href="philosophy.html" class="footer-link">Philosophy</a>
+              <a href="mission.html" class="footer-link">Mission</a>
+              <a href="vision.html" class="footer-link">Vision</a>
+            </div>
+            <div>
+              <h4 class="footer-col-title">Connect</h4>
+              <a href="contact.html" class="footer-link">Contact Us</a>
+              <a href="#" class="footer-link">LinkedIn</a>
+              <a href="#" class="footer-link">Twitter</a>
+            </div>
+            <div>
+              <h4 class="footer-col-title">Legal</h4>
+              <a href="terms-of-services.html" class="footer-link"
+                >Terms of Service</a
+              >
+              <a href="privacy-policy.html" class="footer-link"
+                >Privacy Policy</a
+              >
+            </div>
+          </div>
+          <div class="footer-cta mt-12 md:mt-0">
+            <p
+              class="footer-manifesto-text text-primary-color tracking-wider uppercase font-bold text-lg"
+            >
+              Advancing Knowledge. <br />
+              Building the Future. <br />
+              For Humanity.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-copyright">
+          © 2025 DeepDoxa. All rights reserved.
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Scroll progress line
+      window.addEventListener("scroll", () => {
+        const scrollLine = document.getElementById("scrollLine");
+        const windowHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        scrollLine.style.width = `${scrolled}%`;
+      });
+
+      // Footer Active Animation on Scroll - Intersection Observer
+      const footer = document.getElementById("mainFooter");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              footer.classList.add("footer-active");
+            } else {
+              footer.classList.remove("footer-active");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      observer.observe(footer);
+    </script>
+    <script src="common.js"></script>
+  </body>
+</html>
