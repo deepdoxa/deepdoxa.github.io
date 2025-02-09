@@ -8,6 +8,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="cursor.css">
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap");
 
@@ -272,8 +273,6 @@
         }
       }
 
-      /* ... (rest of your existing styles remain the same) ... */
-
       /* Footer Styles - MILITARY ARCHITECTURAL BRILLIANCE - ANIMATED */
       footer#mainFooter {
         background-color: var(--footer-background);
@@ -405,7 +404,7 @@
       .footer-link {
         display: block;
         color: var(--secondary-color);
-        padding: 0.5rem 0;
+        padding: 0.5rem;
         transition: color 0.3s ease, transform 0.3s ease;
         position: relative;
         overflow: hidden;
@@ -515,6 +514,17 @@
     </style>
   </head>
   <body class="min-h-screen">
+    <div id="customCursorHorizontal" class="custom-cursor-line"></div>
+    <div id="customCursorVertical" class="custom-cursor-line"></div>
+    <div
+      id="customCursorOuterCircle"
+      class="custom-cursor-circle outer-circle"
+    ></div>
+    <div
+      id="customCursorInnerCircle"
+      class="custom-cursor-circle inner-circle"
+    ></div>
+
     <div class="grid-background"></div>
     <div class="diagonal-line"></div>
     <div class="scroll-line" id="scrollLine"></div>
@@ -892,5 +902,6 @@
 
       observer.observe(footer); // Observe the footer element
     </script>
+    <script src="cursor.js"></script>
   </body>
 </html>
