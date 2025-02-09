@@ -1,0 +1,102 @@
+/* Brilliant Custom Cursor - Crosshair with Circles - FOCUS & SHOT */
+.custom-cursor-line {
+  position: fixed;
+  background-color: var(--primary-color);
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.2;
+}
+
+#customCursorHorizontal {
+  height: 0.1px;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+#customCursorVertical {
+  width: 0.1px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.custom-cursor-circle {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1000;
+  opacity: 0.8;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out, opacity 0.1s ease-out,
+    border-width 0.1s ease-out, width 0.1s ease-out, height 0.1s ease-out,
+    background-color 0.1s ease-out; /* Transition for background-color */
+}
+
+.outer-circle {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--primary-color);
+  background-color: transparent;
+}
+
+.inner-circle {
+  width: 4px;
+  height: 4px;
+  background-color: var(--primary-color);
+  border: none;
+}
+
+/* Hover Effect - BRILLIANT FOCUS */
+a:hover + #customCursorOuterCircle, /* Target circles on link hover */
+      button:hover + #customCursorOuterCircle,
+      a:hover + #customCursorInnerCircle,
+      button:hover + #customCursorInnerCircle {
+  transform: translate(-50%, -50%) scale(1.8); /* Even larger scale on focus */
+  opacity: 1;
+  border-width: 2px; /* Thicker border on focus */
+  background-color: rgba(
+    var(--highlight-color-rgb),
+    0.2
+  ); /* Subtle background fill on focus */
+  border-color: var(--accent-color); /* Border becomes pure black on focus */
+}
+
+a:hover + #customCursorHorizontal, /* Target lines on link hover */
+      button:hover + #customCursorHorizontal,
+      a:hover + #customCursorVertical,
+      button:hover + #customCursorVertical {
+  background-color: var(--accent-color); /* Lines become pure black on focus */
+  opacity: 0.9; /* More opaque lines on focus */
+  height: 1.5px; /* Slightly thicker lines on focus */
+  width: 1.5px;
+}
+
+/* Click Animation - BRILLIANT SHOT */
+.click-shot-circle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1001; /* Above cursor circles */
+  background-color: var(--highlight-color);
+  opacity: 0.7;
+  transform: translate(-50%, -50%);
+  animation: shotAnimation 0.6s ease-out forwards; /* Shot animation */
+}
+
+@keyframes shotAnimation {
+  /* Expanding circle animation on click */
+  0% {
+    transform: translate(-50%, -50%) scale(0.2); /* Start very small */
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5); /* Expand outwards */
+    opacity: 0; /* Fade out completely */
+  }
+}
+
+/* Hide default cursor */
+body {
+  cursor: none;
+}

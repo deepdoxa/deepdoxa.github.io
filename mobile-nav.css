@@ -1,0 +1,94 @@
+/* mobile-nav.css */
+
+/* Burger Button Styles - TRANSITION TO X */
+#mobile-menu-button .burger-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Add transition to burger icon itself */
+  }
+  
+  /* Active state for burger icon (when menu is open) - X TRANSFORMATION */
+  #mobile-menu-button.active .burger-icon {
+    transform: rotate(45deg); /* Rotate icon to 45 degrees to form X */
+  }
+  
+  #mobile-menu-button.active .line {
+    background-color: var(--accent-color); /* Change lines color to accent when active */
+  }
+  
+  /* Active state - transform lines to create X */
+  #mobile-menu-button.active .line:nth-child(1) {
+    transform: translateY(8px) rotate(90deg); /* Move and rotate top line */
+  }
+  
+  #mobile-menu-button.active .line:nth-child(2) {
+    opacity: 0; /* Hide middle line */
+  }
+  
+  #mobile-menu-button.active .line:nth-child(3) {
+    transform: translateY(-8px) rotate(90deg); /* Move and rotate bottom line */
+  }
+  
+  
+  #mobile-menu-button .line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color); /* Burger lines primary color */
+    transition: all 0.3s ease;
+  }
+  
+  /* Mobile Navigation Links Styles (rest of your mobile-nav.css remains unchanged) */
+  #mobile-menu .mobile-nav-link {
+      padding: 1rem 1.5rem;
+      display: block;
+      color: var(--primary-color);
+      transition: background-color 0.2s ease;
+      border-bottom: 1px solid var(--line-color); /* Separator lines in mobile menu */
+  }
+  
+  #mobile-menu .mobile-nav-link:last-child {
+      border-bottom: none; /* No border on last link */
+  }
+  
+  #mobile-menu .mobile-nav-link:hover {
+      background-color: #f0f0f0; /* Light gray background on hover */
+  }
+  
+  
+  /* Futuristic Line Decorations for Mobile Menu (Example - Customize as desired) */
+  #mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 0.5rem 0.5rem;
+      overflow: hidden; /* Clip lines */
+  }
+  
+  #mobile-menu::before,
+  #mobile-menu::after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 120%;
+      background: var(--line-color);
+      opacity: 0.7;
+  }
+  
+  #mobile-menu::before {
+      top: 10px;
+      left: -10%;
+      transform: rotate(-3deg);
+  }
+  
+  #mobile-menu::after {
+      bottom: 10px;
+      left: -10%;
+      transform: rotate(3deg);
+  }
