@@ -8,6 +8,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="cursor.css">
+    <link rel="stylesheet" href="mobile-nav.css">
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap");
 
@@ -581,7 +584,7 @@
       .footer-link {
         display: block;
         color: var(--secondary-color);
-        padding: 0.5rem 0;
+        padding: 0.5rem;
         transition: color 0.3s ease, transform 0.3s ease;
         position: relative;
         overflow: hidden;
@@ -697,6 +700,18 @@
     </style>
   </head>
   <body class="min-h-screen">
+    <div id="customCursorHorizontal" class="custom-cursor-line"></div>
+    <div id="customCursorVertical" class="custom-cursor-line"></div>
+    <div
+      id="customCursorOuterCircle"
+      class="custom-cursor-circle outer-circle"
+    ></div>
+    <div
+      id="customCursorInnerCircle"
+      class="custom-cursor-circle inner-circle"
+    ></div>
+
+
     <div class="grid-background"></div>
     <div class="diagonal-line"></div>
     <div class="scroll-line" id="scrollLine"></div>
@@ -711,13 +726,29 @@
           class="text-xl tracking-widest font-bold text-primary-color hover:text-highlight-color transition-colors"
           >DEEPDOXA</a
         >
-        <div
-          class="hidden md:flex space-x-12 text-sm tracking-wider font-medium"
-        >
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+          <div class="burger-icon">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </button>
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex space-x-12 text-sm tracking-wider font-medium">
           <a href="philosophy.html" class="nav-link">PHILOSOPHY</a>
           <a href="mission.html" class="nav-link">MISSION</a>
           <a href="vision.html" class="nav-link">VISION</a>
           <a href="contact.html" class="nav-link">CONNECT</a>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg rounded-b-md overflow-hidden">
+        <div class="px-6 py-8 flex flex-col space-y-4">
+          <a href="philosophy.html" class="nav-link mobile-nav-link">PHILOSOPHY</a>
+          <a href="mission.html" class="nav-link mobile-nav-link">MISSION</a>
+          <a href="vision.html" class="nav-link mobile-nav-link">VISION</a>
+          <a href="contact.html" class="nav-link mobile-nav-link">CONNECT</a>
         </div>
       </div>
     </nav>
@@ -940,5 +971,7 @@
       observer.observe(footer); // Observe the footer element
 
     </script>
+    <script src="common.js"></script>
+
   </body>
 </html>
