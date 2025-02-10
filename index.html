@@ -328,6 +328,34 @@
         }
       }
 
+      /* Styles for the location info box within main content (if you placed it there) */
+      #user-country-info {
+        /* Styles already in HTML inline style - you can move them here */
+        /* geometric-border, p-4, text-sm, text-gray-700, bg-gray-100, rounded-md, shadow-md, mt-4, text-center, inline-block */
+        border: 1.5px solid rgba(0, 0, 0, 0.1); /* Example border - adjust to match your geometric-border style if needed */
+      }
+
+      #user-country-info ul {
+        margin-bottom: 0; /* Remove default margin from ul */
+      }
+
+      #user-country-info li {
+        font-weight: 500; /* Slightly bolder list items */
+        margin-bottom: 0.2rem; /* Reduced margin between list items */
+      }
+
+      #user-country-info span {
+        font-weight: normal; /* Ensure span text is normal weight */
+        color: #555; /* Example darker color for span text */
+      }
+
+      .privacy-note {
+        font-size: 0.6rem;
+        display: block; /* Ensure privacy note is on a new line */
+        color: rgba(0, 0, 0, 0.5); /* Muted privacy note color */
+        margin-top: 0.3rem; /* Reduced margin above privacy note */
+      }
+
       /* Footer Styles - MILITARY ARCHITECTURAL BRILLIANCE - ANIMATED */
       footer#mainFooter {
         background-color: var(--footer-background);
@@ -686,6 +714,7 @@
     <!-- Main Content -->
     <main class="pt-32 pb-24">
       <p>ㅤㅤㅤㅤ#AI #MACHINES #WORLDORDER #DOXA</p>
+
       <div id="clock" class="geometric-border p-8 pt-6 pb-6">2025 AI AGE</div>
 
       <!-- Hero Section -->
@@ -746,6 +775,22 @@
               >Explore Doxa</a
             >
           </div>
+
+          <div
+            id="user-country-info"
+            class="geometric-border p-4 text-sm text-gray-700 bg-gray-100 shadow-md mt-4 text-center"
+            style="display: inline-block"
+          >
+            <p>Detecting your location...</p>
+            <ul id="user-location-details" class="list-none pl-0 mt-2">
+              <li>Country: <span id="user-country-name"></span></li>
+              <li>City: <span id="user-city-name"></span></li>
+              <li>Device: <span id="user-device-info"></span></li>
+            </ul>
+            <span class="privacy-note text-xs text-gray-500 block mt-1">
+              (Approximate location based on IP address)
+            </span>
+          </div>
         </div>
       </section>
 
@@ -753,7 +798,9 @@
       <section id="why-deepdoxa" class="min-h-screen px-6 py-24 bg-gray-50">
         <div class="max-w-screen-xl mx-auto">
           <div class="geometric-border p-12 md:p-20">
-            <h2 class="text-3xl md:text-8xl font-light mb-8 animated-text leading-tight">
+            <h2
+              class="text-3xl md:text-8xl font-light mb-8 animated-text leading-tight"
+            >
               <span class="text-white">Why DeepDoxa?</span>
             </h2>
             <p class="section-subtitle">
@@ -872,7 +919,9 @@
       <section id="meaning" class="min-h-screen px-6 py-24">
         <div class="max-w-screen-xl mx-auto">
           <div class="geometric-border p-12 md:p-20">
-            <h2 class="text-3xl md:text-8xl font-light mb-8 animated-text leading-tight">
+            <h2
+              class="text-3xl md:text-8xl font-light mb-8 animated-text leading-tight"
+            >
               <span class="text-white">Our Understanding</span>
             </h2>
             <p class="section-subtitle">Key Pillars of DeepDoxa</p>
@@ -990,6 +1039,7 @@
           >
             <span class="text-white"> MAIN 𐌌</span>
           </h2>
+
           <div class="footer-cta mt-12 md:mt-0">
             <p
               class="footer-manifesto-text text-primary-color tracking-wider uppercase font-bold text-lg"
@@ -1138,5 +1188,6 @@
       });
     </script>
     <script src="common.js"></script>
+    <script src="geolocation.js"></script>
   </body>
 </html>
