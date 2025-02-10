@@ -714,6 +714,28 @@
     <!-- Main Content -->
     <main class="pt-32 pb-24">
       <p>ㅤㅤㅤㅤ#AI #MACHINES #WORLDORDER #DOXA</p>
+      <!-- Iframe Container for Background GIF - Ensures no overflow and correct positioning -->
+      <div
+        style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          z-index: -42;
+          pointer-events: none;
+        "
+      >
+        <iframe
+          src="c:\Users\sergi\Downloads\circle-fluid-12.gif"
+          width="100%"
+          height="100%"
+          style="border: none; display: block"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
 
       <div id="clock" class="geometric-border p-8 pt-6 pb-6">2025 AI AGE</div>
 
@@ -759,7 +781,6 @@
             >
               CLICK DeepSeek LLM
             </a>
-
             <p
               class="text-xl md:text-2xl text-secondary-color mb-12 md:mb-16 tracking-wide"
             >
@@ -776,7 +797,7 @@
             >
           </div>
 
-<!--           <div
+          <!-- <div
             id="user-country-info"
             class="geometric-border p-4 text-sm text-gray-700 bg-gray-100 rounded-md shadow-md mt-4 text-center"
             style="display: inline-block"
@@ -1044,6 +1065,17 @@
               Building the Future. <br />
               For Humanity.
             </p>
+            <!-- Iframe Container for Background GIF - POSITIONED WITHIN footer-cta -->
+            <div class="fluid-2">
+              <iframe
+                src="c:\Users\sergi\Downloads\pattern-12358.gif"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+
             <a
               href="https://www.deepseek.com/"
               style="
@@ -1218,7 +1250,7 @@
           locationBox.querySelector("p").textContent =
             "Detecting your country..."; // Update intro text
 
-          fetch("http://ip-api.com/json/") // **REVERTED to HTTP and NO API KEY**
+          fetch("http://ip-api.com/json/") // **REVERTED to HTTP and NO API KEY, not working in production.**
             .then((response) => {
               if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
