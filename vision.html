@@ -639,82 +639,315 @@
     <div class="diagonal-line"></div>
     <div class="scroll-line" id="scrollLine"></div>
 
-    <!-- Navigation -->
+    <!-- Navigation - DeepDOXA Inspired -->
     <nav
-      class="fixed w-full top-0 z-50 px-6 py-8 bg-white bg-opacity-95 backdrop-filter backdrop-blur-md shadow-md transition-shadow duration-300 ease-in-out hover:shadow-lg"
+      class="futuristic-nav bg-primary-deepdoxa fixed w-full top-0 z-50"
+      id="mainNavigation"
     >
-      <div class="max-w-screen-xl mx-auto flex justify-between items-center">
+      <div
+        class="container mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <!-- Brand Logo -->
         <a
           href="index.html"
-          class="text-xl tracking-widest font-bold text-primary-color hover:text-highlight-color transition-colors"
-          >DeepDOXΛ</a
+          class="flex items-center font-grotesk font-bold text-xl text-secondary-deepdoxa hover:text-accent-deepdoxa transition-colors duration-300"
         >
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-          <div class="burger-icon">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-          </div>
-        </button>
-        <!-- Desktop Navigation Links -->
+          DeepDOXΛ
+        </a>
+
+        <!-- Navigation Links (Desktop - Hidden on Mobile initially) -->
         <div
-          class="hidden md:flex space-x-12 text-sm tracking-wider font-medium"
+          class="hidden md:flex space-x-8 font-medium text-sm tracking-wider text-secondary-deepdoxa"
         >
-          <a href="philosophy.html" class="nav-link">PHILOSOPHY</a>
-          <a href="mission.html" class="nav-link">MISSION</a>
-          <a href="vision.html" class="nav-link">VISION</a>
-          <a href="contact.html" class="nav-link">CONNECT</a>
           <a
-            href="https://www.deepseek.com/"
-            style="
-              display: inline-block;
-              padding: 4px 12px;
-              font-size: 16px;
-              font-weight: bold;
-              color: white;
-              text-decoration: none;
-              border-radius: 1px;
-              background: linear-gradient(45deg, #6c757d, #495057);
-              transition: all 0.3s ease-in-out;
-            "
-            onmouseover="this.style.background='linear-gradient(45deg, #495057, #6c757d)'; this.style.transform='scale(1.1)';"
-            onmouseout="this.style.background='linear-gradient(45deg, #6c757d, #495057)'; this.style.transform='scale(1)';"
+            href="philosophy.html"
+            class="nav-link relative overflow-hidden hover:text-accent-deepdoxa transition-colors duration-300 pb-1 group"
           >
-            CLICK DeepSeek LLM
+            PHILOSOPHY
+            <span
+              class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-deepdoxa transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+            ></span>
+          </a>
+          <a
+            href="mission.html"
+            class="nav-link relative overflow-hidden hover:text-accent-deepdoxa transition-colors duration-300 pb-1 group"
+          >
+            MISSION
+            <span
+              class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-deepdoxa transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+            ></span>
+          </a>
+          <a
+            href="vision.html"
+            class="nav-link relative overflow-hidden hover:text-accent-deepdoxa transition-colors duration-300 pb-1 group"
+          >
+            VISION
+            <span
+              class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-deepdoxa transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+            ></span>
+          </a>
+          <!-- Models Dropdown -->
+          <div class="relative">
+            <button
+              class="nav-link relative overflow-hidden hover:text-accent-deepdoxa transition-colors duration-300 pb-1 group flex items-center space-x-1"
+              id="models-dropdown-button"
+            >
+              <span>MODELS</span>
+              <svg class="w-4 h-4 fill-current opacity-60" viewBox="0 0 20 20">
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                />
+              </svg>
+              <span
+                class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-deepdoxa transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+              ></span>
+            </button>
+
+            <!-- Dropdown Content -->
+            <div
+              id="models-dropdown"
+              class="absolute left-0 mt-2 w-screen max-w-sm bg-primary-deepdoxa border border-line-deepdoxa rounded-md shadow-lg z-10 hidden"
+            >
+              <div class="px-2 py-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <!-- Network Card 1 -->
+                  <a
+                    href="https://deepseek.com/"
+                    class="block px-4 py-3 rounded-md hover:bg-button-deepdoxa transition-colors duration-200 border border-line-deepdoxa"
+                  >
+                    <div class="flex items-center space-x-2">
+                      <div
+                        class="w-2 h-2 rounded-full bg-accent-deepdoxa"
+                      ></div>
+                      <h3 class="font-semibold text-secondary-deepdoxa">
+                        DeepSEEK
+                      </h3>
+                    </div>
+                    <p class="text-sm text-gray-400 mt-1">OPEN SOURCE</p>
+                    <div
+                      class="flex items-center justify-end mt-2 text-accent-deepdoxa group"
+                    >
+                      <span class="text-sm">Go Use It</span>
+                      <svg
+                        class="w-4 h-4 ml-1 fill-current transform group-hover:translate-x-1 transition-transform duration-300"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                        />
+                      </svg>
+                    </div>
+                  </a>
+                  <!-- Network Card 2 -->
+                  <a
+                    href="https://chat.com/"
+                    class="block px-4 py-3 rounded-md hover:bg-button-deepdoxa transition-colors duration-200 border border-line-deepdoxa"
+                  >
+                    <div class="flex items-center space-x-2">
+                      <div
+                        class="w-2 h-2 rounded-full bg-accent-deepdoxa"
+                      ></div>
+                      <h3 class="font-semibold text-secondary-deepdoxa">
+                        OPENAI
+                      </h3>
+                    </div>
+                    <p class="text-sm text-gray-400 mt-1">CLOSED SOURCE</p>
+                    <div
+                      class="flex items-center justify-end mt-2 text-accent-deepdoxa group"
+                    >
+                      <span class="text-sm">Go Use It</span>
+                      <svg
+                        class="w-4 h-4 ml-1 fill-current transform group-hover:translate-x-1 transition-transform duration-300"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                        />
+                      </svg>
+                    </div>
+                  </a>
+                  <!-- More Network Cards can be added here -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <a
+            href="contact.html"
+            class="nav-link relative overflow-hidden hover:text-accent-deepdoxa transition-colors duration-300 pb-1 group"
+          >
+            CONNECT
+            <span
+              class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-deepdoxa transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+            ></span>
           </a>
         </div>
+
+        <!-- Explore Apps Button -->
+        <a
+          href="https://www.deepseek.com/"
+          target="_blank"
+          class="hidden md:inline-flex items-center bg-button-deepdoxa hover:bg-button-hover-deepdoxa text-secondary-deepdoxa font-medium text-sm px-4 py-2 rounded-md transition-colors duration-300 border border-line-deepdoxa group"
+        >
+          EXPLORE APPS
+          <svg
+            class="w-4 h-4 ml-2 fill-current transform group-hover:translate-x-1 transition-transform duration-300"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+            />
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="md:hidden focus:outline-none"
+          aria-label="Mobile Menu"
+        >
+          <div class="burger-icon">
+            <div class="line bg-secondary-deepdoxa"></div>
+            <div class="line bg-secondary-deepdoxa"></div>
+            <div class="line bg-secondary-deepdoxa"></div>
+          </div>
+        </button>
       </div>
-      <!-- Mobile Menu -->
+
+      <!-- Horizontal Line Separator -->
+      <div class="border-b border-line-deepdoxa"></div>
+
+      <!-- Mobile Menu (Hidden by default, shown on button click) -->
       <div
         id="mobile-menu"
-        class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg rounded-b-md overflow-hidden"
+        class="md:hidden fixed top-0 left-0 w-full h-screen bg-primary-deepdoxa overflow-y-auto transform translate-x-full transition-transform duration-300"
       >
-        <div class="px-6 py-8 flex flex-col space-y-4">
-          <a href="philosophy.html" class="nav-link mobile-nav-link"
-            >PHILOSOPHY</a
+        <div class="px-6 py-8">
+          <!-- Mobile Menu Header (Optional - Brand or Close Button) -->
+          <div class="flex justify-end mb-8">
+            <!-- <button
+              id="mobile-menu-close-button"
+              class="p-2 rounded-full hover:bg-button-deepdoxa transition-colors duration-200 focus:outline-none"
+            >
+              <svg
+                class="w-6 h-6 text-secondary-deepdoxa"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button> -->
+          </div>
+
+          <!-- Mobile Navigation Links -->
+          <div
+            class="flex flex-col space-y-4 font-medium text-lg tracking-wider text-secondary-deepdoxa"
           >
-          <a href="mission.html" class="nav-link mobile-nav-link">MISSION</a>
-          <a href="vision.html" class="nav-link mobile-nav-link">VISION</a>
-          <a href="contact.html" class="nav-link mobile-nav-link">CONNECT</a>
-          <a
-            href="https://www.deepseek.com/"
-            style="
-              display: inline-block;
-              padding: 4px 12px;
-              font-size: 16px;
-              font-weight: bold;
-              color: white;
-              text-decoration: none;
-              border-radius: 1px;
-              background: linear-gradient(45deg, #6c757d, #495057);
-              transition: all 0.3s ease-in-out;
-            "
-            onmouseover="this.style.background='linear-gradient(45deg, #495057, #6c757d)'; this.style.transform='scale(1.1)';"
-            onmouseout="this.style.background='linear-gradient(45deg, #6c757d, #495057)'; this.style.transform='scale(1)';"
-          >
-            CLICK DeepSeek LLM
-          </a>
+            <a href="philosophy.html" class="mobile-nav-link">PHILOSOPHY</a>
+            <a href="mission.html" class="mobile-nav-link">MISSION</a>
+            <a href="vision.html" class="mobile-nav-link">VISION</a>
+            <!-- <a href="networks.html" class="mobile-nav-link">MODELS</a> -->
+            <!-- Models Dropdown for Mobile -->
+            <div class="mobile-dropdown-container">
+              <button
+                class="mobile-nav-link flex items-center justify-between"
+                id="mobile-models-dropdown-button"
+                aria-expanded="false"
+                aria-controls="mobile-models-dropdown-content"
+              >
+                <span>MODELS</span>
+                <svg
+                  class="w-4 h-4 fill-current opacity-60 transform transition-transform duration-300 mobile-dropdown-arrow"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </button>
+
+              <!-- Mobile Dropdown Content -->
+              <div
+                id="mobile-models-dropdown-content"
+                class="mobile-dropdown-content hidden overflow-hidden transition-all duration-300 ease-in-out"
+                style="max-height: 0"
+              >
+                <div class="px-2 py-2">
+                  <div class="grid grid-cols-1 gap-4">
+                    <!-- Network Card 1 -->
+                    <a
+                      href="https://deepseek.com/"
+                      class="block px-4 py-3 rounded-md hover:bg-button-deepdoxa transition-colors duration-200 border border-line-deepdoxa"
+                    >
+                      <div class="flex items-center space-x-2">
+                        <div
+                          class="w-2 h-2 rounded-full bg-accent-deepdoxa"
+                        ></div>
+                        <h3 class="font-semibold text-secondary-deepdoxa">
+                          DeepSEEK
+                        </h3>
+                      </div>
+                      <p class="text-sm text-gray-400 mt-1">OPEN SOURCE</p>
+                      <div
+                        class="flex items-center justify-end mt-2 text-accent-deepdoxa group"
+                      >
+                        <span class="text-sm">Go Use It</span>
+                        <svg
+                          class="w-4 h-4 ml-1 fill-current transform group-hover:translate-x-1 transition-transform duration-300"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                          />
+                        </svg>
+                      </div>
+                    </a>
+                    <!-- Network Card 2 -->
+                    <a
+                      href="https://chat.com/"
+                      class="block px-4 py-3 rounded-md hover:bg-button-deepdoxa transition-colors duration-200 border border-line-deepdoxa"
+                    >
+                      <div class="flex items-center space-x-2">
+                        <div
+                          class="w-2 h-2 rounded-full bg-accent-deepdoxa"
+                        ></div>
+                        <h3 class="font-semibold text-secondary-deepdoxa">
+                          OPENAI
+                        </h3>
+                      </div>
+                      <p class="text-sm text-gray-400 mt-1">CLOSED SOURCE</p>
+                      <div
+                        class="flex items-center justify-end mt-2 text-accent-deepdoxa group"
+                      >
+                        <span class="text-sm">Go Use It</span>
+                        <svg
+                          class="w-4 h-4 ml-1 fill-current transform group-hover:translate-x-1 transition-transform duration-300"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                          />
+                        </svg>
+                      </div>
+                    </a>
+                    <!-- More Network Cards can be added here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="contact.html" class="mobile-nav-link">CONNECT</a>
+            <a
+              href="https://www.deepseek.com/"
+              target="_blank"
+              class="mobile-nav-link last"
+              >EXPLORE APPS</a
+            >
+          </div>
         </div>
       </div>
     </nav>
@@ -1130,5 +1363,10 @@
       observer.observe(footer); // Observe the footer element
     </script>
     <script src="common.js"></script>
+    <!-- Alpine.js for dropdown functionality (ensure this is in your project if not already) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
   </body>
 </html>
