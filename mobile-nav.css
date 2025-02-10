@@ -1,94 +1,750 @@
-/* mobile-nav.css */
+/* INLINED CSS - STATIC VERSION - REFACTORED & OPTIMIZED */
+/* Apply Tailwind base styles and component directives if not already included */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+::before,
+::after {
+  --tw-content: "";
+}
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+}
+body {
+  margin: 0;
+  line-height: inherit;
+}
+hr {
+  height: 0;
+  color: inherit;
+  border-top-width: 1px;
+}
+abbr[title] {
+  text-decoration: underline dotted;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 1em;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+}
+button,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+}
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+textarea {
+  resize: vertical;
+}
+summary {
+  display: list-item;
+}
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* :root { */
+/* DeepDOXA Color Palette - Streamlined and consistent opacities */
+/* --color-primary-deepdoxa: rgba(15, 23, 42, 0.5); Primary Background */
+/* --color-primary-deepdoxa-gradient: linear-gradient(to bottom, rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)); Subtle Gradient */
+/* --color-secondary-deepdoxa: rgba(226, 232, 240, 0.9); Secondary Text & Elements */
+/* --color-accent-deepdoxa: rgba(99, 102, 241, 0.8); Accent Color */
+/* --color-button-deepdoxa: rgba(51, 65, 85, 0.8); Button Background */
+/* --color-button-hover-deepdoxa: rgba(71, 85, 105, 0.7); Button Hover Background */
+/* --color-line-deepdoxa: rgba(74, 85, 104, 0.65); Line Color */
+/* } */
 
-/* Burger Button Styles - TRANSITION TO X */
-#mobile-menu-button .burger-icon {
-    width: 24px;
-    height: 24px;
+/* DeepDOXA Theme Classes - Grouped for better readability */
+.bg-primary-deepdoxa {
+  background-color: var(--color-primary-deepdoxa);
+}
+.text-secondary-deepdoxa {
+  color: var(--color-secondary-deepdoxa);
+}
+.bg-accent-deepdoxa {
+  background-color: var(--color-accent-deepdoxa);
+}
+.bg-button-deepdoxa {
+  background-color: var(--color-button-deepdoxa);
+}
+.hover\:bg-button-deepdoxa:hover {
+  background-color: var(--color-button-deepdoxa);
+}
+.hover\:bg-button-hover-deepdoxa:hover {
+  background-color: var(--color-button-hover-deepdoxa);
+}
+.border-line-deepdoxa {
+  border-color: var(--color-line-deepdoxa);
+}
+.hover\:text-accent-deepdoxa:hover {
+  color: var(--color-accent-deepdoxa);
+}
+
+/* Transitions - Reusable classes for consistency */
+.transition-colors {
+  transition-property: color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+}
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+}
+.transition-opacity-transform {
+  transition-property: opacity, transform;
+}
+.ease-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+.ease-in-out {
+  transition-timing-function: ease-in-out;
+}
+.duration-200 {
+  transition-duration: 0.2s;
+}
+.duration-300 {
+  transition-duration: 0.3s;
+}
+.duration-500 {
+  transition-duration: 0.5s;
+} /* Added duration for smoother burger */
+
+/* Layout & Spacing - Tailwind-like utilities */
+.pb-1 {
+  padding-bottom: 0.25rem;
+}
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+} /* Corrected py-8 value */
+.mt-1 {
+  margin-top: 0.25rem;
+}
+.mt-2 {
+  margin-top: 0.5rem;
+}
+.ml-1 {
+  margin-left: 0.25rem;
+}
+.ml-2 {
+  margin-left: 0.5rem;
+}
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 0.5rem;
+}
+.space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  margin-left: 2rem;
+}
+.space-y-0 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0rem;
+} /* For mobile nav links spacing */
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 1rem;
+}
+
+/* Typography - Basic text styles */
+.font-semibold {
+  font-weight: 600;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-bold {
+  font-weight: 700;
+}
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgba(156, 163, 175, var(--tw-text-opacity));
+}
+.font-grotesk {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* Structure & Layout - Grid, Flex, Container */
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.grid {
+  display: grid;
+}
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.gap-4 {
+  gap: 1rem;
+}
+.flex {
+  display: flex;
+}
+.items-center {
+  align-items: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.block {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+@media (min-width: 768px) {
+  .md\:hidden {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .md\:flex {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    cursor: pointer;
-    transition: transform 0.3s ease; /* Add transition to burger icon itself */
   }
-  
-  /* Active state for burger icon (when menu is open) - X TRANSFORMATION */
-  #mobile-menu-button.active .burger-icon {
-    transform: rotate(45deg); /* Rotate icon to 45 degrees to form X */
+}
+@media (min-width: 768px) {
+  .md\:inline-flex {
+    display: inline-flex;
   }
-  
-  #mobile-menu-button.active .line {
-    background-color: var(--accent-color); /* Change lines color to accent when active */
+}
+
+/* Positioning & Size */
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+.top-0 {
+  top: 0px;
+}
+.left-0 {
+  left: 0px;
+}
+.bottom-0 {
+  bottom: 0px;
+}
+.z-50 {
+  z-index: 50;
+}
+.z-60 {
+  z-index: 60;
+} /* Increased z-index for button */
+.relative {
+  position: relative;
+}
+.w-full {
+  width: 100%;
+}
+.w-2 {
+  width: 0.5rem;
+}
+.h-2 {
+  height: 0.5rem;
+}
+.h-0\.5 {
+  height: 0.125rem;
+}
+.h-screen {
+  height: 100vh;
+} /* Full viewport height */
+.w-screen {
+  width: 100vw;
+} /* Full viewport width */
+
+/* Appearance & Effects */
+.rounded-md {
+  border-radius: 0.375rem;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+.shadow-lg {
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.opacity-60 {
+  opacity: 0.6;
+}
+.fill-current {
+  fill: currentColor;
+}
+.futuristic-nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.transform {
+  transform: translate(0);
+}
+.scale-x-0 {
+  transform: scaleX(0);
+}
+.scale-x-100 {
+  transform: scaleX(1);
+}
+.origin-left {
+  transform-origin: left;
+}
+.group-hover\:scale-x-100:hover {
+  transform: scaleX(1);
+}
+.group-hover\:translate-x-1:hover {
+  transform: translateX(0.25rem);
+}
+.rotate-180 {
+  transform: rotate(180deg);
+} /* For dropdown arrow */
+.-rotate-180 {
+  transform: rotate(-180deg);
+} /* For dropdown arrow closing - corrected class name */
+.translate-x-0 {
+  transform: translateX(0);
+}
+.translate-x-full {
+  transform: translateX(100%);
+}
+
+/* Focus & Border */
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.border {
+  border-width: 1px;
+}
+.border-b {
+  border-bottom-width: 1px;
+} /* Consider if still needed - might be redundant now */
+
+/* --- Navigation Specific Styles --- */
+
+/* Nav Links - Desktop & Mobile Base */
+.nav-link {
+  position: relative;
+  overflow: hidden; /* For underline animation */
+  padding-bottom: 0.25rem; /* pb-1 */
+}
+
+/* Nav Link Underline Animation - Desktop */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-accent-deepdoxa);
+  transform: scaleX(0);
+  transition: transform 0.3s ease-out;
+  transform-origin: left;
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Mobile Nav Links - Specific to Mobile Menu */
+.mobile-nav-link {
+  display: block;
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem;
+  border-bottom-width: 1px;
+  border-color: var(--color-line-deepdoxa);
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* transition-colors utility */
+}
+.mobile-nav-link:hover {
+  color: #000000;
+}
+.mobile-nav-link.last {
+  border-bottom: 0; /* Remove border from last item if needed */
+}
+
+/* Burger Button Styles */
+#mobile-menu-button {
+  display: flex; /* For centering icon */
+  justify-content: center;
+  align-items: center;
+  z-index: 60; /* Above mobile menu */
+  border: 1px solid #000000;
+  padding: 2px;
+}
+/* 
+#mobile-menu-button.active {
+  padding-bottom: 1rem; /* Keep padding bottom when active
+}
+ */
+
+#mobile-menu-button .burger-icon {
+  width: 24px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+  background-color: transparent;
+  transition: transform 0.3s ease;
+  align-items: center;
+}
+#mobile-menu-button .line {
+  width: 100%;
+  height: 1.8px;
+  background-color: #000000;
+  transition: all 0.5s ease-in-out; /* Smoother animation */
+}
+#mobile-menu-button.active .burger-icon {
+  transform: rotate(45deg);
+}
+#mobile-menu-button.active .line:nth-child(1) {
+  transform: translateY(9px) rotate(90deg);
+}
+#mobile-menu-button.active .line:nth-child(2) {
+  opacity: 0;
+}
+#mobile-menu-button.active .line:nth-child(3) {
+  transform: translateY(-9px) rotate(90deg);
+}
+
+/* Mobile Menu Container - Minimalist Serious Thin Lines */
+#mobile-menu {
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 4rem);
+  top: 3.8rem;
+  z-index: 55;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.8); /* White transparent background */
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.4s ease-out; /* Smooth slide-in */
+  visibility: hidden;
+  transition-property: transform, visibility;
+
+  /* Minimalist Thin Line Background */
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.04) 1px,
+      transparent 1px
+    ),
+    /* Vertical lines */
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px); /* Horizontal lines */
+  background-size: 10px 10px; /* Very dense lines - adjust for density */
+  backdrop-filter: blur(28px); /* Strong blur as requested */
+  -webkit-backdrop-filter: blur(28px); /* For Safari */
+  animation: subtleLineMovement 20s linear infinite; /* Very slow, subtle animation */
+}
+
+@keyframes subtleLineMovement {
+  0% {
+    background-position: 0 0;
   }
-  
-  /* Active state - transform lines to create X */
-  #mobile-menu-button.active .line:nth-child(1) {
-    transform: translateY(8px) rotate(90deg); /* Move and rotate top line */
+  100% {
+    background-position: 10px 10px;
+  } /* Shift background slightly for subtle movement */
+}
+
+#mobile-menu.translate-x-0 {
+  transform: translateX(0);
+  visibility: visible; /* Make visible when active */
+}
+
+/* --- Dropdown Styles --- */
+
+/* Desktop Dropdown Button */
+#models-dropdown-button {
+  /* @apply nav-link relative overflow-hidden hover:text-accent-deepdoxa transition-colors duration-300 pb-1 group flex items-center space-x-1; Tailwind apply example - adjust as needed */
+  cursor: pointer; /* Indicate interactive */
+}
+
+/* Desktop Dropdown Container */
+#models-dropdown {
+  position: absolute;
+  left: 0;
+  margin-top: 0.5rem; /* mt-2 was too much, adjusted to 0.5rem */
+  width: calc(100vw - 2rem); /* Wider dropdown on desktop, adjust as needed */
+  max-width: 24rem; /* Reduced max-width for better desktop layout */
+  background-color: var(--color-primary-deepdoxa);
+  border: 1px solid var(--color-line-deepdoxa);
+  border-radius: 0.375rem; /* rounded-md */
+  box-shadow: var(--tw-shadow); /* shadow-lg */
+  z-index: 10; /* Below mobile menu but above other content */
+}
+
+#models-dropdown.hidden {
+  display: none;
+}
+
+/* Desktop Dropdown Inner Grid & Cards */
+#models-dropdown .px-2.py-2 {
+  /* Targeting inner padding container */
+  padding: 0.5rem; /* px-2 py-2 */
+}
+#models-dropdown .grid.gap-4 {
+  /* Targeting grid layout */
+  gap: 1rem; /* gap-4 */
+}
+#models-dropdown .block.px-4.py-3.rounded-md {
+  /* Targeting dropdown cards */
+  display: block; /* block */
+  padding: 0.75rem 1rem; /* py-3 px-4 */
+  border-radius: 0.375rem; /* rounded-md */
+  transition: background-color 0.2s ease-out; /* duration-200 ease-out */
+  border: 1px solid var(--color-line-deepdoxa); /* border border-line-deepdoxa */
+}
+#models-dropdown .block.px-4.py-3.rounded-md:hover {
+  background-color: var(--color-button-deepdoxa); /* hover:bg-button-deepdoxa */
+}
+
+/* Mobile Dropdown Styles - Already well-defined in previous response, keeping them as is */
+#mobile-menu #models-dropdown-button {
+  display: flex;
+  width: 100%;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom-width: 1px;
+  border-color: var(--color-line-deepdoxa);
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+#mobile-menu #models-dropdown {
+  position: relative;
+  left: auto;
+  top: auto;
+  margin-top: 0.5rem;
+  width: 100%;
+  max-width: none;
+  box-shadow: none;
+  border-width: 0;
+  border-radius: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+#mobile-menu #models-dropdown.hidden {
+  display: none;
+}
+
+#mobile-menu #models-dropdown .px-2.py-2 {
+  padding: 0;
+}
+
+#mobile-menu #models-dropdown .grid.gap-4 {
+  gap: 0.5rem;
+}
+
+#mobile-menu #models-dropdown .block.px-4.py-3.rounded-md {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-width: 1px;
+  border-color: var(--color-line-deepdoxa);
+  border-radius: 0;
+  margin-bottom: 0.5rem;
+}
+
+#mobile-menu #models-dropdown .block.px-4.py-3.rounded-md:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  /* or your desired breakpoint for larger screens, e.g., 1024px */
+  #mobile-menu-button {
+    display: none; /* Hide the burger button on larger screens */
   }
-  
-  #mobile-menu-button.active .line:nth-child(2) {
-    opacity: 0; /* Hide middle line */
-  }
-  
-  #mobile-menu-button.active .line:nth-child(3) {
-    transform: translateY(-8px) rotate(90deg); /* Move and rotate bottom line */
-  }
-  
-  
-  #mobile-menu-button .line {
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary-color); /* Burger lines primary color */
-    transition: all 0.3s ease;
-  }
-  
-  /* Mobile Navigation Links Styles (rest of your mobile-nav.css remains unchanged) */
-  #mobile-menu .mobile-nav-link {
-      padding: 1rem 1.5rem;
-      display: block;
-      color: var(--primary-color);
-      transition: background-color 0.2s ease;
-      border-bottom: 1px solid var(--line-color); /* Separator lines in mobile menu */
-  }
-  
-  #mobile-menu .mobile-nav-link:last-child {
-      border-bottom: none; /* No border on last link */
-  }
-  
-  #mobile-menu .mobile-nav-link:hover {
-      background-color: #f0f0f0; /* Light gray background on hover */
-  }
-  
-  
-  /* Futuristic Line Decorations for Mobile Menu (Example - Customize as desired) */
-  #mobile-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background-color: white;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      border-radius: 0 0 0.5rem 0.5rem;
-      overflow: hidden; /* Clip lines */
-  }
-  
-  #mobile-menu::before,
-  #mobile-menu::after {
-      content: '';
-      position: absolute;
-      height: 1px;
-      width: 120%;
-      background: var(--line-color);
-      opacity: 0.7;
-  }
-  
-  #mobile-menu::before {
-      top: 10px;
-      left: -10%;
-      transform: rotate(-3deg);
-  }
-  
-  #mobile-menu::after {
-      bottom: 10px;
-      left: -10%;
-      transform: rotate(3deg);
-  }
+}
+
+/* --- Alpine.js Transition Classes - Keep these if using Alpine for transitions --- */
+.transition-enter-start {
+  opacity: 0;
+  transform: translateY(2px);
+}
+.transition-enter-end {
+  opacity: 1;
+  transform: translateY(0);
+}
+.transition-leave-start {
+  opacity: 1;
+  transform: translateY(0);
+}
+.transition-leave-end {
+  opacity: 0;
+  transform: translateY(2px);
+}
+.transition-enter-active {
+  transition-property: opacity, transform;
+  transition-timing-function: ease-out;
+  transition-duration: 200ms;
+}
+.transition-leave-active {
+  transition-property: opacity, transform;
+  transition-timing-function: ease-in;
+  transition-duration: 150ms;
+}
