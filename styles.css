@@ -389,3 +389,27 @@ html {
   height: auto;
   max-width: 300px;
 }
+
+/* footer fluid */
+
+.fluid-2 {
+  /* GIF Container Class - Refined Positioning */
+  position: absolute;
+  top: 0; /* Align to the top of footer-cta */
+  left: 50%; /* Center horizontally within footer-cta */
+  transform: translateX(-50%); /* Center precisely */
+  width: 100%; /* Full width of footer-cta */
+  height: 100%; /* Full height of footer-cta */
+  overflow: hidden;
+  z-index: -1; /* Place GIF behind other content */
+  pointer-events: none;
+  opacity: 0.6; /* Adjusted opacity for better text readability */
+}
+
+.fluid-2 iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  object-fit: cover; /* Ensure GIF covers container, cropping if necessary */
+}
