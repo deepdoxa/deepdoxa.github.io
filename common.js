@@ -42,23 +42,122 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Mobile Menu Toggle - NEW JAVASCRIPT - ENHANCED
-const mobileMenuButton = document.getElementById("mobile-menu-button");
-const mobileMenu = document.getElementById("mobile-menu");
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const body = document.body;
+  const modelsDropdownButton = document.getElementById(
+    "models-dropdown-button"
+  );
+  const modelsDropdown = document.getElementById("models-dropdown");
+  const mobileModelsDropdownButton = document.getElementById(
+    "mobile-models-dropdown-button"
+  );
+  const mobileModelsDropdownContent = document.getElementById(
+    "mobile-models-dropdown-content"
+  );
+  const mobileDropdownArrow = document.querySelector(
+    "#mobile-models-dropdown-button .mobile-dropdown-arrow"
+  );
 
-mobileMenuButton.addEventListener("click", () => {
-  mobileMenu.classList.toggle("hidden"); // Toggle 'hidden' class to show/hide menu
-  mobileMenuButton.classList.toggle("active"); // Toggle 'active' class for button style
-});
+  // --- Mobile Menu Toggle ---
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener("click", function () {
+      const menuOpen = !mobileMenu.classList.contains("translate-x-full"); // Check if menu is currently open
 
-// Close Mobile Menu on Click Outside
-document.addEventListener("click", function (event) {
-  const isClickInsideMenu = mobileMenu.contains(event.target);
-  const isClickOnButton = mobileMenuButton.contains(event.target);
-  const isMenuHidden = mobileMenu.classList.contains("hidden");
+      mobileMenu.classList.toggle("translate-x-full");
+      mobileMenu.classList.toggle("translate-x-0");
+      mobileMenuButton.classList.toggle("active");
+      body.classList.toggle("overflow-hidden", !menuOpen); // Disable body scroll when opening, enable when closing
 
-  if (!isClickInsideMenu && !isClickOnButton && !isMenuHidden) {
-    mobileMenu.classList.add("hidden"); // Hide menu
-    mobileMenuButton.classList.remove("active"); // Deactivate burger button style
+      // Close mobile dropdown when mobile menu toggles (optional, for cleaner UX)
+      if (
+        mobileModelsDropdownContent &&
+        !mobileModelsDropdownContent.classList.contains("hidden")
+      ) {
+        mobileModelsDropdownContent.classList.add("hidden");
+        mobileDropdownArrow.classList.remove("-rotate-180");
+        mobileModelsDropdownContent.style.maxHeight = "0px";
+        mobileModelsDropdownButton.setAttribute("aria-expanded", "false");
+      }
+    });
+  } else {
+    console.error("Mobile menu button or menu not found");
   }
+
+  // --- Desktop Dropdown Hover Logic ---
+  if (modelsDropdownButton && modelsDropdown) {
+    modelsDropdownButton.addEventListener("mouseover", function () {
+      modelsDropdown.classList.remove("hidden");
+    });
+
+    modelsDropdownButton.addEventListener("mouseleave", function () {
+      // Slight delay to prevent accidental closing
+      setTimeout(() => {
+        if (!modelsDropdown.matches(":hover")) {
+          modelsDropdown.classList.add("hidden");
+        }
+      }, 300);
+    });
+
+    modelsDropdown.addEventListener("mouseover", function () {
+      modelsDropdown.classList.remove("hidden"); // Keep open if mouse is over dropdown
+    });
+
+    modelsDropdown.addEventListener("mouseleave", function () {
+      modelsDropdown.classList.add("hidden"); // Close when mouse leaves dropdown area
+    });
+  } else {
+    console.error(
+      "Desktop Models dropdown button or dropdown element not found"
+    );
+  }
+
+  // --- Mobile Dropdown Toggle ---
+  if (
+    mobileModelsDropdownButton &&
+    mobileModelsDropdownContent &&
+    mobileDropdownArrow
+  ) {
+    mobileModelsDropdownButton.addEventListener("click", function () {
+      const expanded =
+        mobileModelsDropdownButton.getAttribute("aria-expanded") === "true" ||
+        false;
+      mobileModelsDropdownButton.setAttribute("aria-expanded", !expanded);
+      mobileModelsDropdownContent.classList.toggle("hidden");
+      mobileDropdownArrow.classList.toggle("-rotate-180");
+
+      if (expanded) {
+        mobileModelsDropdownContent.style.maxHeight = "0px"; // Animate close
+      } else {
+        mobileModelsDropdownContent.style.maxHeight =
+          mobileModelsDropdownContent.scrollHeight + "px"; // Animate open
+      }
+    });
+  }
+
+  // --- Close Mobile Menu on Click Outside ---
+  document.addEventListener("click", function (event) {
+    if (
+      mobileMenu &&
+      mobileMenuButton &&
+      !mobileMenu.contains(event.target) &&
+      !mobileMenuButton.contains(event.target) &&
+      !mobileMenu.classList.contains("translate-x-full")
+    ) {
+      mobileMenu.classList.add("translate-x-full");
+      mobileMenu.classList.remove("translate-x-0");
+      mobileMenuButton.classList.remove("active");
+      body.classList.remove("overflow-hidden");
+    }
+  });
+
+  // --- User Country Detection (No changes needed from your provided script, assuming it works) ---
+  function detectUserCountry() {
+    /* ... your detectUserCountry function ... */
+  }
+  function updateUIForUnavailable(locationBox) {
+    /* ... your updateUIForUnavailable function ... */
+  }
+  detectUserCountry(); // Call on DOMContentLoaded
 });
