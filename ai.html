@@ -1,0 +1,1463 @@
+<!-- Paste the ENTIRE code block below into your ai.html file -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- SEO & Social Media - Godly Edition -->
+    <title>DeepDoxa - AI Pantheon: The Celestial Resource Valley</title>
+    <meta
+      name="description"
+      content="DeepDoxa AI Pantheon: Ascend to the celestial valley of AI resources. Discover divinely curated models, APIs, and knowledge for visionaries."
+    />
+    <meta
+      name="keywords"
+      content="AI resources, AI models, machine learning, deep learning, AI pantheon, celestial AI, divine resources, innovation, future tech, world-class"
+    />
+    <meta name="author" content="DeepDoxa - Celestial Resources Incarnate" />
+
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta
+      property="og:title"
+      content="DeepDoxa - AI Pantheon: The Celestial Resource Valley"
+    />
+    <meta
+      property="og:description"
+      content="DeepDoxa AI Pantheon: The celestial valley, a divine AI resource collection."
+    />
+    <meta property="og:image" content="https://deepdoxa.com/favicon.png" />
+    <meta property="og:url" content="https://deepdoxa.com/ai.html" />
+    <meta property="og:type" content="website" />
+
+    <!-- X (Twitter) Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@deepdoxa" />
+    <meta
+      name="twitter:title"
+      content="DeepDoxa - AI Pantheon: The Celestial Resource Valley"
+    />
+    <meta
+      name="twitter:description"
+      content="DeepDoxa AI Pantheon: Descend into the celestial valley of AI – resources of divine quality."
+    />
+    <meta property="twitter:image" content="https://deepdoxa.com/favicon.png" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://deepdoxa.com/ai.html" />
+
+    <!-- Favicons - Pantheon Edition -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+    <!-- Tailwind CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Styles (Godly Pantheon Edition) -->
+    <link rel="stylesheet" href="cursor.css" />
+    <link rel="stylesheet" href="mobile-nav.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap");
+
+      :root {
+        --grid-size: 80px;
+        --line-color: rgba(0, 0, 0, 0.03);
+        --accent-color: #000;
+        --primary-color: #0a0a0a;
+        --secondary-color: #424242;
+        --highlight-color: #000;
+        --footer-background: #f0f0f0;
+        --deepdoxa-primary: #ffffff;
+        --deepdoxa-secondary: #212121;
+        --deepdoxa-accent: #424242;
+        --deepdoxa-line: rgba(0, 0, 0, 0.05);
+        --deepdoxa-button: rgba(0, 0, 0, 0.03);
+        --deepdoxa-button-hover: rgba(0, 0, 0, 0.06);
+        --card-gradient-start: rgba(250, 250, 250, 0.8);
+        --card-gradient-end: rgba(240, 240, 240, 0.95);
+        --celestial-gold: #000;
+        --celestial-gold-shadow: rgba(255, 171, 64, 0.2);
+      }
+
+      body {
+        font-family: "Space Grotesk", sans-serif;
+        background-color: #ffffff;
+        color: var(--primary-color);
+        line-height: 2.1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+
+      .grid-background {
+        background-image: linear-gradient(
+            var(--line-color) 1px,
+            transparent 1px
+          ),
+          linear-gradient(90deg, var(--line-color) 1px, transparent 1px);
+        background-size: var(--grid-size) var(--grid-size);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -2;
+        opacity: 0.9;
+        animation: gridPanCelestial 30s linear infinite;
+      }
+
+      @keyframes gridPanCelestial {
+        to {
+          background-position: 100% 100%;
+        }
+      }
+
+      .diagonal-line {
+        position: fixed;
+        height: 1.2px;
+        background: var(--celestial-gold);
+        width: 230%;
+        transform: rotate(-45deg);
+        transform-origin: 0% 0%;
+        top: -15%;
+        left: -15%;
+        z-index: -1;
+        opacity: 0.7;
+        animation: diagonalSlideCelestial 35s linear infinite,
+          pulseLineCelestial 8s ease-in-out infinite alternate;
+      }
+
+      @keyframes diagonalSlideCelestial {
+        to {
+          transform: rotate(-45deg) translateX(-70%);
+        }
+      }
+
+      @keyframes pulseLineCelestial {
+        0% {
+          opacity: 0.7;
+        }
+        100% {
+          opacity: 0.4;
+        }
+      }
+
+      .nav-link {
+        position: relative;
+        overflow: hidden;
+        color: var(--deepdoxa-secondary); /* Lighter nav links on dark bg */
+        transition: color 0.3s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--deepdoxa-accent);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: var(--deepdoxa-accent);
+        transition: left 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      }
+
+      .nav-link:hover::after {
+        left: 0;
+      }
+
+      /* Geometric Border - Celestial Frame */
+      .geometric-border {
+        position: relative;
+        transition: all 0.6s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+      }
+
+      .geometric-border:hover {
+        transform: scale(1.02) translateY(-6px);
+        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .geometric-border::before,
+      .geometric-border::after {
+        content: "";
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        border-color: var(--celestial-gold);
+        transition: border-color 0.6s ease;
+      }
+
+      .geometric-border::before {
+        top: -14px;
+        left: -14px;
+        border-top-width: 1.8px;
+        border-left-width: 1.8px;
+        border-style: solid;
+      }
+
+      .geometric-border::after {
+        bottom: -14px;
+        right: -14px;
+        border-bottom-width: 1.8px;
+        border-right-width: 1.8px;
+        border-style: solid;
+      }
+
+      .geometric-border:hover::before,
+      .geometric-border:hover::after {
+        border-color: var(--highlight-color);
+        animation: borderPulseCelestial 2.2s linear infinite;
+      }
+
+      @keyframes borderPulseCelestial {
+        50% {
+          border-color: rgba(255, 255, 255, 0.9);
+        }
+      }
+
+      .scroll-line {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px; /* Thicker scroll line */
+        background: var(--deepdoxa-accent);
+        z-index: 1000;
+        transition: height 0.3s ease;
+      }
+
+      .scroll-line.scrolling {
+        height: 5px; /* Even thicker when scrolling */
+      }
+
+      .side-nav {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        opacity: 0.85; /* Slightly less opaque side nav */
+      }
+
+      .side-nav a {
+        color: var(--deepdoxa-secondary); /* Lighter side nav links */
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      .side-nav a:hover {
+        color: var(--deepdoxa-accent);
+        transform: scale(1.1);
+      }
+
+      .scroll-line {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px; /* Thicker scroll line */
+        background: var(--deepdoxa-accent);
+        z-index: 1000;
+        transition: height 0.3s ease;
+      }
+
+      .scroll-line.scrolling {
+        height: 5px; /* Even thicker when scrolling */
+      }
+
+      .side-nav {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        opacity: 0.85; /* Slightly less opaque side nav */
+      }
+
+      .side-nav a {
+        color: var(--deepdoxa-secondary); /* Lighter side nav links */
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      .side-nav a:hover {
+        color: var(--deepdoxa-accent);
+        transform: scale(1.1);
+      }
+
+      .section-title {
+        font-size: 5.5rem; /* Even Larger Section Titles */
+        font-weight: 800; /* Ultra Bold - Majestic Weight */
+        margin-bottom: 4.5rem; /* Increased Margin for Grandeur */
+        letter-spacing: -0.1em; /* Tighter Letter Spacing - Refined Spacing */
+        text-shadow: 0 0 25px var(--celestial-gold-shadow); /* Intense Gold Glow - Celestial Fire */
+        position: relative;
+        display: inline-block;
+        line-height: 1;
+        color: #000; /* Initially transparent text */
+        -webkit-text-stroke: 1.3px var(--celestial-gold); /* Gold Stroke for Outline */
+        -webkit-font-smoothing: antialiased;
+        background: linear-gradient(
+          to right,
+          var(--deepdoxa-primary),
+          var(--celestial-gold),
+          var(--deepdoxa-primary)
+        ); /* Animated Gradient Text */
+        background-color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: animatedGradientText 5s linear infinite,
+          writingWordSlideOut 1.5s cubic-bezier(0.6, 0.04, 0.98, 0.335) forwards; /* Animated Gradient + Writing Word */
+      }
+
+      @keyframes animatedGradientText {
+        0% {
+          background-position: 0 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0 50%;
+        }
+      }
+
+      .section-subtitle {
+        font-size: 1.35rem; /* Slightly Larger Subtitle - Elevated Subtext */
+        color: var(
+          --highlight-color
+        ); /* White Highlight Subtitle Color - Luminous Subtitle */
+        margin-bottom: 2rem;
+        line-height: 2;
+        font-weight: 400; /* Slightly Bolder Subtitle Weight */
+        letter-spacing: 0.06em; /* More Letter Spacing for Subtitles - Spaced Subtext */
+        text-shadow: 0 0 10px var(--highlight-color); /* Subtle White Glow for Subtitles - Luminous Subtitle Glow */
+        opacity: 0.95; /* Slightly Less Opaque Subtitle - Refined Subtitle Opacity */
+        animation: fadeInSubtle 2s ease-out forwards; /* Subtle Fade-In Animation for Subtitles */
+        opacity: 0; /* Initially hidden */
+      }
+
+      .section-title.animated-writing-word::after {
+        /* Target animated titles */
+        width: 100%; /* Reveal underline on animation completion */
+      }
+
+      .section-subtitle.animated-writing-word {
+        opacity: 0.95; /* Make subtitle visible when animated */
+      }
+
+      @keyframes fadeInSubtle {
+        to {
+          opacity: 0.95;
+        } /* Fade-in animation for subtitles */
+      }
+
+      /* .section-title::after {
+        /* ... (section-title underline styles remain same) ...
+      } */
+      /* .section-title.animated-writing-word::after {
+        /* ...
+      }
+      @keyframes writingWordSlideOut {
+        /* ... 
+      } /* Keep writingWordSlideOut animation  */
+
+      /* Animated Text - Writing Word Animation */
+      .animated-writing-word {
+        position: relative;
+        overflow: hidden;
+        display: inline-block; /* Ensure inline for text flow */
+      }
+
+      .animated-writing-word span {
+        position: relative;
+        z-index: 2;
+        color: var(--deepdoxa-accent);
+        -webkit-text-stroke: 0.7px var(--deepdoxa-primary); /* Even thicker stroke */
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .animated-writing-word::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0; /* Start hidden */
+        height: 100%;
+        background: var(--deepdoxa-primary); /* Deep black background */
+        animation: writingWordSlideOut 1.5s cubic-bezier(0.6, 0.04, 0.98, 0.335)
+          forwards; /* Writing word slide out */
+        z-index: 1;
+        animation-delay: 0.4s; /* Initial delay */
+      }
+      @keyframes writingWordSlideOut {
+        0% {
+          width: 0;
+        } /* Start hidden */
+        100% {
+          width: 105%;
+        } /* Slightly overshoot for full cover */
+      }
+
+      /* Animated Text - Path Text Animation (for top path text) */
+      .animated-path-text {
+        position: relative;
+        overflow: hidden;
+        width: fit-content; /* Adjust width to content */
+      }
+
+      .animated-path-text::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0; /* Start hidden */
+        height: 100%;
+        background: var(--deepdoxa-primary); /* Deep black background */
+        animation: pathTextSlideOut 1s cubic-bezier(0.6, 0.04, 0.98, 0.335)
+          forwards; /* Path text slide out */
+        z-index: 1;
+      }
+
+      @keyframes pathTextSlideOut {
+        0% {
+          width: 0;
+        } /* Start hidden */
+        100% {
+          width: 105%;
+        } /* Slightly overshoot for full cover */
+      }
+
+      /* Animated Text - Typewriter Animation (for hero subtitle) */
+      .animated-typewriter {
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 0.05em;
+        animation: typing 3.5s steps(40, end) forwards,
+          /* Typewriter effect */ blink-caret 0.75s step-end infinite alternate; /* Blinking caret */
+      }
+
+      /* Typewriter Text Animation Keyframes */
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      /* AI Page Specific Styles - List Styles - **ASTONISHING CARDS** */
+      .ai-resource-section {
+        padding: 6rem 0; /* More padding for sections */
+      }
+
+      .ai-resource-list {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(350px, 1fr)
+        ); /* Wider cards */
+        gap: 3rem; /* Larger gap between cards */
+        margin-top: 3rem;
+      }
+
+      .ai-resource-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 1px solid var(--celestial-gold);
+        border-radius: inherit;
+        opacity: 0;
+        transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        transform: scale(0.998);
+        box-shadow: 0 0 30px var(--celestial-gold-shadow);
+        /* backdrop-filter: blur(10px); Inherit blur from parent */
+      }
+
+      .ai-resource-item {
+        /* @apply rounded-3xl overflow-hidden shadow-4xl transition-shadow duration-1200 ease-out hover:shadow-5xl transform hover:scale-101 bg-clip-padding backdrop-filter-none bg-opacity-10 bg-white/10; */
+        /* border-top: 1px solid var(--celestial-gold); */
+        position: relative;
+        /* backdrop-filter: blur(0px); */
+        background-color: #aab3ad54; /* Dark base */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noiseFilter' x='0%' y='0%' width='100%' height='100%' filterUnits='objectBoundingBox' primitiveUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfgImage result='noise' x='0' y='0' width='100%' height='100%' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVQYV2P4//8/w38GIAXDIBKE0DHxgljNBAAAAABJRU5ErkJggg=='/%3E%3CfeTurbulence result='fractalNoise' baseFrequency='0.9' numOctaves='5' seed='2' stitchTiles='stitch' type='fractalNoise'%3E%3C/feTurbulence%3E%3CfeColorMatrix result='noisetrans' colorInterpolationFilters='sRGB' in='fractalNoise' type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 -1'/%3E%3CfeComponentTransfer in='noisetrans' result='componentTransfer' colorInterpolationFilters='sRGB'%3E%3CfeFuncA type='table' tableValues='0 0.4 1 1'/%3E%3CfeFuncR type='identity' tableValues='0 0.99609375 1'/%3E%3CfeFuncG type='identity' tableValues='0 0.99609375 1'/%3E%3CfeFuncB type='identity' tableValues='0 0.99609375 1'/%3E%3C/feComponentTransfer%3E%3CfeBlend mode='multiply' in2='componentTransfer' in='SourceGraphic' result='blend'%3E%3C/feBlend%3E%3CfeColorMatrix result='colortrans' colorInterpolationFilters='sRGB' type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' fill='hsla(0,0%25,0%25,1)' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); /* Black and white noise texture */
+        animation: noiseAnimation 2s steps(10) infinite; /* Animate the noise */
+        opacity: 0.95; /* Slightly less opaque texture */
+        backdrop-filter: none;
+        /* opacity: 0.1; */
+        background-color: rgba(255, 255, 255, 0.1);
+        border-top: 1px solid var(--celestial-gold);
+        position: relative;
+        backdrop-filter: blur(10px);
+      }
+
+      @keyframes noiseAnimation {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 100px 100px;
+        } /* Shift background for animation */
+      }
+
+      .ai-resource-item:hover::before {
+        opacity: 0.95;
+        transform: scale(1);
+      }
+
+      .ai-resource-item-content {
+        padding: 2.5rem; /* More padding inside cards */
+      }
+
+      .ai-resource-item h3 {
+        /* @apply text-2xl font-semibold text-deepdoxa-secondary mb-3; Lighter title, larger */
+        text-shadow: 0 0 6px rgba(0, 255, 255, 0.3); /* Subtle title glow */
+      }
+
+      .ai-resource-item p {
+        /* @apply text-gray-400 text-sm mb-5; Lighter description text */
+        opacity: 1; /* Slightly more opaque description */
+      }
+
+      /* .ai-resource-link {
+        /* @apply inline-flex items-center text-deepdoxa-accent hover:text-white font-medium transition-colors duration-300 group relative overflow-hidden; Text turns white on hover
+      } */
+
+      .ai-resource-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%; /* Start from the center horizontally */
+        transform: translateX(-50%); /* Center the starting point */
+        width: 0; /* Start with zero width */
+        height: 3px;
+        background: var(--celestial-gold);
+        transition: width 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+          left 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+          transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition for width and position */
+      }
+
+      .ai-resource-link:hover::after {
+        width: 100%; /* Expand to full width on hover */
+        left: 0; /* Move to the left edge */
+        transform: translateX(0%); /* Reset transform for full width */
+      }
+
+      .ai-resource-link svg {
+        /* @apply w-5 h-5 ml-2 fill-current transform group-hover:translate-x-2 transition-transform duration-300; Larger arrow, more translation */
+        opacity: 0.8; /* Slightly less opaque arrow */
+        transition: opacity 0.3s ease-in-out; /* Opacity transition for arrow */
+      }
+
+      .ai-resource-link:hover svg {
+        opacity: 1; /* Arrow becomes fully opaque on hover */
+      }
+
+      /* Custom Arrow Style - **CIA PLATFORM ARROW** */
+      .ai-resource-link svg {
+        /* Replaced with a more stylized arrow SVG */
+        content: "";
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        margin-left: 8px;
+        border-right: 1px solid var(--deepdoxa-accent);
+        border-bottom: 1px solid var(--deepdoxa-accent);
+        transform: rotate(-45deg);
+        transition: transform 0.3s ease-in-out, margin-left 0.3s ease-in-out;
+      }
+
+      .ai-resource-link:hover svg {
+        transform: rotate(0deg) scale(1.2); /* Rotate and scale arrow on hover */
+        margin-left: 12px; /* Increased margin on hover */
+      }
+
+      /* Mobile Styles - Streamlined */
+      @media (max-width: 768px) {
+        .side-nav {
+          display: none;
+        }
+        .section-title {
+          font-size: 3.5xl; /* Smaller titles on mobile */
+          margin-bottom: 2rem;
+        }
+        .section-subtitle {
+          font-size: 1.1rem; /* Smaller subtitles on mobile */
+          margin-bottom: 1rem;
+        }
+        .feature-title {
+          font-size: 2.4xl; /* Smaller feature titles on mobile */
+          margin-bottom: 1rem;
+        }
+        .ai-resource-list {
+          grid-template-columns: 1fr; /* Stack on mobile */
+          gap: 2rem; /* Smaller gap on mobile */
+        }
+        .ai-resource-item-content {
+          padding: 2rem; /* Adjusted padding on mobile */
+        }
+      }
+      /* Cursor Style - CROSSHAIR - Cyan */
+      body {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M16 2c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16z m0 28c-6.627 0-12-5.373-12-12s5.373-12 12-12 12 5.373 12 12-5.373 12-12 12zM16 8v16m0-8h8m-8 0h-8" fill="%2300ffff" /></svg> 16 16, auto'); /* Cyan cursor */
+      }
+
+      /* Ultra Rich Page Motion - SMOOTHER SCROLLING */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .geometric-border {
+        position: relative;
+        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1); /* More refined border transition */
+      }
+
+      .geometric-border:hover {
+        transform: scale(1.02) translateY(-2px); /* Subtler hover effect */
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06); /* Even subtler shadow */
+      }
+
+      .geometric-border::before,
+      .geometric-border::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-color: var(--accent-color);
+        transition: border-color 0.5s ease;
+      }
+
+      .geometric-border::before {
+        top: -10px;
+        left: -10px;
+        border-top-width: 1px; /* Thinner borders */
+        border-left-width: 1px;
+        border-style: solid;
+      }
+
+      .geometric-border::after {
+        bottom: -10px;
+        right: -10px;
+        border-bottom-width: 1px;
+        border-right-width: 1px;
+        border-style: solid;
+      }
+
+      .geometric-border:hover::before,
+      .geometric-border:hover::after {
+        border-color: var(
+          --border-animation-color
+        ); /* Muted border animation color on hover */
+        animation: subtleBorderPulse 2s linear infinite; /* Subtler border pulse */
+      }
+      #hero .geometric-border {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Even more subtle white for philosophy hero */
+        backdrop-filter: blur(10px) grayscale(0.9); /* Add grayscale for muted feel */
+        transition: backdrop-filter 0.6s ease; /* Smoother blur transition */
+      }
+
+      #hero .geometric-border:hover {
+        backdrop-filter: blur(7px) grayscale(0.9); /* Less blur on hover, still grayscale */
+      }
+
+      #hero .animated-text::after {
+        background: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Match background for animated text */
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <div id="customCursorHorizontal" class="custom-cursor-line"></div>
+    <div id="customCursorVertical" class="custom-cursor-line"></div>
+    <div
+      id="customCursorOuterCircle"
+      class="custom-cursor-circle outer-circle"
+    ></div>
+    <div
+      id="customCursorInnerCircle"
+      class="custom-cursor-circle inner-circle"
+    ></div>
+
+    <div class="grid-background"></div>
+    <div class="diagonal-line"></div>
+    <div class="scroll-line" id="scrollLine"></div>
+
+    <!-- Navigation - DeepDOXA Inspired -->
+    <nav
+      class="futuristic-nav bg-primary-deepdoxa fixed w-full top-0 z-50"
+      id="mainNavigation"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex items-center justify-between"
+      >
+        <!-- Brand Logo -->
+        <a
+          href="index.html"
+          class="flex items-center font-grotesk font-bold text-xl text-secondary-deepdoxa hover:text-accent-deepdoxa transition-colors duration-300"
+        >
+          DeepDOXΛ
+        </a>
+
+        <!-- Navigation Links (Desktop - Hidden on Mobile initially) -->
+        <div
+          class="hidden md:flex space-x-8 font-medium text-sm tracking-wider text-secondary-deepdoxa"
+        >
+          <a
+            href="ai.html"
+            class="nav-link relative overflow-hidden hover:text-accent-deepdoxa transition-colors duration-300 pb-1 group"
+          >
+            ѦI
+            <span
+              class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-deepdoxa transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+            ></span>
+          </a>
+          <a
+            href="philosophy.html"
+            class="nav-link relative overflow-hidden hover:text-accent-deepdoxa transition-colors duration-300 pb-1 group"
+          >
+            PHILOSOPHY
+            <span
+              class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-deepdoxa transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+            ></span>
+          </a>
+          <a
+            href="mission.html"
+            class="nav-link relative overflow-hidden hover:text-accent-deepdoxa transition-colors duration-300 pb-1 group"
+          >
+            MISSION
+            <span
+              class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-deepdoxa transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+            ></span>
+          </a>
+          <a
+            href="vision.html"
+            class="nav-link relative overflow-hidden hover:text-accent-deepdoxa transition-colors duration-300 pb-1 group"
+          >
+            VISION
+            <span
+              class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-deepdoxa transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+            ></span>
+          </a>
+          <!-- Models Dropdown -->
+          <div class="relative">
+            <button
+              class="nav-link relative overflow-hidden hover:text-accent-deepdoxa transition-colors duration-300 pb-1 group flex items-center space-x-1"
+              id="models-dropdown-button"
+            >
+              <span>MODELS</span>
+              <svg class="w-4 h-4 fill-current opacity-60" viewBox="0 0 20 20">
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                />
+              </svg>
+              <span
+                class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-deepdoxa transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+              ></span>
+            </button>
+
+            <!-- Dropdown Content -->
+            <div
+              id="models-dropdown"
+              class="absolute left-0 mt-2 w-screen max-w-sm bg-primary-deepdoxa border border-line-deepdoxa rounded-md shadow-lg z-10 hidden"
+            >
+              <div class="px-2 py-2">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <!-- Network Card 1 -->
+                  <a
+                    href="https://deepseek.com/"
+                    class="block px-4 py-3 rounded-md hover:bg-button-deepdoxa transition-colors duration-200 border border-line-deepdoxa"
+                  >
+                    <div class="flex items-center space-x-2">
+                      <div
+                        class="w-2 h-2 rounded-full bg-accent-deepdoxa"
+                      ></div>
+                      <h3 class="font-semibold text-secondary-deepdoxa">
+                        DeepSEEK
+                      </h3>
+                    </div>
+                    <p class="text-sm text-gray-400 mt-1">OPEN SOURCE</p>
+                    <div
+                      class="flex items-center justify-end mt-2 text-accent-deepdoxa group"
+                    >
+                      <span class="text-sm">Go Use It</span>
+                      <svg
+                        class="w-4 h-4 ml-1 fill-current transform group-hover:translate-x-1 transition-transform duration-300"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                        />
+                      </svg>
+                    </div>
+                  </a>
+                  <!-- Network Card 2 -->
+                  <a
+                    href="https://chat.com/"
+                    class="block px-4 py-3 rounded-md hover:bg-button-deepdoxa transition-colors duration-200 border border-line-deepdoxa"
+                  >
+                    <div class="flex items-center space-x-2">
+                      <div
+                        class="w-2 h-2 rounded-full bg-accent-deepdoxa"
+                      ></div>
+                      <h3 class="font-semibold text-secondary-deepdoxa">
+                        OPENAI
+                      </h3>
+                    </div>
+                    <p class="text-sm text-gray-400 mt-1">CLOSED SOURCE</p>
+                    <div
+                      class="flex items-center justify-end mt-2 text-accent-deepdoxa group"
+                    >
+                      <span class="text-sm">Go Use It</span>
+                      <svg
+                        class="w-4 h-4 ml-1 fill-current transform group-hover:translate-x-1 transition-transform duration-300"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                        />
+                      </svg>
+                    </div>
+                  </a>
+                  <!-- More Network Cards can be added here -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <a
+            href="contact.html"
+            class="nav-link relative overflow-hidden hover:text-accent-deepdoxa transition-colors duration-300 pb-1 group"
+          >
+            CONNECT
+            <span
+              class="absolute left-0 bottom-0 w-full h-0.5 bg-accent-deepdoxa transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+            ></span>
+          </a>
+        </div>
+
+        <!-- Explore Apps Button -->
+        <a
+          href="https://www.deepseek.com/"
+          target="_blank"
+          class="hidden md:inline-flex items-center bg-button-deepdoxa hover:bg-button-hover-deepdoxa text-secondary-deepdoxa font-medium text-sm px-4 py-2 rounded-md transition-colors duration-300 border border-line-deepdoxa group"
+        >
+          EXPLORE APPS
+          <svg
+            class="w-4 h-4 ml-2 fill-current transform group-hover:translate-x-1 transition-transform duration-300"
+            viewBox="0 0 20 20"
+          >
+            <path
+              d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+            />
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="md:hidden focus:outline-none"
+          aria-label="Mobile Menu"
+        >
+          <div class="burger-icon">
+            <div class="line bg-secondary-deepdoxa"></div>
+            <div class="line bg-secondary-deepdoxa"></div>
+            <div class="line bg-secondary-deepdoxa"></div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Horizontal Line Separator -->
+      <div class="border-b border-line-deepdoxa"></div>
+
+      <!-- Mobile Menu (Hidden by default, shown on button click) -->
+      <div
+        id="mobile-menu"
+        class="md:hidden fixed top-0 left-0 w-full h-screen bg-primary-deepdoxa overflow-y-auto transform translate-x-full transition-transform duration-300"
+      >
+        <div class="px-6 py-8">
+          <!-- Mobile Menu Header (Optional - Brand or Close Button) -->
+          <div class="flex justify-end mb-8">
+            <!-- <button
+              id="mobile-menu-close-button"
+              class="p-2 rounded-full hover:bg-button-deepdoxa transition-colors duration-200 focus:outline-none"
+            >
+              <svg
+                class="w-6 h-6 text-secondary-deepdoxa"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button> -->
+          </div>
+
+          <!-- Mobile Navigation Links -->
+          <div
+            class="flex flex-col space-y-4 font-medium text-lg tracking-wider text-secondary-deepdoxa"
+          >
+            <a href="ai.html" class="mobile-nav-link">ѦI</a>
+            <a href="philosophy.html" class="mobile-nav-link">PHILOSOPHY</a>
+            <a href="mission.html" class="mobile-nav-link">MISSION</a>
+            <a href="vision.html" class="mobile-nav-link">VISION</a>
+            <!-- <a href="networks.html" class="mobile-nav-link">MODELS</a> -->
+            <!-- Models Dropdown for Mobile -->
+            <div class="mobile-dropdown-container">
+              <button
+                class="mobile-nav-link flex items-center justify-between"
+                id="mobile-models-dropdown-button"
+                aria-expanded="false"
+                aria-controls="mobile-models-dropdown-content"
+              >
+                <span>MODELS</span>
+                <svg
+                  class="w-4 h-4 fill-current opacity-60 transform transition-transform duration-300 mobile-dropdown-arrow"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                  />
+                </svg>
+              </button>
+
+              <!-- Mobile Dropdown Content -->
+              <div
+                id="mobile-models-dropdown-content"
+                class="mobile-dropdown-content hidden overflow-hidden transition-all duration-300 ease-in-out"
+                style="max-height: 0"
+              >
+                <div class="px-2 py-2">
+                  <div class="grid grid-cols-1 gap-4">
+                    <!-- Network Card 1 -->
+                    <a
+                      href="https://deepseek.com/"
+                      class="block px-4 py-3 rounded-md hover:bg-button-deepdoxa transition-colors duration-200 border border-line-deepdoxa"
+                    >
+                      <div class="flex items-center space-x-2">
+                        <div
+                          class="w-2 h-2 rounded-full bg-accent-deepdoxa"
+                        ></div>
+                        <h3 class="font-semibold text-secondary-deepdoxa">
+                          DeepSEEK
+                        </h3>
+                      </div>
+                      <p class="text-sm text-gray-400 mt-1">OPEN SOURCE</p>
+                      <div
+                        class="flex items-center justify-end mt-2 text-accent-deepdoxa group"
+                      >
+                        <span class="text-sm">Go Use It</span>
+                        <svg
+                          class="w-4 h-4 ml-1 fill-current transform group-hover:translate-x-1 transition-transform duration-300"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                          />
+                        </svg>
+                      </div>
+                    </a>
+                    <!-- Network Card 2 -->
+                    <a
+                      href="https://chat.com/"
+                      class="block px-4 py-3 rounded-md hover:bg-button-deepdoxa transition-colors duration-200 border border-line-deepdoxa"
+                    >
+                      <div class="flex items-center space-x-2">
+                        <div
+                          class="w-2 h-2 rounded-full bg-accent-deepdoxa"
+                        ></div>
+                        <h3 class="font-semibold text-secondary-deepdoxa">
+                          OPENAI
+                        </h3>
+                      </div>
+                      <p class="text-sm text-gray-400 mt-1">CLOSED SOURCE</p>
+                      <div
+                        class="flex items-center justify-end mt-2 text-accent-deepdoxa group"
+                      >
+                        <span class="text-sm">Go Use It</span>
+                        <svg
+                          class="w-4 h-4 ml-1 fill-current transform group-hover:translate-x-1 transition-transform duration-300"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                          />
+                        </svg>
+                      </div>
+                    </a>
+                    <!-- More Network Cards can be added here -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="contact.html" class="mobile-nav-link">CONNECT</a>
+            <a
+              href="https://www.deepseek.com/"
+              target="_blank"
+              class="mobile-nav-link last"
+              >EXPLORE APPS</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content - Pantheon Main Section -->
+    <main class="pt-32 pb-24 bg-white">
+      <!-- <p
+        class="px-6 uppercase tracking-widest text-gray-500 mb-12 animated-path-text"
+        style="animation-delay: 0.2s"
+      >
+        <span class="text-deepdoxa-accent mr-2">//</span> AI RESOURCES
+        <span class="ml-2">//</span> NEXUS <span class="ml-2">//</span> TOOLS
+      </p> -->
+
+      <!-- Hero Section - Nexus Hero -->
+      <section
+        id="hero"
+        class="min-h-screen px-6 py-32 md:py-48 flex items-center relative overflow-hidden"
+      >
+        <!-- Hero Background GIF - Refined Luxury Fluid -->
+        <div class="fixed inset-0 z-0 overflow-hidden">
+          <iframe
+            src="fluids/hear-fluid-13.gif"
+            width="100%"
+            height="100%"
+            style="border: none; display: block; opacity: 0.5"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+        <div class="max-w-screen-xl mx-auto relative z-10">
+          <div class="geometric-border p-16 md:p-24 hero-content-box">
+            <h1
+              class="text-4xl md:text-6xl font-light mb-8 animated-text leading-tight animated-typewriter"
+              style="animation-delay: 0.4s"
+            >
+              <span class="text-black">ѦI Nexus</span>
+              <span class="text-deepdoxa-accent">//</span>
+            </h1>
+            <p
+              class="text-xl md:text-2xl text-secondary-color mb-12 md:mb-16 tracking-wide hero-subtitle"
+              style="animation-delay: 1.4s"
+            >
+              <span class="font-medium text-primary-color"
+                >Enter the definitive valley of AI resources.</span
+              >
+              DeepDoxa Nexus – meticulously curated, dynamically animated, and
+              designed for the discerning innovator.
+            </p>
+            <a
+              href="#ai-models"
+              class="inline-block mt-8 px-8 py-3 font-bold text-xl text-deepdoxa-secondary bg-deepdoxa-accent rounded-md transition-colors duration-300 hover:bg-deepdoxa-accent/90 animated-fade-in-delay"
+              style="animation-delay: 2.2s"
+            >
+              Explore the Ѧrsenal →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Models Section - Nobel Prize AI Models -->
+      <section id="ai-models" class="ai-resource-section px-6 bg-gray-50">
+        <div class="max-w-screen-xl mx-auto">
+          <h2
+            class="section-title animated-writing-word"
+            style="animation-delay: 0.6s"
+          >
+            <span class="section-title">Open Source Models</span>
+            <span class="text-deepdoxa-accent">></span>
+          </h2>
+          <p class="section-subtitle">
+            The vanguard of open intelligence – models for limitless
+            exploration.
+          </p>
+          <div class="ai-resource-list">
+            <!-- Example AI Resource Items - Replace with actual resources -->
+            <div
+              class="ai-resource-item geometric-border p-12 md:p-20"
+              style="animation-delay: 0.8s"
+            >
+              <div class="ai-resource-item-content">
+                <h3>DeepSeek LLM</h3>
+                <p>
+                  The cutting edge of open-source language models, built for
+                  groundbreaking research and development.
+                </p>
+                <a
+                  href="https://deepseek.com/"
+                  target="_blank"
+                  class="ai-resource-link"
+                >
+                  Explore DeepSeek Website
+                  <svg viewBox="0 0 100 100"></svg>
+                </a>
+              </div>
+            </div>
+            <div
+              class="ai-resource-item geometric-border p-12 md:p-20"
+              style="animation-delay: 0.9s"
+            >
+              <div class="ai-resource-item-content">
+                <h3>RWKV-LM</h3>
+                <p>
+                  Receptance Weighted Key Value - Language Model, a transformer
+                  alternative with RNN-like inference, for efficient and fast
+                  inference.
+                </p>
+                <a
+                  href="https://github.com/BlinkDL/RWKV-LM"
+                  target="_blank"
+                  class="ai-resource-link"
+                >
+                  Explore RWKV-LM Github
+                  <svg viewBox="0 0 100 100"></svg>
+                </a>
+              </div>
+            </div>
+            <div
+              class="ai-resource-item geometric-border p-12 md:p-20"
+              style="animation-delay: 1s"
+            >
+              <div class="ai-resource-item-content">
+                <h3>Hugging Face Hub</h3>
+                <p>
+                  A vast repository of open-source AI – models, datasets, and
+                  tools for every AI innovator.
+                </p>
+                <a
+                  href="https://huggingface.co/models"
+                  target="_blank"
+                  class="ai-resource-link"
+                >
+                  Enter Hugging Face Hub
+                  <svg viewBox="0 0 100 100"></svg>
+                </a>
+              </div>
+            </div>
+            <div
+              class="ai-resource-item geometric-border p-12 md:p-20"
+              style="animation-delay: 1.1s"
+            >
+              <div class="ai-resource-item-content">
+                <h3>Cerebras-GPT</h3>
+                <p>
+                  A family of open-source, large language models trained by
+                  Cerebras, ranging from 111M to 13B parameters.
+                </p>
+                <a
+                  href="https://www.cerebras.net/cerebras-gpt/"
+                  target="_blank"
+                  class="ai-resource-link"
+                >
+                  Explore Cerebras-GPT
+                  <svg viewBox="0 0 100 100"></svg>
+                </a>
+              </div>
+            </div>
+            <div
+              class="ai-resource-item geometric-border p-12 md:p-20"
+              style="animation-delay: 1.2s"
+            >
+              <div class="ai-resource-item-content">
+                <h3>OpenLLaMA</h3>
+                <p>
+                  A permissively licensed open-source large language model,
+                  aiming to replicate Meta's LLaMA model.
+                </p>
+                <a
+                  href="https://github.com/openlm-research/open_llama"
+                  target="_blank"
+                  class="ai-resource-link"
+                >
+                  Explore OpenLLaMA Github
+                  <svg viewBox="0 0 100 100"></svg>
+                </a>
+              </div>
+            </div>
+            <!-- More AI Model items here - Add as needed -->
+          </div>
+        </div>
+      </section>
+
+      <!-- AI APIs Section - Nobel Prize AI APIs -->
+      <section id="ai-apis" class="ai-resource-section px-6">
+        <div class="max-w-screen-xl mx-auto">
+          <h2
+            class="section-title animated-writing-word"
+            style="animation-delay: 0.8s"
+          >
+            <span class="section-title">Commercial APIs</span>
+            <span class="text-deepdoxa-accent section-title">//</span>
+          </h2>
+          <p class="section-subtitle">
+            Deploy elite AI – APIs for enterprise-grade intelligence.
+          </p>
+          <div class="ai-resource-list">
+            <!-- Example AI API Items - Replace with actual resources -->
+            <div class="ai-resource-item" style="animation-delay: 1s">
+              <div class="ai-resource-item-content">
+                <h3>OpenAI APIs</h3>
+                <p>
+                  The gold standard in AI APIs – access GPT, DALL-E, and a suite
+                  of cutting-edge AI services.
+                </p>
+                <a
+                  href="https://openai.com/api/"
+                  target="_blank"
+                  class="ai-resource-link"
+                >
+                  Access OpenAI APIs
+                  <svg viewBox="0 0 100 100"></svg>
+                </a>
+              </div>
+            </div>
+            <div class="ai-resource-item" style="animation-delay: 1.1s">
+              <div class="ai-resource-item-content">
+                <h3>Google AI Platform</h3>
+                <p>
+                  Google's comprehensive AI cloud – APIs for vision, language,
+                  and data mastery, at your command.
+                </p>
+                <a
+                  href="https://cloud.google.com/ai-platform/"
+                  target="_blank"
+                  class="ai-resource-link"
+                >
+                  Initiate Google AI Platform
+                  <svg viewBox="0 0 100 100"></svg>
+                </a>
+              </div>
+            </div>
+            <div class="ai-resource-item" style="animation-delay: 1.2s">
+              <div class="ai-resource-item-content">
+                <h3>Microsoft Azure AI</h3>
+                <p>
+                  Enterprise-ready AI from Microsoft – powerful APIs for
+                  cognitive services and machine learning.
+                </p>
+                <a
+                  href="https://azure.microsoft.com/en-us/products/cognitive-services/"
+                  target="_blank"
+                  class="ai-resource-link"
+                >
+                  Explore Azure AI
+                  <svg viewBox="0 0 100 100"></svg>
+                </a>
+              </div>
+            </div>
+            <div class="ai-resource-item" style="animation-delay: 1.3s">
+              <div class="ai-resource-item-content">
+                <h3>Cohere API</h3>
+                <p>
+                  Focusing on enterprise NLP – Cohere's APIs for text
+                  generation, summarization, and linguistic insight.
+                </p>
+                <a
+                  href="https://cohere.com/"
+                  target="_blank"
+                  class="ai-resource-link"
+                >
+                  Command Cohere API
+                  <svg viewBox="0 0 100 100"></svg>
+                </a>
+              </div>
+            </div>
+            <div class="ai-resource-item" style="animation-delay: 1.4s">
+              <div class="ai-resource-item-content">
+                <h3>AI21 Studio</h3>
+                <p>
+                  Word-class language models and foundation models to power
+                  cutting-edge text-based products.
+                </p>
+                <a
+                  href="https://studio.ai21.com/"
+                  target="_blank"
+                  class="ai-resource-link"
+                >
+                  Access AI21 Studio
+                  <svg viewBox="0 0 100 100"></svg>
+                </a>
+              </div>
+            </div>
+            <!-- More AI API items here - Add as needed -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Add more resource sections (Learning Platforms, Ethics, etc.) here -->
+    </main>
+
+    <footer class="mt-24 relative overflow-hidden" id="mainFooter">
+      <div class="absolute inset-0">
+        <div
+          class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 opacity-50 animate-pulse-bg"
+        ></div>
+        <div
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-highlight-color opacity-10 blur-3xl animate-float-skew"
+        ></div>
+        <div
+          class="absolute bottom-10 right-10 w-16 h-16 border-2 border-dashed border-line-color rounded-full animate-spin-slow opacity-30"
+        ></div>
+      </div>
+      <div class="max-w-screen-xl mx-auto px-6 relative z-10">
+        <div class="footer-brand mb-12 text-center md:text-left">
+          <a
+            href="index.html"
+            class="text-xl tracking-widest font-bold text-primary-color hover:text-highlight-color transition-colors inline-block mb-4 footer-brand-animated-link"
+          >
+            <span class="footer-brand-letter" style="animation-delay: 0s"
+              >D</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.1s"
+              >E</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.2s"
+              >E</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.3s"
+              >P</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.4s"
+              >D</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.5s"
+              >O</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.6s"
+              >X</span
+            ><span class="footer-brand-letter" style="animation-delay: 0.7s"
+              >A</span
+            > </a
+          ><!-- {/* Animated Letters in Brand Link */} -->
+          <p
+            class="footer-brand-text text-secondary-color tracking-wide uppercase letter-widest font-semibold"
+          >
+            Intelligence Engineered. <br />
+            Wisdom Deployed.
+          </p>
+        </div>
+        <div class="footer-links-container md:flex md:justify-between">
+          <div class="footer-links-grid">
+            <div>
+              <h4 class="footer-col-title">Explore</h4>
+              <a href="philosophy.html" class="footer-link">Philosophy</a>
+              <a href="mission.html" class="footer-link">Mission</a>
+              <a href="vision.html" class="footer-link">Vision</a>
+            </div>
+            <div>
+              <h4 class="footer-col-title">Connect</h4>
+              <a href="contact.html" class="footer-link">Contact Us</a>
+              <a href="https://x.com/deepdoxa" class="footer-link">X</a>
+            </div>
+            <div>
+              <h4 class="footer-col-title">Legal</h4>
+              <a href="terms-of-services.html" class="footer-link"
+                >Terms of Service</a
+              >
+              <a href="privacy-policy.html" class="footer-link"
+                >Privacy Policy</a
+              >
+            </div>
+          </div>
+
+          <h2
+            class="text-6xl md:text-8xl font-light mb-8 animated-text leading-tight"
+          >
+            <span class="text-white"> AI 𐌀</span>
+          </h2>
+
+          <div class="footer-cta mt-12 md:mt-0">
+            <p
+              class="footer-manifesto-text text-primary-color tracking-wider uppercase font-bold text-lg"
+            >
+              Advancing Knowledge. <br />
+              Building the Future. <br />
+              For Humanity.
+            </p>
+            <!-- Iframe Container for Background GIF - POSITIONED WITHIN footer-cta -->
+            <div class="fluid-2">
+              <iframe
+                src="fluids/platin-fluid-12.gif"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <a
+              href="https://www.deepseek.com/"
+              style="
+                display: inline-block;
+                padding: 4px 12px;
+                font-size: 16px;
+                font-weight: bold;
+                color: white;
+                text-decoration: none;
+                border-radius: 1px;
+                background: linear-gradient(45deg, #6c757d, #495057);
+                transition: all 0.3s ease-in-out;
+              "
+              onmouseover="this.style.background='linear-gradient(45deg, #495057, #6c757d)'; this.style.transform='scale(1.1)';"
+              onmouseout="this.style.background='linear-gradient(45deg, #6c757d, #495057)'; this.style.transform='scale(1)';"
+            >
+              CLICK DeepSeek LLM
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-copyright">
+          © 2025 <a href="https://deepdoxa.com/">DeepDOXA</a>. All rights
+          reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Scroll progress line
+      const scrollLine = document.getElementById("scrollLine");
+      let ticking = false;
+
+      window.addEventListener("scroll", () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const windowHeight =
+              document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            scrollLine.style.width = `${scrolled}%`;
+
+            if (window.scrollY > 0) {
+              scrollLine.classList.add("scrolling");
+            } else {
+              scrollLine.classList.remove("scrolling");
+            }
+
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    </script>
+    <script src="common.js"></script>
+    <!-- Alpine.js for dropdown functionality (ensure this is in your project if not already) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+  </body>
+</html>
