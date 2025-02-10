@@ -40,10 +40,11 @@
     />
     <link rel="stylesheet" href="cursor.css" />
     <link rel="stylesheet" href="mobile-nav.css" />
+    <link rel="stylesheet" href="styles.css" />
 
-        <!-- Favicons -->
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
-        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap");
@@ -801,6 +802,28 @@
 
     <!-- Main Content -->
     <main class="pt-36 pb-24">
+      <!-- Iframe Container for Background GIF - Ensures no overflow and correct positioning -->
+      <div
+        style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          z-index: -42;
+          pointer-events: none;
+        "
+      >
+        <iframe
+          src="fluids/hear-fluid-13.gif"
+          width="100%"
+          height="100%"
+          style="border: none; display: block"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
       <!-- Philosophy Section -->
       <section
         id="philosophy-hero"
@@ -1047,6 +1070,16 @@
               Building the Future. <br />
               For Humanity.
             </p>
+            <!-- Iframe Container for Background GIF - POSITIONED WITHIN footer-cta -->
+            <div class="fluid-2">
+              <iframe
+                src="fluids/pattern-12358.gif"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
             <a
               href="https://www.deepseek.com/"
               style="
@@ -1069,7 +1102,8 @@
         </div>
 
         <div class="footer-copyright">
-          © 2025 <a href="https://deepdoxa.com/">DeepDoxa</a>. All rights reserved.
+          © 2025 <a href="https://deepdoxa.com/">DeepDoxa</a>. All rights
+          reserved.
         </div>
       </div>
     </footer>
