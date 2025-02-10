@@ -9,37 +9,42 @@
 
 <url>
   <loc>https://deepdoxa.com/</loc>
-  <lastmod>2025-02-08T03:00:19+00:00</lastmod>
+  <lastmod>2025-02-10T05:43:03+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://deepdoxa.com/index.html</loc>
-  <lastmod>2025-02-08T03:00:19+00:00</lastmod>
+  <lastmod>2025-02-10T05:43:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://deepdoxa.com/quantum.html</loc>
-  <lastmod>2025-02-08T03:00:19+00:00</lastmod>
+  <loc>https://deepdoxa.com/philosophy.html</loc>
+  <lastmod>2025-02-10T05:43:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://deepdoxa.com/algorithms.html</loc>
-  <lastmod>2025-02-08T03:00:19+00:00</lastmod>
+  <loc>https://deepdoxa.com/mission.html</loc>
+  <lastmod>2025-02-10T05:43:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://deepdoxa.com/doxa.html</loc>
-  <lastmod>2025-02-08T03:00:19+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://deepdoxa.com/ai.html</loc>
-  <lastmod>2025-02-08T03:00:19+00:00</lastmod>
+  <loc>https://deepdoxa.com/vision.html</loc>
+  <lastmod>2025-02-10T05:43:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://deepdoxa.com/contact.html</loc>
-  <lastmod>2025-02-08T03:00:19+00:00</lastmod>
+  <lastmod>2025-02-10T05:43:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deepdoxa.com/terms-of-services.html</loc>
+  <lastmod>2025-02-10T05:43:03+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deepdoxa.com/privacy-policy.html</loc>
+  <lastmod>2025-02-10T05:43:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
