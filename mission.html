@@ -40,6 +40,7 @@
     />
     <link rel="stylesheet" href="cursor.css" />
     <link rel="stylesheet" href="mobile-nav.css" />
+    <link rel="stylesheet" href="styles.css" />
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
@@ -299,6 +300,7 @@
           #e0f7fa,
           #c8e6c9
         ); /* Gradient background for mission hero */
+        z-index: -44;  
       }
 
       #mission-hero .geometric-border {
@@ -737,6 +739,29 @@
 
     <!-- Main Content -->
     <main class="pt-36 pb-24">
+      <!-- Iframe Container for Background GIF - Ensures no overflow and correct positioning -->
+      <div
+        style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          z-index: -42;
+          pointer-events: none;
+        "
+      >
+        <iframe
+          src="fluids/platin-fluid-12.gif"
+          width="100%"
+          height="100%"
+          style="border: none; display: block"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+
       <!-- Mission Section -->
       <section
         id="mission-hero"
@@ -1034,6 +1059,16 @@
               Building the Future. <br />
               For Humanity.
             </p>
+            <!-- Iframe Container for Background GIF - POSITIONED WITHIN footer-cta -->
+            <div class="fluid-2">
+              <iframe
+                src="fluids/pattern-12358.gif"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
             <a
               href="https://www.deepseek.com/"
               style="
