@@ -40,6 +40,7 @@
     />
     <link rel="stylesheet" href="cursor.css" />
     <link rel="stylesheet" href="mobile-nav.css" />
+    <link rel="stylesheet" href="styles.css" />
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
@@ -299,6 +300,7 @@
           #f0f2f5,
           #e0f7fa
         ); /* Soft gradient for vision hero */
+        z-index: -44;
       }
 
       #vision-hero .geometric-border {
@@ -744,6 +746,28 @@
 
     <!-- Main Content -->
     <main class="pt-36 pb-24">
+      <!-- Iframe Container for Background GIF - Ensures no overflow and correct positioning -->
+      <div
+        style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          z-index: -42;
+          pointer-events: none;
+        "
+      >
+        <iframe
+          src="c:\Users\sergi\Downloads\hear-fluid-3.gif"
+          width="100%"
+          height="100%"
+          style="border: none; display: block"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
       <!-- Vision Section -->
       <section
         id="vision-hero"
@@ -1023,6 +1047,16 @@
               Building the Future. <br />
               For Humanity.
             </p>
+            <!-- Iframe Container for Background GIF - POSITIONED WITHIN footer-cta -->
+            <div class="fluid-2">
+              <iframe
+                src="c:\Users\sergi\Downloads\pattern-12358.gif"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
             <a
               href="https://www.deepseek.com/"
               style="
