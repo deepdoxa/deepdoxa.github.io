@@ -72,7 +72,7 @@
         --line-color: rgba(0, 0, 0, 0.07); /* Slightly more visible lines */
         --accent-color: #000;
         --primary-color: #1a202c;
-        --secondary-color: #718096; /* Lighter secondary color for better contrast on dark text */
+        --secondary-color: #333333; /* Lighter secondary color for better contrast on dark text */
         --highlight-color: #4299e1; /* Brighter highlight blue */
         --footer-background: #f0f2f5; /* Light gray footer background */
       }
@@ -238,36 +238,6 @@
         }
       }
 
-      .scroll-line {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 2px;
-        background: var(--highlight-color);
-        z-index: 1000;
-        transition: height 0.3s ease; /* Smooth height transition */
-      }
-
-      .scroll-line.scrolling {
-        /* Class added by JS when scrolling starts */
-        height: 4px; /* Thicker line when scrolling */
-      }
-
-      .side-nav {
-        writing-mode: vertical-rl;
-        transform: rotate(180deg);
-        opacity: 0.9; /* Slightly less opaque side nav */
-      }
-
-      .side-nav a {
-        transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions for side nav links */
-      }
-
-      .side-nav a:hover {
-        color: var(--primary-color);
-        transform: scale(1.1); /* Gentle scale on hover */
-      }
-
       .quote-box {
         position: relative;
         background-color: #edf2f7;
@@ -302,7 +272,7 @@
       }
 
       .feature-title {
-        font-size: 2.5xl; /* Larger feature titles */
+        font-size: 2.5rem; /* Larger feature titles */
         font-weight: 500;
         margin-bottom: 1.25rem;
       }
@@ -318,13 +288,13 @@
           display: none; /* Hide side nav on smaller screens */
         }
         .section-title {
-          font-size: 3xl; /* Smaller section titles on mobile */
+          font-size: 3rem; /* Smaller section titles on mobile */
         }
         .section-subtitle {
           font-size: 1rem; /* Smaller subtitles on mobile */
         }
         .feature-title {
-          font-size: 2xl; /* Smaller feature titles on mobile */
+          font-size: 2rem; /* Smaller feature titles on mobile */
         }
       }
 
@@ -354,245 +324,6 @@
         display: block; /* Ensure privacy note is on a new line */
         color: rgba(0, 0, 0, 0.5); /* Muted privacy note color */
         margin-top: 0.3rem; /* Reduced margin above privacy note */
-      }
-
-      /* Footer Styles - MILITARY ARCHITECTURAL BRILLIANCE - ANIMATED */
-      footer#mainFooter {
-        background-color: var(--footer-background);
-        padding: 8rem 1rem;
-        border-top: 2px dashed var(--line-color);
-        border-bottom: 2px dashed var(--line-color);
-        position: relative;
-        overflow: hidden;
-        transition: all 0.5s ease-out; /* Smooth transition for scroll animation */
-      }
-
-      footer#mainFooter.footer-active {
-        /* Active class triggered by scroll */
-        background-color: #e5e7eb; /* Slightly darker background when active */
-        box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.06); /* Subtle shadow when active */
-      }
-
-      footer#mainFooter::before,
-      footer#mainFooter::after {
-        content: "";
-        position: absolute;
-        width: 150%;
-        height: 2px;
-        background: var(--line-color);
-        opacity: 0.6;
-      }
-
-      footer#mainFooter::before {
-        top: 5%;
-        left: -25%;
-        transform: rotate(-7deg);
-        animation: footerLineSlide 25s linear infinite; /* Slower slide animation */
-      }
-
-      footer#mainFooter::after {
-        bottom: 5%;
-        right: -25%;
-        transform: rotate(5deg);
-        animation: footerLineSlideReverse 30s linear infinite; /* Even slower reverse slide */
-      }
-
-      @keyframes footerLineSlideReverse {
-        /* Reverse slide animation for bottom line */
-        to {
-          transform: translateX(-20%);
-        }
-      }
-
-      .footer-brand {
-        margin-bottom: 3rem;
-        border-left: 3px solid var(--highlight-color);
-        padding-left: 1.5rem;
-      }
-
-      .footer-brand-animated-link {
-        display: inline-block; /* Ensure letters animate inline */
-      }
-
-      .footer-brand-letter {
-        /* Animated Letters - Subtle Vertical Bounce */
-        display: inline-block; /* Keep letters inline */
-        transition: transform 0.4s ease-out; /* Smooth letter bounce */
-        animation: letterBounce 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55)
-          infinite; /* Bouncy letter animation */
-        position: relative; /* For individual letter animation */
-      }
-
-      @keyframes letterBounce {
-        /* Subtle vertical bounce animation for letters */
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-5px);
-        } /* Bounce upwards slightly */
-      }
-
-      .footer-brand-letter:nth-child(2) {
-        animation-delay: 0.1s;
-      }
-      .footer-brand-letter:nth-child(3) {
-        animation-delay: 0.2s;
-      }
-      .footer-brand-letter:nth-child(4) {
-        animation-delay: 0.3s;
-      }
-      .footer-brand-letter:nth-child(5) {
-        animation-delay: 0.4s;
-      }
-      .footer-brand-letter:nth-child(6) {
-        animation-delay: 0.5s;
-      }
-      .footer-brand-letter:nth-child(7) {
-        animation-delay: 0.6s;
-      }
-      .footer-brand-letter:nth-child(8) {
-        animation-delay: 0.7s;
-      }
-
-      .footer-brand-text {
-        font-size: 1.1rem;
-        line-height: 1.7;
-        max-width: 500px;
-        letter-spacing: 0.15em;
-      }
-
-      .footer-links-container {
-        margin-bottom: 4rem;
-      }
-
-      .footer-links-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 2rem;
-      }
-
-      .footer-col-title {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        border-bottom: 1px solid var(--line-color);
-        padding-bottom: 0.5rem;
-      }
-
-      .footer-link {
-        display: block;
-        color: var(--secondary-color);
-        padding: 0.5rem;
-        transition: color 0.3s ease, transform 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        font-weight: 500;
-      }
-
-      .footer-link:hover {
-        color: var(--accent-color);
-        transform: translateX(2px);
-      }
-
-      .footer-link::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 3px;
-        height: 0%;
-        background-color: var(--accent-color);
-        transition: height 0.4s cubic-bezier(0.7, 0, 0.3, 1);
-        transform-origin: bottom;
-      }
-
-      .footer-link:hover::after {
-        height: 100%;
-      }
-
-      /* Footer CTA - Mini-Manifesto Section - MILITARY BOLD */
-      .footer-cta {
-        padding-left: 2rem;
-        border-left: 2px solid var(--highlight-color);
-      }
-
-      .footer-manifesto-text {
-        font-size: 1.2rem;
-        line-height: 1.6;
-        margin-bottom: 0;
-        max-width: 450px;
-        letter-spacing: 0.08em;
-        font-weight: 700;
-        text-transform: uppercase;
-      }
-
-      .footer-copyright {
-        font-size: 0.85rem;
-        color: var(--secondary-color);
-        text-align: center;
-        padding-top: 2.5rem;
-        border-top: 1px solid var(--line-color);
-        margin-top: 3rem;
-      }
-
-      /* Military Cursor Style - CROSSHAIR */
-      body {
-        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M16 2c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16z m0 28c-6.627 0-12-5.373-12-12s5.373-12 12-12 12 5.373 12 12-5.373 12-12 12zM16 8v16m0-8h8m-8 0h-8" fill="%232d3748" /></svg> 16 16, auto');
-      }
-
-      /* Ultra Rich Page Motion - SMOOTHER SCROLLING */
-      html {
-        scroll-behavior: smooth; /* Enable smooth scrolling */
-      }
-
-      /* Responsive adjustments for Footer */
-      @media (max-width: 768px) {
-        footer#mainFooter {
-          padding: 5rem 1rem;
-          border-top-width: 1px;
-          border-bottom-width: 1px;
-        }
-        footer#mainFooter::before,
-        footer#mainFooter::after {
-          height: 1px;
-          opacity: 0.5;
-        }
-        .footer-links-container {
-          flex-direction: column;
-        }
-        .footer-cta {
-          padding-left: 0;
-          margin-top: 2rem;
-          border-left: none;
-          padding-top: 2rem;
-          border-top: 1px solid var(--line-color);
-        }
-        .footer-links-grid {
-          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-          margin-bottom: 1rem;
-        }
-        .footer-brand {
-          text-align: center;
-          margin-bottom: 1.5rem;
-          border-left: none;
-          padding-left: 0;
-        }
-        .footer-brand-text {
-          font-size: 1rem;
-        }
-        .footer-manifesto-text {
-          font-size: 1.1rem;
-          text-align: center;
-        }
-        .footer-copyright {
-          padding-top: 1.5rem;
-          margin-top: 2rem;
-        }
       }
     </style>
   </head>
@@ -634,14 +365,14 @@
         <!-- Brand Logo -->
         <a
           href="index.html"
-          class="flex items-center font-grotesk font-bold text-xl text-secondary-deepdoxa hover:text-accent-deepdoxa transition-colors duration-300"
+          class="flex items-center font-grotesk font-light text-xl text-secondary-deepdoxa hover:text-accent-deepdoxa transition-colors duration-300"
         >
           DeepDOXΛ
         </a>
 
         <!-- Navigation Links (Desktop - Hidden on Mobile initially) -->
         <div
-          class="hidden md:flex space-x-8 font-medium text-sm tracking-wider text-secondary-deepdoxa"
+          class="hidden md:flex space-x-8 font-light text-sm tracking-wider text-secondary-deepdoxa"
         >
           <a
             href="ai.html"
@@ -712,7 +443,7 @@
                       <div
                         class="w-2 h-2 rounded-full bg-accent-deepdoxa"
                       ></div>
-                      <h3 class="font-semibold text-secondary-deepdoxa">
+                      <h3 class="font-light text-secondary-deepdoxa">
                         DeepSEEK
                       </h3>
                     </div>
@@ -740,7 +471,7 @@
                       <div
                         class="w-2 h-2 rounded-full bg-accent-deepdoxa"
                       ></div>
-                      <h3 class="font-semibold text-secondary-deepdoxa">
+                      <h3 class="font-light text-secondary-deepdoxa">
                         OPENAI
                       </h3>
                     </div>
@@ -779,7 +510,7 @@
         <a
           href="https://www.deepseek.com/"
           target="_blank"
-          class="hidden md:inline-flex items-center bg-button-deepdoxa hover:bg-button-hover-deepdoxa text-secondary-deepdoxa font-medium text-sm px-4 py-2 transition-colors duration-300 border border-line-deepdoxa group"
+          class="hidden md:inline-flex items-center bg-button-deepdoxa hover:bg-button-hover-deepdoxa text-secondary-deepdoxa font-light text-sm px-4 py-2 transition-colors duration-300 border border-line-deepdoxa group"
         >
           EXPLORE APPS
           <svg
@@ -839,7 +570,7 @@
 
           <!-- Mobile Navigation Links -->
           <div
-            class="flex flex-col space-y-4 font-medium text-lg tracking-wider text-secondary-deepdoxa"
+            class="flex flex-col space-y-4 font-light text-lg tracking-wider text-secondary-deepdoxa"
           >
             <a href="ai.html" class="mobile-nav-link">ѦI</a>
             <a href="philosophy.html" class="mobile-nav-link">PHILOSOPHY</a>
@@ -882,7 +613,7 @@
                         <div
                           class="w-2 h-2 rounded-full bg-accent-deepdoxa"
                         ></div>
-                        <h3 class="font-semibold text-secondary-deepdoxa">
+                        <h3 class="font-light text-secondary-deepdoxa">
                           DeepSEEK
                         </h3>
                       </div>
@@ -910,7 +641,7 @@
                         <div
                           class="w-2 h-2 rounded-full bg-accent-deepdoxa"
                         ></div>
-                        <h3 class="font-semibold text-secondary-deepdoxa">
+                        <h3 class="font-light text-secondary-deepdoxa">
                           OPENAI
                         </h3>
                       </div>
@@ -951,7 +682,7 @@
       class="fixed left-6 top-1/2 transform -translate-y-1/2 hidden md:block"
     >
       <div
-        class="side-nav space-y-6 text-sm tracking-wider text-gray-400 font-medium"
+        class="side-nav space-y-6 text-sm tracking-wider text-gray-400 font-light"
       >
         <a href="#definition" class="hover:text-primary-color transition-colors"
           >DEFINITION</a
@@ -1021,9 +752,9 @@
         </div>
         <div class="max-w-screen-xl mx-auto relative z-10">
           <!-- {/* Content positioned above animation */} -->
-          <div class="geometric-border p-12 md:p-20">
+          <div class="p-12 md:p-20">
             <h1
-              class="text-6xl md:text-8xl font-light mb-8 animated-text leading-tight"
+              class="geometric-border text-6xl md:text-8xl font-light mb-8 animated-text leading-tight"
             >
               <span class="text-white">DeepDoxa</span>
             </h1>
@@ -1046,9 +777,9 @@
               CLICK DeepSeek LLM
             </a> -->
             <p
-              class="text-xl md:text-2xl text-secondary-color mb-12 md:mb-16 tracking-wide"
+              class="geometric-border text-xl md:text-2xl text-secondary-color mb-12 md:mb-16 tracking-wide"
             >
-              <span class="font-medium text-primary-color"
+              <span class="font-light text-primary-color"
                 >Unveiling Intelligent Futures.</span
               >
               We explore the synergy of ancient wisdom and cutting-edge AI,
@@ -1056,7 +787,7 @@
             </p>
             <a
               href="#definition"
-              class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-highlight-color hover:bg-highlight-color/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-highlight-color transition-transform hover:scale-105"
+              class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-light rounded-md text-white bg-highlight-color hover:bg-highlight-color/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-highlight-color transition-transform hover:scale-105"
               ><span class="permanent-highlight">Explore Doxa</span></a
             >
           </div>
@@ -1078,9 +809,9 @@
       <!-- Why DeepDoxa Section -->
       <section id="why-deepdoxa" class="min-h-screen px-6 py-24 bg-gray-50">
         <div class="max-w-screen-xl mx-auto">
-          <div class="geometric-border p-12 md:p-20">
+          <div class="p-12 md:p-20">
             <h2
-              class="text-3xl md:text-8xl font-light mb-8 animated-text leading-tight"
+              class="geometric-border text-3xl md:text-8xl font-light mb-8 animated-text leading-tight"
             >
               <span class="text-white">Why DeepDoxa?</span>
             </h2>
@@ -1133,7 +864,7 @@
           <span>DOXA</span>
         </div>
         <div class="max-w-screen-xl mx-auto">
-          <div class="geometric-border p-12 md:p-20">
+          <div class="p-12 md:p-20">
             <h2 class="section-title animated-text">
               <span class="text-white">Doxa</span>
             </h2>
@@ -1146,12 +877,14 @@
               class="blur-background flex flex-col md:flex-row md:space-x-24"
             >
               <div class="md:w-1/3">
-                <span class="text-sm tracking-widest text-gray-500 font-medium"
+                <span class="text-sm tracking-widest text-gray-500 font-light"
                   >DEFINITION</span
                 >
               </div>
               <div class="md:w-2/3">
-                <p class="text-xl text-gray-800 mb-8 tracking-wide">
+                <p
+                  class="geometric-border text-xl text-gray-800 mb-8 tracking-wide"
+                >
                   From the ancient Greek δόξα, Doxa represents common belief,
                   popular opinion, and the intersection of knowledge and
                   perception. It's the foundation upon which we build our
@@ -1175,7 +908,7 @@
         <div class="max-w-screen-xl mx-auto">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-24">
             <div class="geometric-border p-12 md:p-20">
-              <span class="text-sm tracking-widest text-gray-500 font-medium"
+              <span class="text-sm tracking-widest text-gray-500 font-light"
                 >ETYMOLOGY</span
               >
               <h3 class="feature-title">Ancient Wisdom</h3>
@@ -1187,7 +920,7 @@
               </p>
             </div>
             <div class="geometric-border p-12 md:p-20">
-              <span class="text-sm tracking-widest text-gray-500 font-medium"
+              <span class="text-sm tracking-widest text-gray-500 font-light"
                 >EVOLUTION</span
               >
               <h3 class="feature-title">Modern Context</h3>
@@ -1205,7 +938,7 @@
       <!-- Meaning Section -->
       <section id="meaning" class="min-h-screen px-6 py-24">
         <div class="max-w-screen-xl mx-auto">
-          <div class="geometric-border p-12 md:p-20">
+          <div class="p-12 md:p-20">
             <h2
               class="text-3xl md:text-8xl font-light mb-8 animated-text leading-tight"
             >
@@ -1219,7 +952,7 @@
                 class="blur-background hover:geometric-border geometric-border p-8 transition-shadow duration-300 ease-in-out hover:shadow-lg"
               >
                 <!-- {/* Hover effects on meaning boxes */} -->
-                <span class="text-sm tracking-widest text-black-500 font-medium"
+                <span class="text-sm tracking-widest text-black-500 font-light"
                   >KNOWLEDGE</span
                 >
                 <p class="mt-4 text-gray-600">
@@ -1230,7 +963,7 @@
               <div
                 class="blur-background hover:geometric-border geometric-border p-8 transition-shadow duration-300 ease-in-out hover:shadow-lg"
               >
-                <span class="text-sm tracking-widest text-black-500 font-medium"
+                <span class="text-sm tracking-widest text-black-500 font-light"
                   >WISDOM</span
                 >
                 <p class="mt-4 text-gray-600">
@@ -1241,7 +974,7 @@
               <div
                 class="blur-background hover:geometric-border geometric-border p-8 transition-shadow duration-300 ease-in-out hover:shadow-lg"
               >
-                <span class="text-sm tracking-widest text-black-500 font-medium"
+                <span class="text-sm tracking-widest text-black-500 font-light"
                   >INTELLIGENCE</span
                 >
                 <p class="mt-4 text-gray-600">
@@ -1257,121 +990,118 @@
     </main>
 
     <footer class="mt-24 relative overflow-hidden" id="mainFooter">
-      <div class="absolute inset-0">
-        <div
-          class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 opacity-50 animate-pulse-bg"
-        ></div>
-        <div
-          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-highlight-color opacity-10 blur-3xl animate-float-skew"
-        ></div>
-        <div
-          class="absolute bottom-10 right-10 w-16 h-16 border-2 border-dashed border-line-color rounded-full animate-spin-slow opacity-30"
-        ></div>
-      </div>
+      <div class="absolute inset-0 bg-gray-950/70 backdrop-blur-xl z-0"></div>
+
       <div class="max-w-screen-xl mx-auto px-6 relative z-10">
-        <div class="footer-brand mb-12 text-center md:text-left">
+        <div class="footer-brand mb-16 text-center md:text-left">
           <a
             href="index.html"
-            class="text-xl tracking-widest font-bold text-primary-color hover:text-highlight-color transition-colors inline-block mb-4 footer-brand-animated-link"
+            class="text-xl tracking-widest font-light text-white hover:text-highlight transition-colors inline-block mb-6 footer-brand-animated-link"
           >
             <span class="footer-brand-letter" style="animation-delay: 0s"
               >D</span
-            ><span class="footer-brand-letter" style="animation-delay: 0.1s"
+            >
+            <span class="footer-brand-letter" style="animation-delay: 0.1s"
               >E</span
-            ><span class="footer-brand-letter" style="animation-delay: 0.2s"
+            >
+            <span class="footer-brand-letter" style="animation-delay: 0.2s"
               >E</span
-            ><span class="footer-brand-letter" style="animation-delay: 0.3s"
+            >
+            <span class="footer-brand-letter" style="animation-delay: 0.3s"
               >P</span
-            ><span class="footer-brand-letter" style="animation-delay: 0.4s"
+            >
+            <span class="footer-brand-letter" style="animation-delay: 0.4s"
               >D</span
-            ><span class="footer-brand-letter" style="animation-delay: 0.5s"
+            >
+            <span class="footer-brand-letter" style="animation-delay: 0.5s"
               >O</span
-            ><span class="footer-brand-letter" style="animation-delay: 0.6s"
+            >
+            <span class="footer-brand-letter" style="animation-delay: 0.6s"
               >X</span
-            ><span class="footer-brand-letter" style="animation-delay: 0.7s"
+            >
+            <span class="footer-brand-letter" style="animation-delay: 0.7s"
               >A</span
-            > </a
-          ><!-- {/* Animated Letters in Brand Link */} -->
+            >
+          </a>
           <p
-            class="footer-brand-text text-secondary-color tracking-wide uppercase letter-widest font-semibold"
+            class="footer-brand-text text-gray-400 tracking-wide uppercase letter-widest font-light text-sm md:text-base geometric-border"
           >
             Intelligence Engineered. <br />
             Wisdom Deployed.
           </p>
         </div>
-        <div class="footer-links-container md:flex md:justify-between">
-          <div class="footer-links-grid">
+
+        <div
+          class="footer-links-container grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24"
+        >
+          <div class="footer-links-grid space-y-6">
             <div>
               <h4 class="footer-col-title">Explore</h4>
-              <a href="philosophy.html" class="footer-link">Philosophy</a>
-              <a href="mission.html" class="footer-link">Mission</a>
-              <a href="vision.html" class="footer-link">Vision</a>
+              <div class="mt-4 space-y-2">
+                <a href="philosophy.html" class="footer-link">Philosophy</a>
+                <a href="mission.html" class="footer-link">Mission</a>
+                <a href="vision.html" class="footer-link">Vision</a>
+              </div>
             </div>
             <div>
               <h4 class="footer-col-title">Connect</h4>
-              <a href="contact.html" class="footer-link">Contact Us</a>
-              <a href="https://x.com/deepdoxa" class="footer-link">X</a>
+              <div class="mt-4 space-y-2">
+                <a href="contact.html" class="footer-link">Contact Us</a>
+                <a href="https://x.com/deepdoxa" class="footer-link">X</a>
+              </div>
             </div>
             <div>
               <h4 class="footer-col-title">Legal</h4>
-              <a href="terms-of-services.html" class="footer-link"
-                >Terms of Service</a
-              >
-              <a href="privacy-policy.html" class="footer-link"
-                >Privacy Policy</a
-              >
+              <div class="mt-4 space-y-2">
+                <a href="terms-of-services.html" class="footer-link"
+                  >Terms of Service</a
+                >
+                <a href="privacy-policy.html" class="footer-link"
+                  >Privacy Policy</a
+                >
+              </div>
             </div>
           </div>
 
-          <h2
-            class="text-6xl md:text-8xl font-light mb-8 animated-text leading-tight"
-          >
-            <span class="text-white"> MAIN 𐌌</span>
-          </h2>
+          <div class="flex items-center justify-center">
+            <h2 class="footer-main-title">
+              <span class="permanent-highlight"> MAIN 𐌌</span>
+            </h2>
+          </div>
 
-          <div class="footer-cta mt-12 md:mt-0">
-            <p
-              class="footer-manifesto-text text-primary-color tracking-wider uppercase font-bold text-lg"
-            >
-              Advancing Knowledge. <br />
-              Building the Future. <br />
-              For Humanity.
-            </p>
-            <!-- Iframe Container for Background GIF - POSITIONED WITHIN footer-cta -->
-            <div class="fluid-2">
-              <iframe
-                src="fluids/pattern-12358.gif"
-                width="100%"
-                height="100%"
-                frameborder="0"
-                allowfullscreen
-              ></iframe>
+          <div class="footer-cta flex flex-col justify-between">
+            <div>
+              <p
+                class="footer-manifesto-text text-highlight tracking-wider uppercase font-light text-lg mb-8 md:mb-12 geometric-border"
+              >
+                Advancing Knowledge. <br />
+                Building the Future. <br />
+                For Humanity.
+              </p>
             </div>
-
-            <!-- <a
-              href="https://www.deepseek.com/"
-              style="
-                display: inline-block;
-                padding: 4px 12px;
-                font-size: 16px;
-                font-weight: bold;
-                color: white;
-                text-decoration: none;
-                border-radius: 1px;
-                background: linear-gradient(45deg, #6c757d, #495057);
-                transition: all 0.3s ease-in-out;
-              "
-              onmouseover="this.style.background='linear-gradient(45deg, #495057, #6c757d)'; this.style.transform='scale(1.1)';"
-              onmouseout="this.style.background='linear-gradient(45deg, #6c757d, #495057)'; this.style.transform='scale(1)';"
-            >
-              CLICK DeepSeek LLM
-            </a> -->
           </div>
         </div>
 
-        <div class="footer-copyright">
-          © 2025 <a href="https://deepdoxa.com/">DeepDOXA</a>. All rights
-          reserved.
+        <div
+          class="footer-copyright mt-16 pt-8 border-t border-gray-700 text-center text-gray-500 text-sm"
+        >
+          © 2025
+          <a
+            href="https://deepdoxa.com/"
+            class="hover:text-white transition-colors"
+            >DeepDOXA</a
+          >. All rights reserved.
+        </div>
+
+        <!-- Dynamic Lines Container -->
+        <div
+          class="dynamic-lines absolute inset-0 pointer-events-none"
+          aria-hidden="true"
+        >
+          <div class="line line-1"></div>
+          <div class="line line-2"></div>
+          <div class="line line-3"></div>
+          <div class="line line-4"></div>
         </div>
       </div>
     </footer>
