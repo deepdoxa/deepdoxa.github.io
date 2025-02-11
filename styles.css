@@ -15,11 +15,13 @@
   --border-color-accent: #ffffff;
   --celestial-gold: #000;
   --celestial-gold-shadow: rgba(255, 171, 64, 0.2);
+  --footer-text-color: #333333;
+  --scroll-line-color: #111021;
 }
 
 body {
   font-family: "Space Grotesk", sans-serif;
-  background-color: #121212;
+  background-color: #987789;
   color: var(--primary-color);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -28,161 +30,158 @@ body {
   font-weight: 500;
 }
 
-footer#mainFooter {
-  background-color: var(--footer-background);
-  padding: 6rem 1rem;
-  border-top: 2px dashed var(--line-color);
-  border-bottom: 2px dashed var(--line-color);
-  opacity: 1;
+.scroll-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 1.5px;
+  background: var(--scroll-line-color);
+  z-index: 1000;
+  transition: height 0.3s ease; /* Smooth height transition */
 }
 
-footer#mainFooter::before,
-footer#mainFooter::after {
-  opacity: 0.7;
+.scroll-line.scrolling {
+  /* Class added by JS when scrolling starts */
+  height: 2px; /* Thicker line when scrolling */
 }
 
-.footer-col-title {
-  font-size: 1.25rem;
-  font-weight: 600;
+.side-nav {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  opacity: 0.9; /* Slightly less opaque side nav */
+}
+
+.side-nav a {
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions for side nav links */
+}
+
+.side-nav a:hover {
   color: var(--primary-color);
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 1;
+  transform: scale(1.1); /* Gentle scale on hover */
 }
 
-.footer-link {
-  opacity: 0.9;
-}
+/* GLOBAL FOOTER STYLES */
 
-.footer-link:hover {
-  opacity: 1;
-}
-
-.footer-copyright {
-  opacity: 0.9;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .side-nav {
-    display: none;
-  }
-  .section-title {
-    font-size: 3xl;
-  }
-  .section-subtitle {
-    font-size: 1rem;
-  }
-  .feature-title {
-    font-size: 2xl;
-  }
-}
-
-/* Footer Styles - MILITARY ARCHITECTURAL BRILLIANCE - ANIMATED */
 footer#mainFooter {
-  background-color: var(--footer-background);
-  padding: 8rem 1rem;
-  border-top: 2px dashed var(--line-color);
-  border-bottom: 2px dashed var(--line-color);
-  position: relative;
+  /* padding: 6rem 1rem; */
+  position: relative; /* For absolute positioning of blur and lines */
   overflow: hidden;
-  transition: all 0.5s ease-out; /* Smooth transition for scroll animation */
+  color-scheme: dark; /* Force dark mode */
+  background-color: rgba(255, 255, 255, 0.1);
+  /* border-top: 1px solid var(--celestial-gold); */
+  position: relative;
+  backdrop-filter: blur(10px);
 }
 
-footer#mainFooter.footer-active {
-  /* Active class triggered by scroll */
-  background-color: #e5e7eb; /* Slightly darker background when active */
-  box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.06); /* Subtle shadow when active */
-}
-
-footer#mainFooter::before,
-footer#mainFooter::after {
-  content: "";
+/* --- Background Blur Layer --- */
+footer#mainFooter > div:first-child {
+  /* Targeting the blur layer */
   position: absolute;
+  inset: 0;
+}
+
+/* --- Dynamic Lines Animation --- */
+.dynamic-lines {
+  z-index: 1; /* Lines are above the blur but below content */
+}
+
+.dynamic-lines .line {
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--highlight-rgb), 0.1),
+    rgba(var(--highlight-rgb), 0.5)
+  ); /* Highlight color gradient */
+  opacity: 0.7;
+  animation: pan 20s linear infinite; /* Shared panning animation */
+}
+
+.dynamic-lines .line-1 {
+  top: 10%;
+  left: -10%;
   width: 150%;
-  height: 2px;
-  background: var(--line-color);
-  opacity: 0.6;
+  height: 1px;
 }
 
-footer#mainFooter::before {
-  top: 5%;
-  left: -25%;
-  transform: rotate(-7deg);
-  animation: footerLineSlide 25s linear infinite; /* Slower slide animation */
+.dynamic-lines .line-2 {
+  top: 30%;
+  right: -10%;
+  width: 150%;
+  height: 1px;
+  animation-delay: -5s; /* Offset animation start */
 }
 
-footer#mainFooter::after {
-  bottom: 5%;
-  right: -25%;
-  transform: rotate(5deg);
-  animation: footerLineSlideReverse 30s linear infinite; /* Even slower reverse slide */
+.dynamic-lines .line-3 {
+  bottom: 40%;
+  left: -10%;
+  width: 150%;
+  height: 1px;
+  animation-delay: -10s;
 }
 
-@keyframes footerLineSlideReverse {
-  /* Reverse slide animation for bottom line */
-  to {
-    transform: translateX(-20%);
-  }
+.dynamic-lines .line-4 {
+  bottom: 15%;
+  right: -10%;
+  width: 150%;
+  height: 1px;
+  animation-delay: -15s;
+}
+
+@keyframes pan {
+  100% {
+    background-position: 1000px 0;
+  } /* Move gradient for panning effect */
 }
 
 .footer-brand {
   margin-bottom: 3rem;
-  border-left: 3px solid var(--highlight-color);
-  padding-left: 1.5rem;
+  padding-left: 0;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-brand {
+    text-align: left;
+  }
 }
 
 .footer-brand-animated-link {
-  display: inline-block; /* Ensure letters animate inline */
+  display: inline-block;
 }
 
 .footer-brand-letter {
-  /* Animated Letters - Subtle Vertical Bounce */
-  display: inline-block; /* Keep letters inline */
-  transition: transform 0.4s ease-out; /* Smooth letter bounce */
-  animation: letterBounce 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; /* Bouncy letter animation */
-  position: relative; /* For individual letter animation */
+  display: inline-block;
+  transition: transform 0.4s ease-out;
+  animation: letterBounce 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+  position: relative;
 }
 
 @keyframes letterBounce {
-  /* Subtle vertical bounce animation for letters */
   0%,
   100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-5px);
-  } /* Bounce upwards slightly */
-}
-
-.footer-brand-letter:nth-child(2) {
-  animation-delay: 0.1s;
-}
-.footer-brand-letter:nth-child(3) {
-  animation-delay: 0.2s;
-}
-.footer-brand-letter:nth-child(4) {
-  animation-delay: 0.3s;
-}
-.footer-brand-letter:nth-child(5) {
-  animation-delay: 0.4s;
-}
-.footer-brand-letter:nth-child(6) {
-  animation-delay: 0.5s;
-}
-.footer-brand-letter:nth-child(7) {
-  animation-delay: 0.6s;
-}
-.footer-brand-letter:nth-child(8) {
-  animation-delay: 0.7s;
+    transform: translateY(-3px);
+  }
 }
 
 .footer-brand-text {
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: 0.9rem;
+  line-height: 1.6;
   max-width: 500px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .footer-brand-text {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .footer-links-container {
@@ -190,35 +189,35 @@ footer#mainFooter::after {
 }
 
 .footer-links-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
 .footer-col-title {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--primary-color);
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-bottom: 1px solid var(--line-color);
-  padding-bottom: 0.5rem;
+  letter-spacing: 0.08em;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .footer-link {
+  opacity: 0.8;
   display: block;
   color: var(--secondary-color);
-  padding: 0.5rem;
-  transition: color 0.3s ease, transform 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  font-weight: 500;
+  padding: 0.4rem 0;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 .footer-link:hover {
-  color: var(--accent-color);
-  transform: translateX(2px);
+  opacity: 1;
+  color: var(--highlight);
 }
 
 .footer-link::after {
@@ -226,50 +225,53 @@ footer#mainFooter::after {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 3px;
-  height: 0%;
-  background-color: var(--accent-color);
-  transition: height 0.4s cubic-bezier(0.7, 0, 0.3, 1);
-  transform-origin: bottom;
+  width: 0%;
+  height: 1px;
+  background-color: var(--highlight);
+  transition: width 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+  transform-origin: left;
 }
 
 .footer-link:hover::after {
-  height: 100%;
+  width: 100%;
 }
 
-/* Footer CTA - Mini-Manifesto Section - MILITARY BOLD */
+.footer-main-title {
+  font-size: 7rem;
+  font-weight: 200; /* Lighter font weight */
+  line-height: 1; /* Tighter line height */
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: -0.05em; /* Slightly tighter letter spacing */
+}
+
 .footer-cta {
-  padding-left: 2rem;
-  border-left: 2px solid var(--highlight-color);
+  padding-left: 0;
+  border-left: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .footer-manifesto-text {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
   max-width: 450px;
-  letter-spacing: 0.08em;
-  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-weight: 600;
   text-transform: uppercase;
+  color: var(--highlight); /* Use highlight color variable */
 }
 
 .footer-copyright {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--secondary-color);
   text-align: center;
-  padding-top: 2.5rem;
+  padding-top: 2rem;
   border-top: 1px solid var(--line-color);
   margin-top: 3rem;
-}
-
-/* Military Cursor Style - CROSSHAIR */
-body {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M16 2c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16z m0 28c-6.627 0-12-5.373-12-12s5.373-12 12-12 12 5.373 12 12-5.373 12-12 12zM16 8v16m0-8h8m-8 0h-8" fill="%232d3748" /></svg> 16 16, auto');
-}
-
-/* Ultra Rich Page Motion - SMOOTHER SCROLLING */
-html {
-  scroll-behavior: smooth; /* Enable smooth scrolling */
+  opacity: 0.6;
 }
 
 /* Responsive adjustments for Footer */
@@ -279,11 +281,7 @@ html {
     border-top-width: 1px;
     border-bottom-width: 1px;
   }
-  footer#mainFooter::before,
-  footer#mainFooter::after {
-    height: 1px;
-    opacity: 0.5;
-  }
+
   .footer-links-container {
     flex-direction: column;
   }
@@ -295,8 +293,9 @@ html {
     border-top: 1px solid var(--line-color);
   }
   .footer-links-grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: 1fr;
     margin-bottom: 1rem;
+    gap: 2rem;
   }
   .footer-brand {
     text-align: center;
@@ -305,15 +304,29 @@ html {
     padding-left: 0;
   }
   .footer-brand-text {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   .footer-manifesto-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: center;
   }
   .footer-copyright {
     padding-top: 1.5rem;
     margin-top: 2rem;
+  }
+
+  .footer-links-container.grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Larger screens adjustments for Footer */
+@media (min-width: 1280px) {
+  footer#mainFooter {
+    padding: 10rem 1rem;
+  }
+  .footer-links-container.grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
