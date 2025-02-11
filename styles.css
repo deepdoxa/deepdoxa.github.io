@@ -13,6 +13,8 @@
   --hero-bg-color-start: rgba(34, 34, 34, 0.7);
   --hero-bg-color-end: rgba(51, 51, 51, 0.5);
   --border-color-accent: #ffffff;
+  --celestial-gold: #000;
+  --celestial-gold-shadow: rgba(255, 171, 64, 0.2);
 }
 
 body {
@@ -412,4 +414,21 @@ html {
   border: none;
   display: block;
   object-fit: cover; /* Ensure GIF covers container, cropping if necessary */
+}
+
+.blur-background {
+  /* @apply rounded-3xl overflow-hidden shadow-4xl transition-shadow duration-1200 ease-out hover:shadow-5xl transform hover:scale-101 bg-clip-padding backdrop-filter-none bg-opacity-10 bg-white/10; */
+  /* border-top: 1px solid var(--celestial-gold); */
+  position: relative;
+  /* backdrop-filter: blur(0px); */
+  background-color: #aab3ad54; /* Dark base */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noiseFilter' x='0%' y='0%' width='100%' height='100%' filterUnits='objectBoundingBox' primitiveUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfgImage result='noise' x='0' y='0' width='100%' height='100%' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVQYV2P4//8/w38GIAXDIBKE0DHxgljNBAAAAABJRU5ErkJggg=='/%3E%3CfeTurbulence result='fractalNoise' baseFrequency='0.9' numOctaves='5' seed='2' stitchTiles='stitch' type='fractalNoise'%3E%3C/feTurbulence%3E%3CfeColorMatrix result='noisetrans' colorInterpolationFilters='sRGB' in='fractalNoise' type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 -1'/%3E%3CfeComponentTransfer in='noisetrans' result='componentTransfer' colorInterpolationFilters='sRGB'%3E%3CfeFuncA type='table' tableValues='0 0.4 1 1'/%3E%3CfeFuncR type='identity' tableValues='0 0.99609375 1'/%3E%3CfeFuncG type='identity' tableValues='0 0.99609375 1'/%3E%3CfeFuncB type='identity' tableValues='0 0.99609375 1'/%3E%3C/feComponentTransfer%3E%3CfeBlend mode='multiply' in2='componentTransfer' in='SourceGraphic' result='blend'%3E%3C/feBlend%3E%3CfeColorMatrix result='colortrans' colorInterpolationFilters='sRGB' type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' fill='hsla(0,0%25,0%25,1)' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); /* Black and white noise texture */
+  animation: noiseAnimation 2s steps(10) infinite; /* Animate the noise */
+  opacity: 0.95; /* Slightly less opaque texture */
+  backdrop-filter: none;
+  /* opacity: 0.1; */
+  background-color: rgba(255, 255, 255, 0.1);
+  /* border-top: 1px solid var(--celestial-gold); */
+  position: relative;
+  backdrop-filter: blur(10px);
 }
