@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Song of the Future</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- SEO & Social Media - Godly Edition -->
+    <title>DeepDoxa - AI 404: The Celestial Valley</title>
+    <meta
+      name="description"
+      content="DeepDoxa AI 404: Ascend to the celestial valley of AI resources. Discover divinely curated models, APIs, and knowledge for visionaries."
+    />
+    <meta
+      name="keywords"
+      content="AI resources, AI models, machine learning, deep learning, AI pantheon, celestial AI, divine resources, innovation, future tech, world-class"
+    />
+    <meta name="author" content="DeepDoxa - Celestial Resources Incarnate" />
+
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta
+      property="og:title"
+      content="DeepDoxa - AI 404: The Celestial Resource Valley"
+    />
+    <meta
+      property="og:description"
+      content="DeepDoxa AI 404: The celestial valley, a divine AI resource collection."
+    />
+    <meta property="og:image" content="https://deepdoxa.com/favicon.png" />
+    <meta property="og:url" content="https://deepdoxa.com/404.html" />
+    <meta property="og:type" content="website" />
+
+    <!-- X (Twitter) Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@deepdoxa" />
+    <meta
+      name="twitter:title"
+      content="DeepDoxa - AI 404: The Celestial Resource Valley"
+    />
+    <meta
+      name="twitter:description"
+      content="DeepDoxa AI 404: Descend into the celestial valley of AI – resources of divine quality."
+    />
+    <meta property="twitter:image" content="https://deepdoxa.com/favicon.png" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://deepdoxa.com/404.html" />
+
+    <!-- Favicons - Pantheon Edition -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <style>
+      body {
+        background: #161616;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        text-rendering: geometricPrecision;
+        box-sizing: border-box;
+      }
+      *::-webkit-scrollbar {
+        display: none;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap");
+
+      :root {
+        --side-panel: 200px;
+      }
+
+      h1,
+      p {
+        font-family: "Hanken Grotesk", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        color: #fff;
+      }
+
+      h1 {
+        font-size: 40px;
+        font-weight: 400;
+        letter-spacing: -0.05em;
+      }
+
+      p {
+        font-size: 16px;
+        letter-spacing: 0em;
+        line-height: 140%;
+      }
+
+      p.bold {
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      p.light {
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.45);
+      }
+
+      main {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        padding: 32px;
+        display: flex;
+        align-items: stretch;
+        overflow: hidden;
+      }
+
+      .content-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 1 0%;
+      }
+
+      .content {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        height: 100%;
+        min-height: 500px;
+        background: #161616;
+        box-shadow: inset 0 0 150px rgba(52, 46, 45, 1);
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        gap: 16px;
+        transform: translate3d(0, 0, 0);
+        /* border-radius: 50px; */
+        border: 2px solid #232120;
+        /* -webkit-border-radius: 50px; */
+        will-change: box-shadow;
+        -webkit-will-change: box-shadow;
+        transition: 1s cubic-bezier(0.17, 1, 0.33, 1);
+      }
+
+      .content.active {
+        box-shadow: inset 0 0 150px rgba(52, 46, 45, 0.7);
+        background: #0f0f0f;
+      }
+
+      .main-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        /* border-radius: 0px; */
+        /* -webkit-border-radius: 48px; */
+        overflow: hidden;
+        transform: translate3d(0, 0, 0) scale(1);
+        filter: blur(0px) brightness(1);
+        will-change: transform, filter;
+        -webkit-will-change: transform, filter;
+        transition: 0.6s cubic-bezier(0.17, 1, 0.33, 1);
+      }
+
+      .content.active .main-content {
+        transform: translate3d(0, 0, 0) scale(0.9);
+        filter: blur(16px) brightness(0.7);
+        transition: 0.3s ease-out;
+      }
+
+      .photo-wrapper {
+        position: relative;
+        height: 50%;
+        width: 100%;
+        max-height: 400px;
+      }
+
+      .photo {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        background: #161616;
+        border-radius: 0px;
+      }
+
+      .main-info {
+        position: relative;
+        width: 100%;
+        z-index: 1;
+        display: flex;
+        flex-flow: column;
+        gap: 32px;
+        padding: 32px;
+      }
+
+      .title-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .title-info {
+        display: flex;
+        gap: 12px;
+        padding-right: 4px;
+      }
+
+      @media screen and (max-width: 600px) {
+        .title-info {
+          display: none;
+        }
+      }
+
+      .songs {
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        gap: 6px;
+      }
+
+      .song {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-width: 100%;
+        min-height: 72px;
+        border-radius: 0px;
+        border: 2px solid rgba(255, 255, 255, 0.04);
+        padding: 0 22px;
+        margin: 0 -22px;
+        box-shadow: inset 0 0 0px 0 rgba(255, 255, 255, 0.15);
+        transition: 0.2s ease;
+        cursor: pointer;
+      }
+
+      .songs .song:hover {
+        box-shadow: inset 0 0 64px 0 rgba(255, 255, 255, 0.075);
+      }
+
+      .end {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .song svg {
+        opacity: 0;
+        transition: 0.2s ease;
+      }
+
+      .songs .song:hover svg {
+        opacity: 0.5;
+      }
+
+      .song svg:hover {
+        opacity: 1 !important;
+        cursor: pointer;
+      }
+
+      /* progressive blur stuffs */
+
+      .gradient-blur {
+        position: absolute;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100%;
+        height: 101%;
+        inset: auto 0 0 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 2;
+      }
+
+      .song-modal .gradient-blur {
+        height: 800px;
+        top: auto !important;
+        bottom: 0;
+      }
+
+      .gradient-blur > div {
+        position: absolute;
+        inset: 0;
+        transition: 0.4s ease-out;
+      }
+      .content.active .gradient-blur > div {
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        transition: 0.5s ease-out 0.3s;
+      }
+
+      .gradient-blur > div:nth-of-type(1) {
+        z-index: 1;
+        backdrop-filter: blur(0.5px);
+        -webkit-backdrop-filter: blur(0.5px);
+        mask: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0) 21%,
+          rgba(0, 0, 0, 1) 29%
+        );
+        -webkit-mask: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0) 21%,
+          rgba(0, 0, 0, 1) 29%
+        );
+      }
+      .gradient-blur > div:nth-of-type(2) {
+        z-index: 2;
+        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(1px);
+        mask: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0) 29%,
+          rgba(0, 0, 0, 1) 37%
+        );
+        -webkit-mask: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0) 29%,
+          rgba(0, 0, 0, 1) 37%
+        );
+      }
+      .gradient-blur > div:nth-of-type(3) {
+        z-index: 3;
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        mask: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0) 37%,
+          rgba(0, 0, 0, 1) 45%
+        );
+        -webkit-mask: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0) 37%,
+          rgba(0, 0, 0, 1) 45%
+        );
+      }
+      .gradient-blur > div:nth-of-type(4) {
+        z-index: 4;
+        backdrop-filter: blur(7px);
+        -webkit-backdrop-filter: blur(7px);
+        mask: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0) 45%,
+          rgba(0, 0, 0, 1) 53%
+        );
+        -webkit-mask: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0) 45%,
+          rgba(0, 0, 0, 1) 53%
+        );
+      }
+      .gradient-blur > div:nth-of-type(5) {
+        z-index: 5;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        mask: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0) 53%,
+          rgba(0, 0, 0, 1) 61%
+        );
+        -webkit-mask: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0) 53%,
+          rgba(0, 0, 0, 1) 61%
+        );
+      }
+      .gradient-blur > div:nth-of-type(6) {
+        z-index: 6;
+        backdrop-filter: blur(32px);
+        -webkit-backdrop-filter: blur(32px);
+        mask: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0) 61%,
+          rgba(0, 0, 0, 1) 73%
+        );
+        -webkit-mask: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0) 61%,
+          rgba(0, 0, 0, 1) 69%
+        );
+      }
+      .gradient-blur > div:nth-of-type(7) {
+        z-index: 7;
+        backdrop-filter: blur(64px);
+        -webkit-backdrop-filter: blur(64px);
+        mask: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0) 69%,
+          rgba(0, 0, 0, 1) 77%
+        );
+        -webkit-mask: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0) 69%,
+          rgba(0, 0, 0, 1) 77%
+        );
+      }
+      .gradient-blur > div:nth-of-type(8) {
+        z-index: 8;
+        backdrop-filter: blur(128px);
+        -webkit-backdrop-filter: blur(128px);
+        mask: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0) 77%,
+          rgba(0, 0, 0, 1) 85%
+        );
+        -webkit-mask: radial-gradient(
+          circle,
+          rgba(0, 0, 0, 0) 77%,
+          rgba(0, 0, 0, 1) 85%
+        );
+      }
+
+      /* modals */
+
+      .modal,
+      .song-modal {
+        position: absolute;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        background: #272322;
+        width: 96px;
+        height: 96px;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        border-radius: 0px;
+        -webkit-border-radius: 0px;
+        transform: translateZ(0);
+        overflow: hidden;
+        will-change: width, height;
+        -webkit-will-change: width, height;
+        cursor: pointer;
+        transition: 0.6s cubic-bezier(0.17, 1, 0.33, 1);
+      }
+      .modal.active {
+        width: 500px;
+        height: 500px;
+        transition: 1s cubic-bezier(0.17, 1, 0.33, 1);
+        cursor: auto;
+      }
+
+      .toggle {
+        position: absolute;
+        z-index: 5;
+        top: 8px;
+        left: 8px;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* border-radius: 50%; */
+        background: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(0px);
+        opacity: 1;
+        cursor: pointer;
+        transition: 0.2s all;
+      }
+
+      .modal.active .toggle {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(24px);
+      }
+
+      .modal.active .toggle:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .toggle svg {
+        transform: rotateZ(0deg);
+        transition: 1s cubic-bezier(0.32, 1.35, 0.75, 1);
+      }
+      .modal.active .toggle svg {
+        transform: rotateZ(135deg);
+      }
+
+      .modal-content {
+        position: relative;
+        min-width: 500px;
+        height: 500px;
+        display: flex;
+        flex-flow: column;
+        padding: 4px;
+        transform: scale(0.8);
+        transform-origin: top left;
+        transition: transform 1s cubic-bezier(0.16, 0.61, 0.23, 1);
+      }
+      .modal.active .modal-content {
+        transform: scale(1);
+      }
+
+      .modal .photo {
+        object-fit: cover;
+      }
+
+      .photo-wrapper h1 {
+        position: absolute;
+        bottom: 16px;
+        left: 32px;
+        z-index: 2;
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px 30px 0 30px;
+        flex: 1 1 0%;
+        overflow: scroll;
+      }
+
+      .info-top {
+        display: flex;
+      }
+
+      .info-top-left {
+        display: flex;
+        gap: 16px;
+        flex: 1 1 0%;
+      }
+
+      .genre {
+        position: relative;
+        text-indent: 20px;
+      }
+
+      .genre::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 12px;
+        height: 12px;
+        background: #ec66c6;
+        /* border-radius: 50%; */
+        transform: translate(-20px, -50%);
+      }
+
+      .divider {
+        width: 2px;
+        height: 16px;
+        background: #ffffff30;
+        transform: translateY(3px);
+        border-radius: 1px;
+      }
+
+      .shade {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+        opacity: 1;
+        background: #272322;
+        pointer-events: none;
+        transition: 0.2s linear 0.2s opacity, 0.2s background;
+      }
+
+      .active .shade,
+      .modal:hover .shade {
+        background: #342e2d;
+      }
+
+      .content.active .shade {
+        opacity: 0;
+        transition: 0.2s all;
+      }
+
+      /* song modal */
+
+      .song-modal {
+        position: absolute;
+        left: 10px;
+        opacity: 0;
+        height: 72px;
+        width: calc(100% - 20px);
+        padding: 0 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        pointer-events: none;
+        transition: all 0.4s cubic-bezier(0.17, 1, 0.33, 1), top 0s,
+          opacity 0.2s 0.4s;
+      }
+
+      .song-modal.active {
+        opacity: 1;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        padding: 0 10px;
+        cursor: auto;
+        pointer-events: all;
+        transition: all 0.6s cubic-bezier(0.17, 1, 0.33, 1), top 0s, opacity 0s;
+      }
+
+      .song-modal .song {
+        position: relative;
+        z-index: 3;
+        border: 2px solid rgba(255, 255, 255, 0);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.04);
+        border-radius: 0px;
+        cursor: auto;
+        transition: all 0.4s cubic-bezier(0.17, 1, 0.33, 1);
+      }
+
+      .song-modal.active .song {
+        min-height: 88px;
+        transition: all 0.6s cubic-bezier(0.17, 1, 0.33, 1);
+      }
+
+      .song-modal .song .bold {
+        transform: scale(1);
+        transform-origin: center left;
+        transition: all 0.4s cubic-bezier(0.17, 1, 0.33, 1);
+      }
+
+      .song-modal.active .song .bold {
+        letter-spacing: -0.03em;
+        transform: scale(2);
+        color: rgba(255, 255, 255, 1);
+        transition: all 0.6s cubic-bezier(0.17, 1, 0.33, 1);
+      }
+
+      .song-modal .end {
+        transform: translateX(0);
+        transition: transform 0.4s ease;
+      }
+
+      .song-modal.active .end {
+        transform: translateX(65px);
+        transition: transform 0.2s ease;
+      }
+
+      .song-modal .song svg {
+        transform: rotateZ(0deg);
+        transition: transform 1.2s cubic-bezier(0.32, 1.35, 0.75, 1) !important;
+      }
+
+      .song-modal.active .song svg {
+        transform: rotateZ(-495deg);
+        opacity: 0.5;
+      }
+
+      .song-modal-info {
+        padding: 24px;
+      }
+
+      .song-credits {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="content-wrapper">
+        <div class="content">
+          <div class="main-content">
+            <div class="photo-wrapper">
+              <img class="photo" src="fluids/hear-fluid-13.gif" />
+            </div>
+            <div class="main-info">
+              <div class="title-container">
+                <h1>
+                  <a
+                    style="color: #fff; text-decoration: none"
+                    href="https://deepdoxa.com/"
+                    >Deep Doxa</a
+                  >
+                </h1>
+                <div class="title-info">
+                  <p class="light">US / CHINA</p>
+                  <div class="divider"></div>
+                  <p class="light">7 DOXA</p>
+                  <div class="divider"></div>
+                  <p class="light">2025</p>
+                </div>
+              </div>
+              <div class="songs">
+                <div class="song" id="songOpen">
+                  <p class="bold">AI VALUES</p>
+                  <div class="end">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5 10C3.9 10 3 10.9 3 12C3 13.1 3.9 14 5 14C6.1 14 7 13.1 7 12C7 10.9 6.1 10 5 10ZM19 10C17.9 10 17 10.9 17 12C17 13.1 17.9 14 19 14C20.1 14 21 13.1 21 12C21 10.9 20.1 10 19 10ZM12 10C10.9 10 10 10.9 10 12C10 13.1 10.9 14 12 14C13.1 14 14 13.1 14 12C14 10.9 13.1 10 12 10Z"
+                        fill="white"
+                      />
+                    </svg>
+                    <p class="light">5:25</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="song-modal">
+            <div class="song">
+              <p class="bold">DOXΛ</p>
+              <div class="end">
+                <svg
+                  id="songClose"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M17.667 11.666H5.66699M11.667 5.66602V17.666"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <p class="light">5:25</p>
+              </div>
+            </div>
+            <div class="song-modal-info">
+              <div class="song-credits">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M19.0696 4.83911C19 4.76937 18.9173 4.71405 18.8262 4.67631C18.7352 4.63857 18.6376 4.61914 18.539 4.61914C18.4405 4.61914 18.3429 4.63857 18.2518 4.67631C18.1608 4.71405 18.078 4.76937 18.0084 4.83911L17.3544 5.49311C16.9344 5.29256 16.4625 5.22721 16.0038 5.30606C15.5451 5.38491 15.1221 5.60407 14.7931 5.93336L6.83789 13.8879L11.0806 18.1306L19.0366 10.1769C19.3658 9.84782 19.5848 9.42481 19.6635 8.9661C19.7423 8.50738 19.6768 8.03555 19.4761 7.61561L20.1309 6.96086C20.2715 6.82021 20.3505 6.62948 20.3505 6.43061C20.3505 6.23173 20.2715 6.041 20.1309 5.90036L19.0696 4.83911ZM15.8686 11.2216L11.0806 16.0096L8.95964 13.8879L13.7469 9.10061L15.8686 11.2216ZM17.2321 9.85811L17.9746 9.11561C18.0444 9.04595 18.0997 8.96323 18.1374 8.87219C18.1752 8.78114 18.1946 8.68354 18.1946 8.58498C18.1946 8.48642 18.1752 8.38882 18.1374 8.29778C18.0997 8.20673 18.0444 8.12401 17.9746 8.05436L16.9149 6.99386C16.8452 6.92412 16.7625 6.8688 16.6715 6.83106C16.5804 6.79332 16.4828 6.77389 16.3843 6.77389C16.2857 6.77389 16.1881 6.79332 16.0971 6.83106C16.006 6.8688 15.9233 6.92412 15.8536 6.99386L15.1111 7.73636L17.2321 9.85811Z"
+                    fill="white"
+                    fill-opacity="0.45"
+                  />
+                  <path
+                    d="M4.62207 20.3315L6.21357 14.498L10.4556 18.7408L4.62207 20.3315Z"
+                    fill="white"
+                    fill-opacity="0.45"
+                  />
+                </svg>
+                <p class="light">DeepDOXΛ, US / CHINA <u>& 10 more</u></p>
+              </div>
+              <br />
+              <h2>
+                <a
+                  style="
+                    font-size: larger;
+                    text-align: center;
+                    text-decoration: none;
+                    color: #fff;
+                  "
+                  href="https://deepdoxa.com/"
+                  >404</a
+                >
+              </h2>
+              <p class="bold"></p>
+              <br />
+              <p class="bold"></p>
+              <br />
+              <p class="bold"></p>
+            </div>
+
+            <div class="gradient-blur">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <div class="modal">
+            <div class="toggle">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 22 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.667 10.666H4.66699M10.667 4.66602V16.666"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="modal-content">
+              <div class="photo-wrapper">
+                <h1>
+                  <a
+                    style="color: #fff; text-decoration: none"
+                    href="https://deepdoxa.com/"
+                    >DeepDOXΛ</a
+                  >
+                </h1>
+                <img class="photo" src="fluids/circle-fluid-12.gif" />
+              </div>
+              <div class="info">
+                <div class="info-top">
+                  <div class="info-top-left">
+                    <p class="genre light">AI & DOXA</p>
+                    <div class="divider"></div>
+                    <p class="light">7M Viewers</p>
+                  </div>
+                </div>
+                <h2>
+                  <a
+                    style="
+                      font-size: larger;
+                      text-align: center;
+                      text-decoration: none;
+                      color: #fff;
+                    "
+                    href="https://deepdoxa.com/"
+                    >404</a
+                  >
+                </h2>
+                <p class="bold"></p>
+              </div>
+            </div>
+            <div class="gradient-blur">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="shade"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const photoWrappers = document.querySelectorAll(".photo-wrapper");
+
+      photoWrappers.forEach((item, i) => {
+        const photo = item.querySelector(".photo");
+
+        const photoShadow = photo.cloneNode(true);
+        photoShadow.style.filter = "brightness(1.5) saturate(1) blur(48px)";
+        photoShadow.style.zIndex = "auto";
+        item.appendChild(photoShadow);
+      });
+
+      const content = document.querySelector(".content");
+      const modal = document.querySelector(".modal");
+      const toggle = document.querySelector(".toggle");
+      let isActive = false;
+
+      toggle.onclick = function () {
+        if (isActive) {
+          content.classList.remove("active");
+          modal.classList.remove("active");
+          isActive = false;
+        } else {
+          content.classList.add("active");
+          modal.classList.add("active");
+          isActive = true;
+        }
+      };
+
+      const mainContent = document.querySelector(".main-content");
+      const songModal = document.querySelector(".song-modal");
+      const songOpen = document.querySelector("#songOpen");
+      const songClose = document.querySelector("#songClose");
+      let isSongActive = false;
+
+      function windowPos() {
+        songModal.style.top = `${
+          songOpen.getBoundingClientRect().top - content.offsetTop - 2
+        }px`;
+      }
+
+      songOpen.onclick = function () {
+        var distanceY =
+          window.innerHeight -
+          songOpen.getBoundingClientRect().bottom +
+          content.offsetTop -
+          390;
+        songModal.style.transform = `translateY(${distanceY}px)`;
+        content.classList.add("active");
+        songModal.classList.add("active");
+        modal.style.display = "none";
+        isSongActive = true;
+      };
+
+      songClose.onclick = function () {
+        songModal.style.transform = `translateY(0px)`;
+        content.classList.remove("active");
+        songModal.classList.remove("active");
+        modal.style.display = "block";
+        isSongActive = false;
+      };
+
+      windowPos();
+      window.addEventListener("resize", windowPos);
+    </script>
+  </body>
+</html>
