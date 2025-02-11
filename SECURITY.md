@@ -8,7 +8,7 @@ If you believe you have found a security vulnerability in DeepDoxa.com, we encou
 
 **Please do not disclose security vulnerabilities publicly.** Instead, report them privately to us by sending an email to:
 
-[security@deepdoxa.com](mailto:security@deepdoxa.com) (Placeholder - Please replace with a real security contact email)
+[security@deepdoxa.com](mailto:deepdoxa@gmail.com) (Placeholder - Please replace with a real security contact email)
 
 Please include the following information in your report:
 
