@@ -432,3 +432,41 @@ html {
   position: relative;
   backdrop-filter: blur(10px);
 }
+
+/* Astonishing Text Selection with Dark Gray */
+::selection {
+  background-color: #333333; /* Dark gray base color */
+  color: white;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.3); /* Subtle white text shadow for lift */
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15); /* Very subtle white inner border */
+  /* Optional: Very faint pulse animation for inner border */
+  animation: subtlePulseBorder 2s ease-in-out infinite alternate;
+}
+
+::-moz-selection {
+  background-color: #333333;
+  color: white;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  animation: subtlePulseBorder 2s ease-in-out infinite alternate;
+}
+
+@keyframes subtlePulseBorder {
+  0% {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  }
+  100% {
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.25);
+  } /* Slightly thicker and brighter border */
+}
+
+/* Permanent Highlight Class */
+.permanent-highlight {
+  background-color: #333333; /* Dark gray background, same as selection */
+  color: white; /* White text color, same as selection */
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.3); /* Subtle white text shadow, same as selection */
+  padding: 2px 5px; /* Optional: Add some padding around the highlighted text */
+  /* border-radius: 2px; Optional: Slightly rounded corners for highlight */
+  box-decoration-break: clone; /* Important for inline highlights spanning lines */
+  -webkit-box-decoration-break: clone; /* For Safari */
+}
