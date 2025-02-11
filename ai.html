@@ -391,6 +391,7 @@
           forwards; /* Writing word slide out */
         z-index: 1;
         animation-delay: 0.4s; /* Initial delay */
+        font-size: 90%;
       }
       @keyframes writingWordSlideOut {
         0% {
@@ -452,7 +453,7 @@
 
       /* AI Page Specific Styles - List Styles - **ASTONISHING CARDS** */
       .ai-resource-section {
-        padding: 6rem 0; /* More padding for sections */
+        padding: 2rem 2rem; /* More padding for sections */
       }
 
       .ai-resource-list {
@@ -679,6 +680,245 @@
           255,
           0.8
         ); /* Match background for animated text */
+      }
+
+      /* Footer Styles - MILITARY ARCHITECTURAL BRILLIANCE - ANIMATED */
+      footer#mainFooter {
+        background-color: var(--footer-background);
+        padding: 8rem 1rem;
+        border-top: 2px dashed var(--line-color);
+        border-bottom: 2px dashed var(--line-color);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s ease-out; /* Smooth transition for scroll animation */
+      }
+
+      footer#mainFooter.footer-active {
+        /* Active class triggered by scroll */
+        background-color: #e5e7eb; /* Slightly darker background when active */
+        box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.06); /* Subtle shadow when active */
+      }
+
+      footer#mainFooter::before,
+      footer#mainFooter::after {
+        content: "";
+        position: absolute;
+        width: 150%;
+        height: 2px;
+        background: var(--line-color);
+        opacity: 0.6;
+      }
+
+      footer#mainFooter::before {
+        top: 5%;
+        left: -25%;
+        transform: rotate(-7deg);
+        animation: footerLineSlide 25s linear infinite; /* Slower slide animation */
+      }
+
+      footer#mainFooter::after {
+        bottom: 5%;
+        right: -25%;
+        transform: rotate(5deg);
+        animation: footerLineSlideReverse 30s linear infinite; /* Even slower reverse slide */
+      }
+
+      @keyframes footerLineSlideReverse {
+        /* Reverse slide animation for bottom line */
+        to {
+          transform: translateX(-20%);
+        }
+      }
+
+      .footer-brand {
+        margin-bottom: 3rem;
+        border-left: 3px solid var(--highlight-color);
+        padding-left: 1.5rem;
+      }
+
+      .footer-brand-animated-link {
+        display: inline-block; /* Ensure letters animate inline */
+      }
+
+      .footer-brand-letter {
+        /* Animated Letters - Subtle Vertical Bounce */
+        display: inline-block; /* Keep letters inline */
+        transition: transform 0.4s ease-out; /* Smooth letter bounce */
+        animation: letterBounce 2.5s cubic-bezier(0.68, -0.55, 0.27, 1.55)
+          infinite; /* Bouncy letter animation */
+        position: relative; /* For individual letter animation */
+      }
+
+      @keyframes letterBounce {
+        /* Subtle vertical bounce animation for letters */
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        } /* Bounce upwards slightly */
+      }
+
+      .footer-brand-letter:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .footer-brand-letter:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .footer-brand-letter:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      .footer-brand-letter:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+      .footer-brand-letter:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+      .footer-brand-letter:nth-child(7) {
+        animation-delay: 0.6s;
+      }
+      .footer-brand-letter:nth-child(8) {
+        animation-delay: 0.7s;
+      }
+
+      .footer-brand-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        max-width: 500px;
+        letter-spacing: 0.15em;
+      }
+
+      .footer-links-container {
+        margin-bottom: 4rem;
+      }
+
+      .footer-links-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-col-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        border-bottom: 1px solid var(--line-color);
+        padding-bottom: 0.5rem;
+      }
+
+      .footer-link {
+        display: block;
+        color: var(--secondary-color);
+        padding: 0.5rem;
+        transition: color 0.3s ease, transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        font-weight: 500;
+      }
+
+      .footer-link:hover {
+        color: var(--accent-color);
+        transform: translateX(2px);
+      }
+
+      .footer-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 3px;
+        height: 0%;
+        background-color: var(--accent-color);
+        transition: height 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+        transform-origin: bottom;
+      }
+
+      .footer-link:hover::after {
+        height: 100%;
+      }
+
+      /* Footer CTA - Mini-Manifesto Section - MILITARY BOLD */
+      .footer-cta {
+        padding-left: 2rem;
+        border-left: 2px solid var(--highlight-color);
+      }
+
+      .footer-manifesto-text {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-bottom: 0;
+        max-width: 450px;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .footer-copyright {
+        font-size: 0.85rem;
+        color: var(--secondary-color);
+        text-align: center;
+        padding-top: 2.5rem;
+        border-top: 1px solid var(--line-color);
+        margin-top: 3rem;
+      }
+
+      /* Military Cursor Style - CROSSHAIR */
+      body {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><path d="M16 2c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16z m0 28c-6.627 0-12-5.373-12-12s5.373-12 12-12 12 5.373 12 12-5.373 12-12 12zM16 8v16m0-8h8m-8 0h-8" fill="%232d3748" /></svg> 16 16, auto');
+      }
+
+      /* Ultra Rich Page Motion - SMOOTHER SCROLLING */
+      html {
+        scroll-behavior: smooth; /* Enable smooth scrolling */
+      }
+
+      /* Responsive adjustments for Footer */
+      @media (max-width: 768px) {
+        footer#mainFooter {
+          padding: 5rem 1rem;
+          border-top-width: 1px;
+          border-bottom-width: 1px;
+        }
+        footer#mainFooter::before,
+        footer#mainFooter::after {
+          height: 1px;
+          opacity: 0.5;
+        }
+        .footer-links-container {
+          flex-direction: column;
+        }
+        .footer-cta {
+          padding-left: 0;
+          margin-top: 2rem;
+          border-left: none;
+          padding-top: 2rem;
+          border-top: 1px solid var(--line-color);
+        }
+        .footer-links-grid {
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+          margin-bottom: 1rem;
+        }
+        .footer-brand {
+          text-align: center;
+          margin-bottom: 1.5rem;
+          border-left: none;
+          padding-left: 0;
+        }
+        .footer-brand-text {
+          font-size: 1rem;
+        }
+        .footer-manifesto-text {
+          font-size: 1.1rem;
+          text-align: center;
+        }
+        .footer-copyright {
+          padding-top: 1.5rem;
+          margin-top: 2rem;
+        }
       }
     </style>
   </head>
@@ -1072,7 +1312,7 @@
               class="inline-block mt-8 px-8 py-3 font-bold text-xl text-deepdoxa-secondary bg-deepdoxa-accent rounded-md transition-colors duration-300 hover:bg-deepdoxa-accent/90 animated-fade-in-delay"
               style="animation-delay: 2.2s"
             >
-              Explore the Ѧrsenal →
+              EXPLORE The ѦrsenaL →
             </a>
           </div>
         </div>
@@ -1089,7 +1329,7 @@
             <span class="text-deepdoxa-accent">></span>
           </h2>
           <p class="section-subtitle">
-            The vanguard of open intelligence – models for limitless
+            The vanguard of OPEN intelligence – models for limitless
             exploration.
           </p>
           <div class="ai-resource-list">
@@ -1109,7 +1349,7 @@
                   target="_blank"
                   class="ai-resource-link"
                 >
-                  Explore DeepSeek Website
+                  EXPLORE DeepSeek WEBSITE
                   <svg viewBox="0 0 100 100"></svg>
                 </a>
               </div>
@@ -1130,7 +1370,7 @@
                   target="_blank"
                   class="ai-resource-link"
                 >
-                  Explore RWKV-LM Github
+                  EXPLORE RWKV-LM GitHub
                   <svg viewBox="0 0 100 100"></svg>
                 </a>
               </div>
@@ -1150,7 +1390,7 @@
                   target="_blank"
                   class="ai-resource-link"
                 >
-                  Enter Hugging Face Hub
+                  ENTER Hugging FACE Hub
                   <svg viewBox="0 0 100 100"></svg>
                 </a>
               </div>
@@ -1170,7 +1410,7 @@
                   target="_blank"
                   class="ai-resource-link"
                 >
-                  Explore Cerebras-GPT
+                  EXPLORE Cerebras-GPT
                   <svg viewBox="0 0 100 100"></svg>
                 </a>
               </div>
@@ -1190,7 +1430,7 @@
                   target="_blank"
                   class="ai-resource-link"
                 >
-                  Explore OpenLLaMA Github
+                  EXPOLORE OpenLLaMA GITHUB
                   <svg viewBox="0 0 100 100"></svg>
                 </a>
               </div>
@@ -1207,8 +1447,8 @@
             class="section-title animated-writing-word"
             style="animation-delay: 0.8s"
           >
-            <span class="section-title">Commercial APIs</span>
-            <span class="text-deepdoxa-accent section-title">//</span>
+            <span class="section-title">Closed Source APIs</span>
+            <!-- <span class="text-deepdoxa-accent section-title">//</span> -->
           </h2>
           <p class="section-subtitle">
             Deploy elite AI – APIs for enterprise-grade intelligence.
@@ -1227,7 +1467,7 @@
                   target="_blank"
                   class="ai-resource-link"
                 >
-                  Access OpenAI APIs
+                  ACCESS OpenAI APIs
                   <svg viewBox="0 0 100 100"></svg>
                 </a>
               </div>
@@ -1244,7 +1484,7 @@
                   target="_blank"
                   class="ai-resource-link"
                 >
-                  Initiate Google AI Platform
+                  INITIATE Google AI Platform
                   <svg viewBox="0 0 100 100"></svg>
                 </a>
               </div>
@@ -1261,7 +1501,7 @@
                   target="_blank"
                   class="ai-resource-link"
                 >
-                  Explore Azure AI
+                  EXPLORE Azure AI
                   <svg viewBox="0 0 100 100"></svg>
                 </a>
               </div>
@@ -1278,7 +1518,7 @@
                   target="_blank"
                   class="ai-resource-link"
                 >
-                  Command Cohere API
+                  COMMAND Cohere API
                   <svg viewBox="0 0 100 100"></svg>
                 </a>
               </div>
@@ -1295,7 +1535,7 @@
                   target="_blank"
                   class="ai-resource-link"
                 >
-                  Access AI21 Studio
+                  ACCESS AI21 Studio
                   <svg viewBox="0 0 100 100"></svg>
                 </a>
               </div>
@@ -1378,7 +1618,7 @@
           <h2
             class="text-6xl md:text-8xl font-light mb-8 animated-text leading-tight"
           >
-            <span class="text-white"> AI 𐌀</span>
+            <span class="section-title"> AI 𐌀</span>
           </h2>
 
           <div class="footer-cta mt-12 md:mt-0">
@@ -1392,7 +1632,7 @@
             <!-- Iframe Container for Background GIF - POSITIONED WITHIN footer-cta -->
             <div class="fluid-2">
               <iframe
-                src="fluids/platin-fluid-12.gif"
+                src="fluids/pattern-12358.gif"
                 width="100%"
                 height="100%"
                 frameborder="0"
