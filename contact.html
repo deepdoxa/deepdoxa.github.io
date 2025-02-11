@@ -366,7 +366,7 @@
         color: var(--primary-color);
         background-color: transparent; /* Transparent background */
         border: 2px solid var(--dark-accent); /* Thicker, darker border */
-        border-radius: 0.75rem; /* More rounded corners */
+        border-radius: 0.25rem; /* More rounded corners */
         outline: none;
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05) inset, -2px -2px 5px rgba(255, 255, 255, 0.8) inset; /* Inset shadow for depth */
         transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -375,7 +375,7 @@
       #contact-form input[type="text"]:focus,
       #contact-form input[type="email"]:focus,
       #contact-form textarea:focus {
-        border-color: var(--highlight-color);
+        border-color: #333333;
         box-shadow: 0 0 0 3px rgba(var(--highlight-color-rgb), 0.3), 2px 2px 7px rgba(0, 0, 0, 0.08) inset, -2px -2px 7px rgba(255, 255, 255, 0.9) inset; /* Enhanced focus shadow */
       }
 
@@ -386,11 +386,11 @@
       #contact-form button[type="submit"] {
         position: relative; /* For pseudo-element animation */
         overflow: hidden; /* Clip animation */
-        background-color: var(--primary-color); /* Darker button base color */
+        background-color: #333333; /* Darker button base color */
         color: white;
-        padding: 1rem 2.25rem; /* Further increased button padding */
-        border-radius: 0.75rem; /* More rounded button corners */
-        font-weight: 700; /* Bold button text */
+        /* padding: 1rem 2.25rem; Further increased button padding */
+        border-radius: 0.25rem;
+        font-size: 700; /* Bold button text */
         letter-spacing: 0.05em; /* Slight letter spacing for boldness */
         border: none; /* Remove default button border */
         cursor: pointer;
@@ -405,7 +405,7 @@
         left: 0;
         width: 200%;
         height: 3px;
-        background: var(--highlight-color);
+        background: #546363;
         transform: translateX(-100%);
         animation: buttonLineFlow 4s linear infinite; /* Flowing line animation */
       }
@@ -416,7 +416,7 @@
 
 
       #contact-form button[type="submit"]:hover {
-        background-color: var(--primary-color); /* Keep dark on hover */
+        background-color: #33333388; /* Keep dark on hover */
         transform: translateY(-3px); /* Increased lift on hover */
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Even stronger shadow on hover */
       }
@@ -1164,7 +1164,7 @@
                     placeholder="Describe your vision, inquiry, or opportunity" /* More descriptive placeholder */
                   ></textarea>
                 </div>
-                <button type="submit">Launch Message</button> <!-- {/* More assertive button text */} -->
+                <button class="permanent-highlight" type="submit">Launch Message</button> <!-- {/* More assertive button text */} -->
               </form>
             </div>
           </div>
@@ -1176,7 +1176,7 @@
         <div class="max-w-screen-xl mx-auto">
           <div class="blur-background geometric-border p-12 md:p-20">
             <h2 class="text-3xl md:text-8xl font-light mb-8 animated-text leading-tight">
-              <span class="text-white">Our Headquarters</span>
+              <span class="text-white"><span class="permanent-highlight">Our Headquarters</span></span>
             </h2><!--  {/* Changed title to Headquarters */} -->
             <p class="section-subtitle">Global Hub of DeepDoxa Innovation</p><!-- {/* Added subtitle */} -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-24">
@@ -1194,9 +1194,9 @@
                 <p class="text-gray-600 tracking-wide">
                   Email:
                   <a
-                    href="mailto:info@deepdoxa.com"
+                    href="mailto:deepdoxa@gmail.com"
                     class="text-black hover:underline"
-                    >info@deepdoxa.com</a
+                    ><span class="permanent-highlight">deepdoxa@gmail.com</span></a
                   ><br />
                   Phone: +1-555-DEEPDOXA (+1-555-33373692)
                 </p>
