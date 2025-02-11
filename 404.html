@@ -89,15 +89,16 @@
         color: #000;
         /* background-color: #000; Black background */
         overflow-x: hidden; /* Prevent horizontal scrollbar */
+        background-image: url("imgs/bg-pattern.png");
+        background-size: cover;
+        background-position: center;
+        z-index: -444;
       }
 
       /* Header Section - Brilliant Enhancement */
       .header-section {
-        background-image: url("fluids/not-found-fluid-13.gif"); /* Keep your GIF */
-        background-size: cover;
-        background-position: center;
-        height: 400px;
-        width: 400px;
+        height: 380px;
+        width: 380px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -138,7 +139,7 @@
         display: inline-flex;
         align-items: center;
         background-color: rgba(0, 255, 255, 0.1); /* Light cyan background */
-        border: 1px solid rgba(0, 255, 255, 0.3); /* Cyan border */
+        border: 0.1px solid rgba(0, 5, 5, 0.8); /* Cyan border */
         color: #000; /* Cyan text color */
         padding: 10px 20px;
         border-radius: 1px;
@@ -294,13 +295,14 @@
       .social-icon {
         margin-bottom: 15px;
         color: #000; /* Light gray icon color */
-        font-size: 1.5em; /* Adjust icon size */
+        font-size: 3.5em; /* Adjust icon size */
         transition: color 0.3s ease;
         text-decoration: none; /* If using as links */
       }
 
       .social-icon:hover {
-        color: #765; /* White on hover */
+        /* border: 0.1px solid #333; Dark border */
+        color: #989; /* White on hover */
       }
 
       /* Footer Section
@@ -386,6 +388,61 @@
           display: inline-block; /* Ensure inline spacing */
         }
       }
+
+      .blur-background {
+        /* @apply rounded-3xl overflow-hidden shadow-4xl transition-shadow duration-1200 ease-out hover:shadow-5xl transform hover:scale-101 bg-clip-padding backdrop-filter-none bg-opacity-10 bg-white/10; */
+        /* border-top: 1px solid var(--celestial-gold); */
+        position: relative;
+        /* backdrop-filter: blur(0px); */
+        background-color: #aab3ad54; /* Dark base */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='noiseFilter' x='0%' y='0%' width='100%' height='100%' filterUnits='objectBoundingBox' primitiveUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfgImage result='noise' x='0' y='0' width='100%' height='100%' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVQYV2P4//8/w38GIAXDIBKE0DHxgljNBAAAAABJRU5ErkJggg=='/%3E%3CfeTurbulence result='fractalNoise' baseFrequency='0.9' numOctaves='5' seed='2' stitchTiles='stitch' type='fractalNoise'%3E%3C/feTurbulence%3E%3CfeColorMatrix result='noisetrans' colorInterpolationFilters='sRGB' in='fractalNoise' type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 -1'/%3E%3CfeComponentTransfer in='noisetrans' result='componentTransfer' colorInterpolationFilters='sRGB'%3E%3CfeFuncA type='table' tableValues='0 0.4 1 1'/%3E%3CfeFuncR type='identity' tableValues='0 0.99609375 1'/%3E%3CfeFuncG type='identity' tableValues='0 0.99609375 1'/%3E%3CfeFuncB type='identity' tableValues='0 0.99609375 1'/%3E%3C/feComponentTransfer%3E%3CfeBlend mode='multiply' in2='componentTransfer' in='SourceGraphic' result='blend'%3E%3C/feBlend%3E%3CfeColorMatrix result='colortrans' colorInterpolationFilters='sRGB' type='matrix' values='1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%' height='100%' fill='hsla(0,0%25,0%25,1)' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); /* Black and white noise texture */
+        animation: noiseAnimation 2s steps(10) infinite; /* Animate the noise */
+        opacity: 0.95; /* Slightly less opaque texture */
+        backdrop-filter: none;
+        /* opacity: 0.1; */
+        background-color: rgba(255, 255, 255, 0.1);
+        /* border-top: 1px solid var(--celestial-gold); */
+        position: relative;
+        backdrop-filter: blur(10px);
+      }
+
+      /* Astonishing Text Selection with Dark Gray */
+      ::selection {
+        background-color: #333333; /* Dark gray base color */
+        color: white;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.3); /* Subtle white text shadow for lift */
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15); /* Very subtle white inner border */
+        /* Optional: Very faint pulse animation for inner border */
+        animation: subtlePulseBorder 2s ease-in-out infinite alternate;
+      }
+
+      ::-moz-selection {
+        background-color: #333333;
+        color: white;
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+        animation: subtlePulseBorder 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes subtlePulseBorder {
+        0% {
+          box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+        }
+        100% {
+          box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.25);
+        } /* Slightly thicker and brighter border */
+      }
+
+      /* Permanent Highlight Class */
+      .permanent-highlight {
+        background-color: #333333; /* Dark gray background, same as selection */
+        color: white; /* White text color, same as selection */
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.3); /* Subtle white text shadow, same as selection */
+        padding: 2px 5px; /* Optional: Add some padding around the highlighted text */
+        /* border-radius: 2px; Optional: Slightly rounded corners for highlight */
+        box-decoration-break: clone; /* Important for inline highlights spanning lines */
+        -webkit-box-decoration-break: clone; /* For Safari */
+      }
     </style>
   </head>
   <body>
@@ -402,9 +459,9 @@
 
     <div class="header-section">
       <div class="header-content">
-        <h1 class="page-not-found-text">PAGE NOT FOUND</h1>
-        <p class="text-sm text-gray-400 mt-1">OPEN SOURCE</p>
-        <a href="https://deepdoxa.com/" class="back-to-home-button">
+        <h1 class="page-not-found-text">404 - PAGE NOT FOUND</h1>
+        <p class="text-lg text-gray-500 mt-1">OPEN SOURCE</p>
+        <!-- <a href="https://deepdoxa.com/" class="back-to-home-button">
           BACK TO HOME
           <hr />
           <svg viewBox="0 0 24 24">
@@ -417,14 +474,41 @@
               d="M5 12h14M12 5l7 7-7 7"
             />
           </svg>
-        </a>
+        </a> -->
       </div>
     </div>
 
     <div class="main-content">
+      <hr />
+
+      <!-- Iframe Container for Background GIF - Ensures no overflow and correct positioning -->
+      <div
+        style="
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          z-index: -42;
+          pointer-events: none;
+        "
+      >
+        <iframe
+          src="fluids/platin-fluid-11.gif"
+          width="100%"
+          height="100%"
+          style="border: none; display: block"
+          frameborder="0"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <hr />
       <div class="navigation-menu">
         <div class="nav-column">
-          <h3 class="nav-column-title">BUILD</h3>
+          <h3 class="permanent-highlight nav-column-title">BUILD</h3>
           <a href="#" class="nav-link">USE CASES</a>
           <a href="#" class="nav-link">FUNDING</a>
           <a href="#" class="nav-link">DEVELOPER RELATIONS</a>
@@ -435,27 +519,29 @@
         </div>
         <hr />
         <div class="nav-column">
-          <h3 class="nav-column-title">COMMUNITY</h3>
+          <h3 class="permanent-highlight nav-column-title">ABOUT</h3>
+          <a href="https://deepdoxa.com" class="nav-link">DeepDOXΛ</a>
+          <a href="https://deepdoxa.com/contact" class="nav-link">CONTACT US</a>
+          <a href="#" class="nav-link">CAREERS</a>
+        </div>
+        <hr />
+        <div class="nav-column">
+          <h3 class="permanent-highlight nav-column-title">COMMUNITY</h3>
           <a href="#" class="nav-link">BECOME AN AMBASSADOR</a>
           <a href="#" class="nav-link">FORUMS</a>
         </div>
         <hr />
         <div class="nav-column">
-          <h3 class="nav-column-title">NETWORKS</h3>
+          <h3 class="permanent-highlight nav-column-title">NETWORKS</h3>
           <a href="#" class="nav-link">DeepDOXΛ NETWORK</a>
           <a href="#" class="nav-link">AI</a>
         </div>
-        <hr />
-        <div class="nav-column">
-          <h3 class="nav-column-title">ABOUT</h3>
-          <a href="https://deepdoxa.com" class="nav-link">DeepDOXΛ</a>
-          <a href="#" class="nav-link">CONTACT US</a>
-          <a href="#" class="nav-link">CAREERS</a>
-        </div>
       </div>
+      <hr />
+      <hr />
 
       <div class="newsletter-signup">
-        <h2 class="newsletter-title">
+        <h2 class="permanent-highlight newsletter-title">
           BUILD THE FUTURE.
           <hr />
           WIN AND <br />
@@ -469,8 +555,6 @@
               fill="none"
               stroke="currentColor"
               stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
               d="M5 12h14M12 5l7 7-7 7"
             />
           </svg>
