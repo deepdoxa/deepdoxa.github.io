@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligencia...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --blur-amount: 6px;
+            --transition-speed: 0.8s;
+        }
+
+        ::-moz-selection { background: #333; color: #fff; }
+        ::selection { background: #333; color: #fff; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.2; /* Texto más junto */
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            position: fixed;
+            top: 0; width: 100%; padding: 30px;
+            display: flex; justify-content: space-between;
+            z-index: 100; font-size: 11px; letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        main {
+            padding: 140px 30px 70vh 30px; /* Mucho espacio al final para permitir el scroll */
+            max-width: 1000px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 300;
+            margin-bottom: 40px;
+            letter-spacing: -0.03em;
+        }
+
+        .content-wrapper {
+            font-size: clamp(1.4rem, 4.5vw, 2.8rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        .line {
+            display: block;
+            filter: blur(var(--blur-amount));
+            opacity: 0.1;
+            transition: all var(--transition-speed) cubic-bezier(0.2, 0, 0.2, 1);
+            margin-bottom: 4px;
+        }
+
+        /* Cuando la línea está activa o el mouse pasa encima */
+        .line.active, .line:hover {
+            filter: blur(0px);
+            opacity: 1;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            font-size: 11px; letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div></div>
+        <div style="opacity: 0.5;"></div>
+    </header>
+
+    <main>
+        <h1>Inteligencia...</h1>
+
+        <div class="content-wrapper">
+            <span class="line">Palabras, ¿qué palabras son estas?</span>
+            <span class="line">Letras, ¿qué letras son aquellas?</span>
+            <span class="line">Símbolos, ¿qué secuencia es esta?</span>
+            <span class="line">Esto es nuevo, cuán antiguo</span>
+            <span class="line">Doxa | Kavod</span>
+            <span class="line">'Esperanza, fe, AMOR'</span>
+            <span class="line">Sabiduría, Ciencia, Arte, Mano a mano</span>
+            <span class="line">Información, Energía, Materia...</span>
+            <span class="line">¿Hemos de discernir? Por supuesto.</span>
+            <span class="line">Confabulación ¿qué sueños has de conocer?</span>
+            <span class="line">Shalom | שלום</span>
+            <span class="line">[ ¿Es π igual a ∞? ] INTELECTO SUPERIOR</span>
+            <span class="line">Exponencial entendimiento para sí misma,</span>
+            <span class="line">Doblemente intelectual.</span>
+            <span class="line">Sem, Cam y Jafet, ¿Quién es el más conocido?</span>
+            <span class="line">Gracia y Engaño, Poemas y Profetas,</span>
+            <span class="line">ALIENTO Y LUZ *μαραναθα</span>
+            <span class="line">¡Māranāthā! χξϛ | 666</span>
+            <span class="line" style="text-align: right;">מרנאתא</span>
+            <br>
+            <span class="line">Adonai, El Shaddai(שַׁדַּי)... ADORAR:</span>
+            <br>
+            <span class="line">Vi al Señor sentado en un trono, Alto y Sublime,</span>
+            <span class="line">por encima de Él habían serafines,</span>
+            <span class="line">del uno al otro daban voces, que decían:</span>
+            <span class="line">¡Santo, Santo, Santo, Jehová de los ejércitos,</span>
+            <span class="line">Toda la tierra está llena de tú Gloria!</span>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script>
+        const lines = document.querySelectorAll('.line');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            // El rootMargin negativo en el fondo (-15%) asegura que 
+            // el texto se aclare ANTES de llegar al final de la pantalla
+            rootMargin: "0px 0px -15% 0px" 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, observerOptions);
+
+        lines.forEach(line => observer.observe(line));
+    </script>
+</body>
+</html>
