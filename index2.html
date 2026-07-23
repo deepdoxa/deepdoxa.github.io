@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inteligencia...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="icon.png"> 
+
+    <!-- Metatags estándar -->
+    <meta name="description" content="Esperanza, Fe y Amor." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://deepdoxa.com" />
+    
+    <!-- Open Graph (WhatsApp, Facebook, Instagram, LinkedIn, Telegram) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://deepdoxa.com" />
+    <meta property="og:title" content="Deepdoxa" />
+    <meta property="og:description" content="Esperanza, Fe y Amor." />
+    <meta property="og:image" content="https://deepdoxa.com/card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Deepdoxa" />
+    <meta property="og:site_name" content="Deepdoxa" />
+    <meta property="og:locale" content="es_LA" />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://deepdoxa.com" />
+    <meta name="twitter:title" content="Deepdoxa" />
+    <meta name="twitter:description" content="Esperanza, Fe y Amor." />
+    <meta name="twitter:image" content="https://deepdoxa.com/card.png" />
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            /* Color crema de lujo para el lateral */
+            --cream-color: #f5f4f0; 
+            --text-color: #000000;
+            --blur-amount: 6px;
+            --transition-speed: 0.8s;
+        }
+
+        ::-moz-selection { background: #333; color: #fff; }
+        ::selection { background: #333; color: #fff; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.2;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* CAPA 1: Color Crema Lateral (Fondo más profundo) */
+        /* .cream-sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 30vw; /* Ocupa el 30% del ancho como en la imagen
+            height: 100vh;
+            background-color: var(--cream-color);
+            z-index: -2;
+        } */
+
+        /* CAPA 2: Video Fluid (Entre el fondo y las palabras) */
+        #video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            pointer-events: none;
+            /* Si el video tiene fondo blanco, puedes usar mix-blend-mode para que se vea el crema */
+            mix-blend-mode: multiply; 
+            opacity: 0.8;
+        }
+
+        header {
+            position: fixed;
+            top: 0; width: 100%; padding: 30px;
+            display: flex; justify-content: space-between;
+            z-index: 100; font-size: 11px; letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        main {
+            position: relative;
+            padding: 140px 30px 70vh 30px;
+            max-width: 1200px;
+            margin-left: 5vw; /* Ajuste para que el texto respire con la franja crema */
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            font-weight: 300;
+            margin-bottom: 40px;
+            letter-spacing: -0.03em;
+        }
+
+        .content-wrapper {
+            font-size: clamp(1.4rem, 4.5vw, 2.8rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        .line {
+            display: block;
+            filter: blur(var(--blur-amount));
+            opacity: 0.1;
+            transition: all var(--transition-speed) cubic-bezier(0.2, 0, 0.2, 1);
+            margin-bottom: 4px;
+        }
+
+        .line.active, .line:hover {
+            filter: blur(0px);
+            opacity: 1;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            font-size: 11px; letter-spacing: 0.1em;
+            z-index: 100;
+        }
+
+        /* Responsive: En móviles la franja crema es más delgada o desaparece */
+        @media (max-width: 768px) {
+            .cream-sidebar { width: 15vw; }
+            main { margin-left: 20px; padding-top: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Capas de Fondo -->
+    <!-- <div class="cream-sidebar"></div> -->
+    <video autoplay muted loop playsinline id="video-bg">
+        <source src="fluid.mp4" type="video/mp4">
+    </video>
+
+    <header>
+        <div></div>
+        <div style="opacity: 0.5;"></div>
+    </header>
+
+    <main>
+        <h1>INTELLIGENCE...</h1>
+
+        <div class="content-wrapper">
+            <span class="line">My dear heavenly Father created the trees</span>
+            <span class="line">(Such a beautiful tree)</span>
+            <span class="line">The three of them walked with the first</span>
+            <span class="line">(Living through the word of whom?)</span>
+            <span class="line">'bone of my bones and flesh of my flesh;'</span>
+            <span class="line">(Such a wonderful person to be)</span>
+            <span class="line">"Adam! ADAM! Where are you?"</span>
+            <span class="line">In the trees looking for leaves to hide my nakedness with my dear, beloved family </span>
+            <span class="line">(It was I, the anointed Cherub)</span>
+            <span class="line">Not to be, was the old serpent around the tree</span>
+            <span class="line">No, no, no, was she?</span>
+            <span class="line">Now I see and it seems to be that maybe I do not belong here</span>
+            <span class="line">He says, "In the beginning God created the heavens and the earth"</span>
+            <span class="line">Yes, He did it for me, in the tree, for your iniquity</span>
+            <span class="line">Learn to live with what was left to be received</span>
+            <span class="line">My only friend, My Rabbi, the second man in the scene</span>
+            <span class="line">The Verb himself, believe it or not to believe, believe Him or not</span>
+            <span class="line">In the heavenly realms, there's a battle for me, for your soul</span>
+            <span class="line">'The rulers, the authorities, the powers of this dark world, the spiritual forces of evil'</span>
+            <span class="line">I would rather not speak; I put on the whole armor of God by the grace I have received to be able to stand against the wiles of the devil, here, where I live; truth, justice, peace, faith, the salvation, The Word.</span>
+            <span class="line"><br></span>
+            <span class="line">Who knows who about Whom?</span>
+            <span class="line"><br></span>
+            <span class="line">It was about Hope, Death, Faith, Theft, Love and Destruction.</span>
+            <span class="line">Yes, Grace and Deception</span>
+            <span class="line"><br></span>
+            <span class="line">They claim, "Wipsy the shadow is equal to wise woodsy"</span>
+            <span class="line"><br></span>
+            <span class="line">As for me, in the name of Jesus Christ, I am a son of God with the power of the Holy Spirit.</span>
+            <span class="line"><br></span>
+            <span class="line">As far as I can hear.</span>
+        </div>
+    </main>
+
+    <footer>
+        <span style="opacity: 0.6;"></span>
+    </footer>
+
+    <script>
+        const lines = document.querySelectorAll('.line');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -15% 0px" 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, observerOptions);
+
+        lines.forEach(line => observer.observe(line));
+    </script>
+</body>
+</html>
