@@ -92,7 +92,7 @@
 
         main {
             position: relative;
-            padding: 140px 30px 70vh 30px;
+            padding: 140px 30px 10vh 30px;
             max-width: 1200px;
             margin-left: 5vw; /* Ajuste para que el texto respire con la franja crema */
             z-index: 1;
@@ -125,16 +125,32 @@
         }
 
         footer {
-            position: fixed;
-            bottom: 30px; right: 30px;
-            font-size: 11px; letter-spacing: 0.1em;
+            position: relative;
+            padding: 20px 30px 60px 30px;
+            text-align: right;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             z-index: 100;
+        }
+
+        footer a {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            transition: opacity 0.3s ease;
+        }
+
+        footer a:hover {
+            opacity: 1;
         }
 
         /* Responsive: En móviles la franja crema es más delgada o desaparece */
         @media (max-width: 768px) {
             .cream-sidebar { width: 15vw; }
             main { margin-left: 20px; padding-top: 100px; }
+            footer { padding-right: 20px; }
         }
     </style>
 </head>
