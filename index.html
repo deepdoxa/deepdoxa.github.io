@@ -21,26 +21,21 @@
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://deepdoxa.com" />
     
-     <!-- Open Graph (WhatsApp, Facebook, Instagram, LinkedIn, Telegram) -->
+     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://deepdoxa.com" />
     <meta property="og:title" content="Deepdoxa" />
     <meta property="og:description" content="Esperanza, Fe y Amor." />
     <meta property="og:image" content="https://deepdoxa.com/card.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:alt" content="Deepdoxa" />
     <meta property="og:site_name" content="Deepdoxa" />
     <meta property="og:locale" content="es_LA" />
 
-        <!-- Twitter / X Cards -->
+    <!-- Twitter / X Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://deepdoxa.com" />
     <meta name="twitter:title" content="Deepdoxa" />
     <meta name="twitter:description" content="Esperanza, Fe y Amor." />
     <meta name="twitter:image" content="https://deepdoxa.com/card.png" />
-
 
     <style>
         :root {
@@ -106,13 +101,18 @@
             letter-spacing: -0.02em;
         }
 
-        /* AJUSTE ACCESIBILIDAD: Subimos la opacidad inicial a 0.3 para pasar el test de contraste */
+        /* FIX RENDIMIENTO: Animación compuesta */
         .line {
             display: block;
             filter: blur(var(--blur-amount));
             opacity: 0.3; 
-            transition: all var(--transition-speed) cubic-bezier(0.2, 0, 0.2, 1);
+            /* Evitamos 'all' para no recalcular todo el layout */
+            transition: filter var(--transition-speed) cubic-bezier(0.2, 0, 0.2, 1),
+                        opacity var(--transition-speed) cubic-bezier(0.2, 0, 0.2, 1);
             margin-bottom: 4px;
+            /* Forzamos a la GPU a manejar esta capa (Crucial para el 100) */
+            will-change: filter, opacity;
+            transform: translateZ(0); 
         }
 
         .line.active, .line:hover {
@@ -120,9 +120,8 @@
             opacity: 1;
         }
 
-        /* Para usuarios que prefieren no ver animaciones o desenfoques */
         @media (prefers-reduced-motion: reduce) {
-            .line { filter: none !important; opacity: 1 !important; }
+            .line { filter: none !important; opacity: 1 !important; will-change: auto; }
         }
 
         footer {
@@ -149,15 +148,12 @@
 </head>
 <body>
 
-    <!-- Video marcado como decorativo para accesibilidad -->
     <video autoplay muted loop playsinline id="video-bg" aria-hidden="true">
         <source src="fluid.mp4" type="video/mp4">
     </video>
 
     <header>
-        <nav aria-label="Navegación superior">
-            <!-- Espacio para logo o menú futuro -->
-        </nav>
+        <nav aria-label="Navegación superior"></nav>
     </header>
 
     <main>
@@ -191,7 +187,6 @@
 
     <footer>
         <span style="opacity: 0.6;">
-            <!-- AJUSTE ACCESIBILIDAD: aria-label descriptivo -->
             <a href="index2.html" aria-label="Continuar a la siguiente página de Deepdoxa">NEXT...</a>
         </span>
     </footer>
