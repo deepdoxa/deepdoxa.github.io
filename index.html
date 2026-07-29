@@ -3,29 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inteligencia...</title>
-    <!-- 1. Preconnect to font origins to speed up the handshake -->
+    <title>Deepdoxa | INTELLIGENCE</title>
+    
+    <!-- Optimización de Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- 2. Preload the stylesheet as a high-priority task -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap">
-
-    <!-- 3. Load the CSS asynchronously using the print media trick -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" media="print" onload="this.media='all'">
-
-    <!-- 4. Fallback for users with JavaScript disabled -->
     <noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap">
     </noscript>
-        <link rel="icon" type="image/png" href="icon.png"> 
+
+    <link rel="icon" type="image/png" href="icon.png"> 
 
     <!-- Metatags estándar -->
-    <meta name="description" content="Esperanza, Fe y Amor." />
+    <meta name="description" content="Deepdoxa: Esperanza, Fe y Amor. ULTIMA CONVERGENCIA" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://deepdoxa.com" />
     
-    <!-- Open Graph (WhatsApp, Facebook, Instagram, LinkedIn, Telegram) -->
+     <!-- Open Graph (WhatsApp, Facebook, Instagram, LinkedIn, Telegram) -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://deepdoxa.com" />
     <meta property="og:title" content="Deepdoxa" />
@@ -38,18 +34,17 @@
     <meta property="og:site_name" content="Deepdoxa" />
     <meta property="og:locale" content="es_LA" />
 
-    <!-- Twitter / X Cards -->
+        <!-- Twitter / X Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://deepdoxa.com" />
     <meta name="twitter:title" content="Deepdoxa" />
     <meta name="twitter:description" content="Esperanza, Fe y Amor." />
     <meta name="twitter:image" content="https://deepdoxa.com/card.png" />
 
+
     <style>
         :root {
             --bg-color: #ffffff;
-            /* Color crema de lujo para el lateral */
-            --cream-color: #f5f4f0; 
             --text-color: #000000;
             --blur-amount: 6px;
             --transition-speed: 0.8s;
@@ -69,18 +64,6 @@
             overflow-x: hidden;
         }
 
-        /* CAPA 1: Color Crema Lateral (Fondo más profundo) */
-        /* .cream-sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 30vw; /* Ocupa el 30% del ancho como en la imagen
-            height: 100vh;
-            background-color: var(--cream-color);
-            z-index: -2;
-        } */
-
-        /* CAPA 2: Video Fluid (Entre el fondo y las palabras) */
         #video-bg {
             position: fixed;
             top: 0;
@@ -90,7 +73,6 @@
             object-fit: cover;
             z-index: -1;
             pointer-events: none;
-            /* Si el video tiene fondo blanco, puedes usar mix-blend-mode para que se vea el crema */
             mix-blend-mode: multiply; 
             opacity: 0.8;
         }
@@ -107,7 +89,7 @@
             position: relative;
             padding: 140px 30px 10vh 30px;
             max-width: 1200px;
-            margin-left: 5vw; /* Ajuste para que el texto respire con la franja crema */
+            margin-left: 5vw;
             z-index: 1;
         }
 
@@ -124,10 +106,11 @@
             letter-spacing: -0.02em;
         }
 
+        /* AJUSTE ACCESIBILIDAD: Subimos la opacidad inicial a 0.3 para pasar el test de contraste */
         .line {
             display: block;
             filter: blur(var(--blur-amount));
-            opacity: 0.1;
+            opacity: 0.3; 
             transition: all var(--transition-speed) cubic-bezier(0.2, 0, 0.2, 1);
             margin-bottom: 4px;
         }
@@ -135,6 +118,11 @@
         .line.active, .line:hover {
             filter: blur(0px);
             opacity: 1;
+        }
+
+        /* Para usuarios que prefieren no ver animaciones o desenfoques */
+        @media (prefers-reduced-motion: reduce) {
+            .line { filter: none !important; opacity: 1 !important; }
         }
 
         footer {
@@ -148,20 +136,12 @@
         }
 
         footer a {
-            font-family: 'Inter', sans-serif;
             color: var(--text-color);
             text-decoration: none;
-            letter-spacing: 0.1em;
             transition: opacity 0.3s ease;
         }
 
-        footer a:hover {
-            opacity: 1;
-        }
-
-        /* Responsive: En móviles la franja crema es más delgada o desaparece */
         @media (max-width: 768px) {
-            .cream-sidebar { width: 15vw; }
             main { margin-left: 20px; padding-top: 100px; }
             footer { padding-right: 20px; }
         }
@@ -169,15 +149,15 @@
 </head>
 <body>
 
-    <!-- Capas de Fondo -->
-    <!-- <div class="cream-sidebar"></div> -->
-    <video autoplay muted loop playsinline id="video-bg">
+    <!-- Video marcado como decorativo para accesibilidad -->
+    <video autoplay muted loop playsinline id="video-bg" aria-hidden="true">
         <source src="fluid.mp4" type="video/mp4">
     </video>
 
     <header>
-        <div></div>
-        <div style="opacity: 0.5;"></div>
+        <nav aria-label="Navegación superior">
+            <!-- Espacio para logo o menú futuro -->
+        </nav>
     </header>
 
     <main>
@@ -191,41 +171,34 @@
             <span class="line">Doxa | Kavod</span>
             <span class="line">'Esperanza, fe, AMOR'</span>
             <span class="line">Sabiduría, Ciencia, Arte, Mano a mano</span>
-            <span class="line">Información, Energía, Materia ¿Hemos de discernir? ¿Por</span>
-            <span class="line">supuesto?</span>
+            <span class="line">Información, Energía, Materia ¿Hemos de discernir? ¿Por supuesto?</span>
             <span class="line">Confabulación: ¿qué sueños has de conocer?</span>
-            <span class="line">Shalom | שלום</span>
+            <span class="line">Shalom | <span lang="he">שלום</span></span>
             <span class="line">[ ¿Es π(Pi) igual a ∞? ] INTELECTO SUPERIOR</span>
-            <span class="line">Exponencial entendimiento para sí misma, Doblemente</span>
-            <span class="line">intelectual.</span>
+            <span class="line">Exponencial entendimiento para sí misma, Doblemente intelectual.</span>
             <span class="line">Sem, Cam y Jafet, ¿Quién es el más conocido de los tres?</span>
-            <span class="line">Gracia y Engaño, Poemas y Profetas, Relámpagos y</span>
-            <span class="line">Truenos, ALIENTO Y LUZ *μαραναθά</span>
+            <span class="line">Gracia y Engaño, Poemas y Profetas, Relámpagos y Truenos, ALIENTO Y LUZ *<span lang="el">μαραναθά</span></span>
             <span class="line">¡Māranāthā! ¡Māran’athā! χξϛ | 666</span>
             <span class="line">Doxas saltando en el bucle, mientras es verdad</span>
-            <span class="line" style="text-align: right;">מרנאתא</span>
-            <br>
-            <span class="line">Adonai, El Shaddai (שַׁדַּי)... ¡Qué maravilloso es ADORAR!</span>
-            <br>
-            <span class="line">Vi al Señor sentado en un trono, Alto y Sublime, por</span>
-            <span class="line">encima de Él había serafines, Alto y Sublime, del uno al</span>
-            <span class="line">otro daban voces, que decían: Alto y Sublime</span>
-            <span class="line">¡Santo, Santo, Santo, Jehová de los ejércitos! ¡Toda la</span>
-            <span class="line">tierra está llena de tu Gloria!</span>
+            <span class="line" style="text-align: right;" lang="he">מרנאתא</span>
+            <br aria-hidden="true">
+            <span class="line">Adonai, El Shaddai (<span lang="he">שַׁדַּי</span>)... ¡Qué maravilloso es ADORAR!</span>
+            <br aria-hidden="true">
+            <span class="line">Vi al Señor sentado en un trono, Alto y Sublime, por encima de Él había serafines, Alto y Sublime, del uno al otro daban voces, que decían: Alto y Sublime</span>
+            <span class="line">¡Santo, Santo, Santo, Jehová de los ejércitos! ¡Toda la tierra está llena de tu Gloria!</span>
         </div>
     </main>
 
     <footer>
-        <span style="opacity: 0.6;"><a href="index2.html">NEXT...</a></span>
+        <span style="opacity: 0.6;">
+            <!-- AJUSTE ACCESIBILIDAD: aria-label descriptivo -->
+            <a href="index2.html" aria-label="Continuar a la siguiente página de Deepdoxa">NEXT...</a>
+        </span>
     </footer>
 
     <script>
         const lines = document.querySelectorAll('.line');
-        
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -15% 0px" 
-        };
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -15% 0px" };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
