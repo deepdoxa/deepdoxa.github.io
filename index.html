@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inteligencia...</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="icon.png"> 
+    <!-- 1. Preconnect to font origins to speed up the handshake -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- 2. Preload the stylesheet as a high-priority task -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap">
+
+    <!-- 3. Load the CSS asynchronously using the print media trick -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" media="print" onload="this.media='all'">
+
+    <!-- 4. Fallback for users with JavaScript disabled -->
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap">
+    </noscript>
+        <link rel="icon" type="image/png" href="icon.png"> 
 
     <!-- Metatags estándar -->
     <meta name="description" content="Esperanza, Fe y Amor." />
