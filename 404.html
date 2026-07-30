@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 | Doxa Perdida</title>
+    <!-- Optimización de Fuentes (Preconnect + Async) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;500&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;500&display=swap">
+    </noscript>
+
+    <link rel="icon" type="image/png" href="icon.png">
+
+        <!-- Metatags estándar -->
+    <meta name="description" content="Esperanza, Fe y Amor." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://deepdoxa.com" />
+    
+    <!-- Open Graph (WhatsApp, Facebook, Instagram, LinkedIn, Telegram) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://deepdoxa.com" />
+    <meta property="og:title" content="Deepdoxa" />
+    <meta property="og:description" content="Esperanza, Fe y Amor." />
+    <meta property="og:image" content="https://deepdoxa.com/card.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Deepdoxa" />
+    <meta property="og:site_name" content="Deepdoxa" />
+    <meta property="og:locale" content="es_LA" />
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://deepdoxa.com" />
+    <meta name="twitter:title" content="Deepdoxa" />
+    <meta name="twitter:description" content="Esperanza, Fe y Amor." />
+    <meta name="twitter:image" content="https://deepdoxa.com/card.png" />
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --blur-amount: 8px;
+            --transition-speed: 1s;
+        }
+
+        ::-moz-selection { background: #333; color: #fff; }
+        ::selection { background: #333; color: #fff; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.2;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden; /* No scroll needed for 404 */
+        }
+
+        #video-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            pointer-events: none;
+            mix-blend-mode: multiply; 
+            opacity: 0.5; /* Slightly dimmer for the 'lost' state */
+            filter: grayscale(0.5);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            padding: 0 10vw;
+            max-width: 1200px;
+        }
+
+        h1 {
+            font-size: clamp(4rem, 15vw, 10rem);
+            font-weight: lighter;
+            letter-spacing: -0.05em;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .content-wrapper {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: lighter;
+            letter-spacing: -0.02em;
+        }
+
+        .line {
+            display: block;
+            filter: blur(var(--blur-amount));
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all var(--transition-speed) cubic-bezier(0.2, 0, 0.2, 1);
+            margin-bottom: 8px;
+        }
+
+        .line.active {
+            filter: blur(0px);
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            margin-top: 40px;
+            display: inline-block;
+            text-decoration: none;
+            color: inherit;
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+            padding-bottom: 5px;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-link:hover {
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            main { padding: 0 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline id="video-bg">
+        <source src="fluid.mp4" type="video/mp4">
+    </video>
+
+    <main>
+        <h1 class="line">404</h1>
+
+        <div class="content-wrapper">
+            <span class="line">Secuencia interrumpida.</span>
+            <span class="line">Arquímedes, dame 10, 100, 1000 palancas al revés.</span>
+
+            
+            <a href="index.html" class="line nav-link">Volver al origen</a>
+        </div>
+    </main>
+
+    <script>
+        // Automatic sequence reveal for 404
+        window.addEventListener('load', () => {
+            const lines = document.querySelectorAll('.line');
+            lines.forEach((line, index) => {
+                setTimeout(() => {
+                    line.classList.add('active');
+                }, 150 * index);
+            });
+        });
+    </script>
+</body>
+</html>
