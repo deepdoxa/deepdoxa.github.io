@@ -1,0 +1,145 @@
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #555;
+            --transition-speed: 1.2s;
+        }
+
+        /* The Custom Aura (Follows the pointer) */
+        #cursor-aura {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease-out, width 0.3s, height 0.3s, background 0.3s;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hover State for Cursor */
+        .cursor-active #cursor-aura {
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0,0,0,0.8);
+        }
+
+        ::-moz-selection { background: #000; color: #fff; }
+        ::selection { background: #000; color: #fff; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.1;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            /* Default pointer is now VISIBLE */
+            cursor: default; 
+        }
+
+        /* Subtle Film Grain */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        #video-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            mix-blend-mode: multiply; 
+            opacity: 0.7;
+            transform: scale(1.05);
+            will-change: transform;
+        }
+
+        header {
+            position: fixed;
+            top: 0; width: 100%; padding: 40px;
+            display: flex; justify-content: space-between;
+            z-index: 100; font-size: 10px; letter-spacing: 0.3em;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+
+        main {
+            position: relative;
+            padding: 20vh 30px 10vh 30px;
+            max-width: 1200px;
+            margin-left: 8vw;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 100;
+            margin-bottom: 60px;
+            letter-spacing: -0.05em;
+            cursor: cell; /* Custom pointer for the title */
+        }
+
+        .content-wrapper {
+            font-size: clamp(1.3rem, 3.8vw, 2.6rem);
+            font-weight: 100;
+            letter-spacing: -0.02em;
+        }
+
+        .line {
+            display: block;
+            filter: blur(12px);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 
+                filter 1.2s cubic-bezier(0.215, 0.61, 0.355, 1),
+                opacity 1.2s cubic-bezier(0.215, 0.61, 0.355, 1),
+                transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+            margin-bottom: 10px;
+            will-change: filter, opacity, transform;
+        }
+
+        .line.active {
+            filter: blur(0px);
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        .line:hover {
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        footer {
+            padding: 80px 40px;
+            text-align: right;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            z-index: 100;
+        }
+
+        footer a {
+            color: var(--text-color);
+            text-decoration: none;
+            opacity: 0.5;
+            transition: opacity 0.4s;
+        }
+
+        footer a:hover { opacity: 1; }
+
+        @media (max-width: 768px) {
+            main { margin-left: 20px; }
+            #cursor-aura { display: none; }
+        }
