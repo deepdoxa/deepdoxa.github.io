@@ -14,12 +14,12 @@
         });
 
         // 2. Real-time Clock
-        function updateClock() {
-            const now = new Date();
-            document.getElementById('clock').innerText = now.toLocaleTimeString('en-GB', { hour12: false });
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
+        // function updateClock() {
+        //     const now = new Date();
+        //     document.getElementById('clock').innerText = now.toLocaleTimeString('en-GB', { hour12: false });
+        // }
+        // setInterval(updateClock, 1000);
+        // updateClock();
 
         // 3. Scroll Reveal
         const lines = document.querySelectorAll('.line');
